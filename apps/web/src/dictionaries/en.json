@@ -1,0 +1,250 @@
+{
+  "common": {
+    "ctas": {
+      "read_more": "Read more"
+    },
+    "footer": {
+      "slogan": "A mineral for you, a beauty for the world",
+      "contact_links": {
+        "title": "Contact links"
+      },
+      "contact_us": {
+        "title": "Contact us"
+      }
+    }
+  },
+  "global_layout": {
+    "navigation": {
+      "links": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "careers": "Careers",
+        "gallery": "Gallery",
+        "our_team": "Our team",
+        "blog": "Blog",
+        "contact": "Contact us"
+      },
+      "buttons": {
+        "contact_us": "Contact us"
+      }
+    },
+    "footer": {
+      "subtitle_text": "Lorem ipsum dolor sit amet"
+    }
+  },
+  "pages": {
+    "home": {
+      "hero": {
+        "ctas": {
+          "contact_us": "Contact us",
+          "watch_yt": "Watch intro video"
+        }
+      },
+
+      "contact": {
+        "title": "Contact us",
+        "suptitle": "CONTACT US",
+        "subtitle": "Get in touch with us",
+        "form": {
+          "title": "Write us",
+          "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+        }
+      },
+      "trusted_companies": {
+        "title": "Trusted companies",
+        "subtitle": "Our company has gained trust from great company from everywhere"
+      },
+      "about_section_one": {
+        "title": "Our corporate strategy",
+        "subtitle": "Hear our story from the very first founders of COMIDU",
+        "suptitle": "Very strategic",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Vestibulum nec accumsan sem, at ultricies lacus. Aenean eu blandit urna. Sed cursus tristique efficitur. Ut feugiat facilisis quam, lacinia volutpat purus posuere et.  Nulla scelerisque metus a lectus rutrum, et dictum turpis lobortis. Nulla iaculis urna in mi luctus cursus. Phasellus quis justo massa. Sed convallis congue dui nec consectetur. In ultricies risus diam,"
+      },
+      "about_section_two": {
+        "title": "Transparency and quality",
+        "subtitle": "Hear our story from the very first founders of COMIDU",
+        "suptitle": "Our values",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Vestibulum nec accumsan sem, at ultricies lacus. Aenean eu blandit urna. Sed cursus tristique efficitur. Ut feugiat facilisis quam, lacinia volutpat purus posuere et.  Nulla scelerisque metus a lectus rutrum, et dictum turpis lobortis. Nulla iaculis urna in mi luctus cursus. Phasellus quis justo massa. Sed convallis congue dui nec consectetur. In ultricies risus diam,"
+      },
+      "products": {
+        "title": "Our mineral products",
+        "subtitle": "We aim at client’s satisfaction, we mine productions that our clients love",
+        "suptitle": "Minerals"
+      },
+      "reviews": {
+        "title": "What our customers say",
+        "subtitle": "Hear the thankful feedback that we get from our current customers",
+        "suptitle": "Reviews"
+      },
+      "happy_clients": {
+        "title": "Our happy clients",
+        "subtitle": "Hear the thankful feedback that we get from our current customers",
+        "suptitle": "Clients"
+      },
+      "subscribe_section": {
+        "title": "Subscribe to our newsletter",
+        "subtitle": "Never miss an update, subscribe to our e-mail newsletter.",
+        "suptitle": "Newsletter",
+        "sub_success": {
+          "title": "Thanks for subscribing",
+          "subtitle": "Ne manquez jamais l'actualité de BAMPOREZEet de l'ensemble de l'industrie minière, abonnez-vous à notre newsletter e-mail.",
+          "suptitle": "Newsletter"
+        },
+        "sub_form": {
+          "email": {
+            "label": "Email address"
+          },
+          "full_name": {
+            "label": "Full name"
+          },
+          "cta": "Subscribe"
+        }
+      }
+    },
+    "about": {
+      "page_title": "About us",
+      "suptitle": "About COMIDU",
+      "subtitle": "Learn more about COMIDU, our team, our corporate strategy and much more",
+      "board_of_directors": {
+        "title": "Board of directors",
+        "subtitle": "The persons  directing all the operations run by the company"
+      },
+      "management_team": {
+        "title": "Management team",
+        "subtitle": "The team managing COMIDU’s resources"
+      },
+      "aim_cards": {
+        "vision": {
+          "title": "Our vision",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec accumsan sem, at ultricies lacus. Aenean eu blandit urna. Sed cursus tristique efficitur. "
+        },
+        "mission": {
+          "title": "Our Mission",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec accumsan sem, at ultricies lacus. Aenean eu blandit urna. Sed cursus tristique efficitur. "
+        },
+        "values": {
+          "title": "Our values",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec accumsan sem, at ultricies lacus. Aenean eu blandit urna. Sed cursus tristique efficitur. "
+        }
+      }
+    },
+    "services": {
+      "page_title": "Our services",
+      "suptitle": "What we offer",
+      "subtitle": "Us COMIDU, We provide all mining services to our clients, we swing in our client’s way"
+    },
+    "careers": {
+      "page_title": "Join our mission",
+      "subtitle": "We are always looking for talented individuals to join our team",
+      "suptitle": "Careers",
+      "values_section": {
+        "title": "Our values",
+        "subtitle": "Our coat of arms that leads us wherever we go",
+        "suptitle": "Careers",
+        "transparency": {
+          "title": "Transparency",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec accumsan sem, at ultricies lacus. Aenean eu blandit urna. Sed cursus tristique efficitur. "
+        },
+        "focus": {
+          "title": "Focus",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec accumsan sem, at ultricies lacus. Aenean eu blandit urna. Sed cursus tristique efficitur. "
+        },
+        "g_o": {
+          "title": "Goal orientation",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec accumsan sem, at ultricies lacus. Aenean eu blandit urna. Sed cursus tristique efficitur. "
+        },
+        "c_c": {
+          "title": "Customer care",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec accumsan sem, at ultricies lacus. Aenean eu blandit urna. Sed cursus tristique efficitur. "
+        }
+      },
+      "open_positions": {
+        "title": "Open positions",
+        "subtitle": "We'd love to see you on our team, find where you fit and apply"
+      },
+      "hiring_process": {
+        "title": "Hiring process",
+        "subtitle": "It takes a few steps to join us, follow them up and let us have you on our team",
+        "suptitle": "FROM THE HR",
+        "1": {
+          "title": "Application",
+          "description": "First, jobseekers apply for jobs  on our website or using our linked jobs tab"
+        },
+        "2": {
+          "title": "Interview",
+          "description": "First, jobseekers apply for jobs  on our website or using our linked jobs tab"
+        },
+        "3": {
+          "title": "Job offer",
+          "description": "First, jobseekers apply for jobs  on our website or using our linked jobs tab"
+        }
+      },
+      "apply_form": {
+        "title": "Apply for this position",
+        "subtitle": "If you are interested in this position, please fill in the form below to apply",
+        "f_name": {
+          "label": "First name"
+        },
+        "l_name": {
+          "label": "Last name"
+        },
+        "email": {
+          "label": "Email address"
+        },
+        "phone_number": {
+          "label": "Phone number"
+        },
+        "cover_letter": {
+          "label": "Cover letter",
+          "placeholder": "Write here"
+        },
+        "cta": "Send application",
+        "on_success": {
+          "title": "Application sent",
+          "description": "Thank you for applying for this position. We will get back to you soon."
+        }
+      }
+    },
+    "contact_us": {
+      "title": "Contact us",
+      "suptitle": "Tell us something",
+      "subtitle": "Get in touch with us for any questions, feedback, or support. We're here to help!",
+      "form": {
+        "title": "Write us",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+        "f_name": {
+          "label": "Full name"
+        },
+        "email": {
+          "label": "Email address"
+        },
+        "message": {
+          "label": "Your message",
+          "placeholder": "Tell  us what you think"
+        },
+        "cta": "Submit",
+        "on_success": {
+          "title": "Message sent successfully !",
+          "description": "Your message has been sent successfully and our team in charge in work to get back to you as soon as possible.  Thanks for contact us indeed. ",
+          "cta": "Send another message"
+        }
+      }
+    },
+    "blog": {
+      "tags": {
+        "latest_release": "Latest release",
+        "from_newsletter": "From newsletter"
+      },
+      "more_blogs": {
+        "title": "All blogs",
+        "subtitle": "All blogs from our customers"
+      }
+    },
+    "gallery": {
+      "title": "Our Gallery",
+      "subtitle": "Visit  COMIDU's stock of images",
+      "suptitle": "Photos"
+    }
+  }
+}

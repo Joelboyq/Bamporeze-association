@@ -1,0 +1,24 @@
+/* Update or add these styles to change hover effects from blue to green */
+
+.hooverable-card {
+  transition: all 0.3s ease;
+}
+
+.hooverable-card:hover {
+  border-color: #3B8C6E !important; /* Green border on hover */
+  box-shadow: 0 10px 25px rgba(59, 140, 110, 0.2) !important; /* Green shadow */
+}
+
+/* Update the icon SVG background on hover */
+.hooverable-card:hover svg rect {
+  fill: #3B8C6E !important; /* Change background of SVG icons to green */
+}
+
+/* Text hover effects */
+.hooverable-card:hover .hv-text {
+  color: #3B8C6E !important;
+}
+
+.hooverable-card:hover .hv-subtext {
+  color: rgba(59, 140, 110, 0.9) !important;
+} 
