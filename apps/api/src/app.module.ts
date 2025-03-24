@@ -47,6 +47,5 @@ import { GalleryModule } from './gallery/gallery.module';
   providers: [NodemailerService],
 })
 export class AppModule {
-  constructor () {
-  }
+  constructor() {}
 }

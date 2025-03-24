@@ -6,7 +6,7 @@ import { CreateVisitDto } from './dtos';
 
 @Injectable()
 export class VisitsService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
 
   async createVisit(createVisitDto: CreateVisitDto) {
     try {

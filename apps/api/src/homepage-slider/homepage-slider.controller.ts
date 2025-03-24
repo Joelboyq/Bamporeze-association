@@ -12,7 +12,7 @@ import { HomepageSliderService } from './homepage-slider.service';
 
 @Controller('/homepage-sliders')
 export class HomepageSliderController {
-  constructor(private homepageSliderService: HomepageSliderService) { }
+  constructor(private homepageSliderService: HomepageSliderService) {}
   @Post()
   async createHomePageSlider(@Body() createSliderDto: HomePageSliderDto) {
     return this.homepageSliderService.createHomePageSlider(createSliderDto);

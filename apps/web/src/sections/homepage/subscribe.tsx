@@ -44,9 +44,9 @@ export default function Subscribe({ locale }: WithLocaleProp) {
             {subscribed == 'subscribed' ? <div className="flex items-center justify-center w-full  fade-in">
                 <SectionTitle
                     direction="vertical"
-                    title={dictionary.pages.home.subscribe_section.sub_success.title}
-                    subtitle={dictionary.pages.home.subscribe_section.sub_success.subtitle}
-                    suptitle={dictionary.pages.home.subscribe_section.sub_success.suptitle}
+                    title={dictionary.pages.home.subscribe_section.sub_form.success.title}
+                    subtitle={dictionary.pages.home.subscribe_section.sub_form.success.subtitle}
+                    suptitle={dictionary.pages.home.subscribe_section.sub_form.success.suptitle}
                 />
             </div> :
                 <div className="flex items-center msm:flex-col md:flex-row justify-between  w-full gap-10" id="subscribe">
@@ -71,7 +71,7 @@ export default function Subscribe({ locale }: WithLocaleProp) {
                             placeholder="johndoe@gmail.com"
                             inputType="email" />
                         <Button className="bg-brand-darkblue text-white md:w-fit msm:w-full text-sm " onClick={handleSubscribe} loading={loading}>
-                            {dictionary.pages.home.subscribe_section.sub_form.cta}
+                            {dictionary.pages.home.subscribe_section.sub_form.subscribe_button}
                         </Button>
                     </div>
                 </div>

@@ -5,6 +5,6 @@ import { GalleryService } from './gallery.service';
 
 @Module({
   providers: [GalleryService, PrismaService],
-  controllers: [GalleryController]
+  controllers: [GalleryController],
 })
-export class GalleryModule { }
+export class GalleryModule {}

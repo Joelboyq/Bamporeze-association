@@ -15,7 +15,7 @@ import { JobApplicationsService } from './job-applications.service';
 
 @Controller('/job-applications')
 export class JobApplicationsController {
-  constructor(private jobApplicationService: JobApplicationsService) { }
+  constructor(private jobApplicationService: JobApplicationsService) {}
   @Post()
   async createJobApplication(
     @Body() createJobApplicationDto: JobApplicationDto,

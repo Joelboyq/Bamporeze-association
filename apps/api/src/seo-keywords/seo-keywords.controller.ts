@@ -6,21 +6,24 @@ import { SeoWordDto } from './dto';
 
 @Controller('seo-keywords')
 export class SeoKeywordsController {
-    constructor(private seoKeywordsService: SeoKeywordsService) { }
+  constructor(private seoKeywordsService: SeoKeywordsService) {}
 
+  @Get()
+  async getSeoKeywords(): Promise<ApiResponse<SeoKeyword[]>> {
+    return this.seoKeywordsService.getSeoKeywords();
+  }
 
-    @Get()
-    async getSeoKeywords(): Promise<ApiResponse<SeoKeyword[]>> {
-        return this.seoKeywordsService.getSeoKeywords()
-    }
+  @Delete(':id')
+  async deleteKeyword(
+    @Param('id') id: string,
+  ): Promise<ApiResponse<SeoKeyword[]>> {
+    return this.seoKeywordsService.deleteKeyword(id);
+  }
 
-    @Delete(':id')
-    async deleteKeyword(@Param("id") id: string): Promise<ApiResponse<SeoKeyword[]>> {
-        return this.seoKeywordsService.deleteKeyword(id)
-    }
-
-    @Post('')
-    async addKeyword(@Body() keyWordDto :SeoWordDto ): Promise<ApiResponse<SeoKeyword[]>> {
-        return this.seoKeywordsService.addKeyword(keyWordDto)
-    }
+  @Post('')
+  async addKeyword(
+    @Body() keyWordDto: SeoWordDto,
+  ): Promise<ApiResponse<SeoKeyword[]>> {
+    return this.seoKeywordsService.addKeyword(keyWordDto);
+  }
 }

@@ -39,7 +39,9 @@ export class AuthService {
     return new ApiResponse<Admin>(201, 'Admin created successfully', admin);
   }
 
-  async login(loginDto: LoginDto): Promise<ApiResponse<{ token: string, admin: Admin }>> {
+  async login(
+    loginDto: LoginDto,
+  ): Promise<ApiResponse<{ token: string; admin: Admin }>> {
     const admin = await this.prisma.admin.findUnique({
       where: {
         email: loginDto.email,
@@ -60,7 +62,7 @@ export class AuthService {
     delete admin.password;
     delete admin.verification_code;
     delete admin.refresh_token;
-    return new ApiResponse<{ token: string, admin: Admin }>(
+    return new ApiResponse<{ token: string; admin: Admin }>(
       200,
       'Admin logged in successfully',
       { token, admin },

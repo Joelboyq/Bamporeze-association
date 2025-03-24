@@ -171,7 +171,7 @@ export default function Navbar(props: WithLocaleProp) {
               {contactLinks.map((contact, i) => (
                 <Link href={contact.href} key={i} className='flex items-center gap-2'>
                   <contact.icon />
-                  <Text variant="paragraph" className='text-white'>
+                  <Text variant="title" className='text-white'>
                     {contact.text}
                   </Text>
                 </Link>))}

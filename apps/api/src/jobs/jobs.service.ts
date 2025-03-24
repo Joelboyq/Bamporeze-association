@@ -6,7 +6,7 @@ import { JobDto } from './dtos';
 
 @Injectable()
 export class JobsService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
 
   async createJob(createJobDto: JobDto) {
     try {
@@ -18,7 +18,7 @@ export class JobsService {
       });
       return new ApiResponse<Job>(201, 'Job created', job);
     } catch (error) {
-      return new ApiResponse(401, 'An error occurred', null, error.message)
+      return new ApiResponse(401, 'An error occurred', null, error.message);
     }
   }
 
@@ -29,12 +29,12 @@ export class JobsService {
           id,
         },
         include: {
-          applications: true
-        }
+          applications: true,
+        },
       });
       return new ApiResponse<Job>(200, 'Job retrieved', job);
     } catch (error) {
-      return new ApiResponse(401, 'An error occurred', null, error.message)
+      return new ApiResponse(401, 'An error occurred', null, error.message);
     }
   }
 
@@ -51,7 +51,7 @@ export class JobsService {
       });
       return new ApiResponse<Job>(201, 'Job updated', job);
     } catch (error) {
-      return new ApiResponse(401, 'An error occurred', null, error.message)
+      return new ApiResponse(401, 'An error occurred', null, error.message);
     }
   }
   async deleteJob(id: string) {
@@ -63,7 +63,7 @@ export class JobsService {
       });
       return new ApiResponse<Job>(201, 'Job deleted ', job);
     } catch (error) {
-      return new ApiResponse(401, 'An error occurred', null, error.message)
+      return new ApiResponse(401, 'An error occurred', null, error.message);
     }
   }
 
@@ -71,14 +71,14 @@ export class JobsService {
     try {
       let jobs = await this.prisma.job.findMany({
         include: {
-          applications: true
-        }
+          applications: true,
+        },
       });
       if (type == 'open') jobs = jobs.filter((job) => job.isOpen == true);
 
       return new ApiResponse(200, 'Jobs retrieved', jobs);
     } catch (error) {
-      return new ApiResponse(401, 'An error occurred', null, error.message)
+      return new ApiResponse(401, 'An error occurred', null, error.message);
     }
   }
 }

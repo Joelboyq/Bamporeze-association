@@ -5,6 +5,6 @@ import { AnalyticsService } from './analytics.service';
 
 @Module({
   providers: [AnalyticsService, PrismaService],
-  controllers: [AnalyticsController]
+  controllers: [AnalyticsController],
 })
-export class AnalyticsModule { }
+export class AnalyticsModule {}

@@ -20,7 +20,7 @@ export class FilesService {
         res.secure_url,
       );
     } catch (err) {
-      console.log(err)
+      console.log(err);
       throw new InternalServerErrorException(err);
     }
   }

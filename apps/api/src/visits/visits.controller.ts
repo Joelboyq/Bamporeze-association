@@ -6,7 +6,7 @@ import { VisitsService } from './visits.service';
 
 @Controller('/visits')
 export class VisitsController {
-  constructor(private visitService: VisitsService) { }
+  constructor(private visitService: VisitsService) {}
   @Post('create')
   createVisit(
     @Body() createVisitDto: CreateVisitDto,

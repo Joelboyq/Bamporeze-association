@@ -8,7 +8,7 @@ import { NewsletterSubscribersService } from './newsletter_subscribers.service';
 export class NewsletterSubscribersController {
   constructor(
     private newsletterSubscribersService: NewsletterSubscribersService,
-  ) { }
+  ) {}
 
   @Get()
   getAllNewsletterSubscribers(): Promise<ApiResponse<NewsletterSubscriber[]>> {
@@ -31,9 +31,7 @@ export class NewsletterSubscribersController {
     return this.newsletterSubscribersService.deleteNewsletterSubscribers(ids);
   }
   @Delete(':id')
-  deleteSubscriber(
-    @Param('id') id: string,
-  ): Promise<ApiResponse<null>> {
+  deleteSubscriber(@Param('id') id: string): Promise<ApiResponse<null>> {
     return this.newsletterSubscribersService.deleteSubscriber(id);
   }
 }

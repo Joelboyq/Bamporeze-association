@@ -1,40 +1,36 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { json, urlencoded } from 'express';
 import * as morgan from 'morgan';
 import { AppModule } from './app.module';
 import { AuthGuard } from './auth/auth.guard';
+import { NotFoundExceptionFilter } from './notfound/notfound.filter';
+import { UnauthorizedExceptionFilter } from './unauthorized/unauthorized.filter';
 import env from './utils/env';
-
-
 const corsConfig = {
-  origin: [
-    'http://146.190.51.66:4100',
-    'http://146.190.51.66:4101',
-    'http://146.190.51.66:4102',
-    'https://bamporeze.com',
-    'https://panel.bamporeze.com',
-    'https://api.bamporeze.com',
-    'http://127.0.0.1:4100',
-    'http://127.0.0.1:4101',
-    'http://localhost:4000',
-    'http://localhost:3000',
-  ],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  preflightContinue: false,
-  optionsSuccessStatus: 204
-}
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  optionsSuccessStatus: 200,
+};
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
-
-  app.setGlobalPrefix('api/v1')
+  app.use(urlencoded());
+  app.use(json({ limit: '50mb' }));
+  app.setGlobalPrefix('api/v1');
+  app.useGlobalFilters(
+    new UnauthorizedExceptionFilter(),
+    new NotFoundExceptionFilter(),
+  );
 
   const config = new DocumentBuilder()
-    .addBearerAuth()
-    .setTitle('BAMPOREZEAPI')
-    .setDescription('BAMPOREZEAPI for web and dashboard')
+    .addBearerAuth({
+      type: 'apiKey',
+      scheme: 'bearer',
+    })
+    .setTitle('RwandAir Catering API')
+    .setDescription('RwandAir Catering API for web and dashboard')
     .setVersion('1.0')
     // .addTag('latest')
     .build();

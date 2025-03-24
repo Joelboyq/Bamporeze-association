@@ -7,7 +7,7 @@ export class NodemailerService {
     website_link: 'http://localhost:3000',
     whatsapp_link: '+250788927469',
     phone_link: '+250788927469',
-    email_link: 'info@comidu.rw',
+    email_link: 'info@hcakigali.rw',
   };
 
   async sendThankForSubscribing(email: string, name: string) {

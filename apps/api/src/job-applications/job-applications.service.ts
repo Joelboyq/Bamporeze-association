@@ -6,7 +6,7 @@ import { JobApplicationDto } from './dtos';
 
 @Injectable()
 export class JobApplicationsService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
 
   async createJobApplication(data: JobApplicationDto) {
     try {

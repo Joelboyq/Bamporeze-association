@@ -7,7 +7,7 @@ import { CreateWritingDto } from './dtos';
 
 @Injectable()
 export class WritingService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
   async createWriting(data: CreateWritingDto, user: string) {
     try {
       const writing = await this.prisma.writing.create({
@@ -30,14 +30,14 @@ export class WritingService {
         },
       });
       delete writing.author.password;
-      this.releaseWriting(writing.id)
+      this.releaseWriting(writing.id);
       return new ApiResponse<Writing>(
         201,
         'Writing created successfully',
         writing,
       );
     } catch (error) {
-      return new ApiResponse(401, 'Something went wrong', null, error.message)
+      return new ApiResponse(401, 'Something went wrong', null, error.message);
     }
   }
 
@@ -56,9 +56,10 @@ export class WritingService {
         },
         take: 1,
       });
-      if (writings.length == 0) return new ApiResponse(404, 'No blog found', null, 'No blog found')
-      const randomBlog = writings[0]
-      delete randomBlog.author.password
+      if (writings.length == 0)
+        return new ApiResponse(404, 'No blog found', null, 'No blog found');
+      const randomBlog = writings[0];
+      delete randomBlog.author.password;
       return new ApiResponse<Writing>(
         200,
         'Random writing retrieved',
@@ -87,14 +88,13 @@ export class WritingService {
         },
       });
 
-
       return new ApiResponse<Writing[]>(
         200,
         'Blogs fetched successfully',
         blogs,
       );
     } catch (error) {
-      return new ApiResponse(401, 'Something went wrong', null, error.message)
+      return new ApiResponse(401, 'Something went wrong', null, error.message);
     }
   }
   async getBlogsForSite(): Promise<ApiResponse<Writing[]>> {
@@ -102,7 +102,7 @@ export class WritingService {
       const blogs = await this.prisma.writing.findMany({
         where: {
           writingType: WritingType.BLOG,
-          isReleased: true
+          isReleased: true,
         },
         include: {
           author: {
@@ -116,14 +116,13 @@ export class WritingService {
         },
       });
 
-
       return new ApiResponse<Writing[]>(
         200,
         'Blogs fetched successfully',
         blogs,
       );
     } catch (error) {
-      return new ApiResponse(401, 'Something went wrong', null, error.message)
+      return new ApiResponse(401, 'Something went wrong', null, error.message);
     }
   }
 
@@ -151,7 +150,7 @@ export class WritingService {
         blogs,
       );
     } catch (error) {
-      return new ApiResponse(401, 'Something went wrong', null, error.message)
+      return new ApiResponse(401, 'Something went wrong', null, error.message);
     }
   }
   async getReleased(
@@ -184,7 +183,7 @@ export class WritingService {
         blogs,
       );
     } catch (error) {
-      return new ApiResponse(401, 'Something went wrong', null, error.message)
+      return new ApiResponse(401, 'Something went wrong', null, error.message);
     }
   }
 
@@ -204,7 +203,7 @@ export class WritingService {
         writing,
       );
     } catch (error) {
-      return new ApiResponse(401, 'Something went wrong', null, error.message)
+      return new ApiResponse(401, 'Something went wrong', null, error.message);
     }
   }
 
@@ -233,7 +232,7 @@ export class WritingService {
           },
         });
         mailer.sendMail({
-          from: 'BAMPOREZENewsletter',
+          from: 'hcakigali Newsletter',
           to: subscribers.map((sub) => sub.email),
           date: new Date(),
           priority: 'high',
@@ -246,7 +245,7 @@ export class WritingService {
         writing,
       );
     } catch (error) {
-      return new ApiResponse(401, 'Something went wrong', null, error.message)
+      return new ApiResponse(401, 'Something went wrong', null, error.message);
     }
   }
 
@@ -280,12 +279,10 @@ export class WritingService {
         writing,
       );
     } catch (error) {
-      return new ApiResponse(401, 'Something went wrong', null, error.message)
+      return new ApiResponse(401, 'Something went wrong', null, error.message);
     }
   }
-  async readWriting(
-    id: string,
-  ): Promise<ApiResponse<null>> {
+  async readWriting(id: string): Promise<ApiResponse<null>> {
     try {
       await this.prisma.writing.update({
         where: {
@@ -294,18 +291,14 @@ export class WritingService {
         },
         data: {
           reads: {
-            increment: 1
-          }
-        }
+            increment: 1,
+          },
+        },
       });
 
-      return new ApiResponse<null>(
-        200,
-        'Read successfully',
-        null,
-      );
+      return new ApiResponse<null>(200, 'Read successfully', null);
     } catch (error) {
-      return new ApiResponse(401, 'Something went wrong', null, error.message)
+      return new ApiResponse(401, 'Something went wrong', null, error.message);
     }
   }
 
@@ -332,7 +325,7 @@ export class WritingService {
         writing,
       );
     } catch (error) {
-      return new ApiResponse(401, 'Something went wrong', null, error.message)
+      return new ApiResponse(401, 'Something went wrong', null, error.message);
     }
   }
 }

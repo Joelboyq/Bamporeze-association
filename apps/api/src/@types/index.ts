@@ -14,10 +14,9 @@ export class TokenPayload {
   public email: string;
 }
 
-
 export interface IMainModuleAnalytics {
-  visitsCount: number,
-  blogReadsCount: number,
-  newsletterSubsCount: number,
-  openJobsCount: number
+  visitsCount: number;
+  blogReadsCount: number;
+  newsletterSubsCount: number;
+  openJobsCount: number;
 }

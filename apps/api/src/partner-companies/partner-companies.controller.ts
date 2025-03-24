@@ -14,7 +14,7 @@ import { PartnerCompaniesService } from './partner-companies.service';
 
 @Controller('/partner-companies')
 export class PartnerCompaniesController {
-  constructor(private partnerCompaniesService: PartnerCompaniesService) { }
+  constructor(private partnerCompaniesService: PartnerCompaniesService) {}
 
   @Post()
   async createPartnerCompany(

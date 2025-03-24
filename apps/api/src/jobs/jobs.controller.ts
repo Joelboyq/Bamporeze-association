@@ -15,7 +15,7 @@ import { JobsService } from './jobs.service';
 
 @Controller('/jobs')
 export class JobsController {
-  constructor(private jobService: JobsService) { }
+  constructor(private jobService: JobsService) {}
 
   @Post()
   async createJob(@Body() createJobDto: JobDto): Promise<ApiResponse<Job>> {
@@ -31,9 +31,7 @@ export class JobsController {
   }
 
   @Get(':id')
-  async getSingleJob(
-    @Param('id') id: string,
-  ) {
+  async getSingleJob(@Param('id') id: string) {
     return this.jobService.getSingleJob(id);
   }
 

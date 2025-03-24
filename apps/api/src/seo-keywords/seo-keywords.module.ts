@@ -5,6 +5,6 @@ import { SeoKeywordsService } from './seo-keywords.service';
 
 @Module({
   providers: [SeoKeywordsService, PrismaService],
-  controllers: [SeoKeywordsController]
+  controllers: [SeoKeywordsController],
 })
-export class SeoKeywordsModule { }
+export class SeoKeywordsModule {}

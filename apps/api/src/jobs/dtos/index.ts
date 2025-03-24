@@ -4,8 +4,8 @@ export class JobDto {
   @IsString()
   title: string;
 
-  @IsIn(['FULL_TIME', 'PART_TIME', 'CONTRACT', 'INTERNSHIP', 'TEMPORARY'])
-  type: 'FULL_TIME' | 'PART_TIME' | 'CONTRACT' | 'INTERNSHIP' | 'TEMPORARY';
+  @IsIn(['UNDERGRADUATE', 'POSTGRADUATE', 'DOCTORATE'])
+  type: 'UNDERGRADUATE' | 'POSTGRADUATE' | 'DOCTORATE';
 
   @IsString()
   location: string;

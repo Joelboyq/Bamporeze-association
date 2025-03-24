@@ -1,11 +1,17 @@
-import { Injectable, Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
+import {
+  Injectable,
+  Logger,
+  OnModuleDestroy,
+  OnModuleInit,
+} from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 import env from '../utils/env';
 
 @Injectable()
 export class PrismaService
   extends PrismaClient
-  implements OnModuleInit, OnModuleDestroy {
+  implements OnModuleInit, OnModuleDestroy
+{
   constructor() {
     super({
       datasources: {
@@ -18,8 +24,8 @@ export class PrismaService
 
   async onModuleInit() {
     this.$connect().then(() => {
-      Logger.log("Database Connected successfully", "MongoDBConnection")
-    })
+      Logger.log('Database Connected successfully', 'MongoDBConnection');
+    });
   }
 
   async onModuleDestroy() {

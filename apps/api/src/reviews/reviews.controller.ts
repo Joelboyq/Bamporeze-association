@@ -14,7 +14,7 @@ import { ReviewsService } from './reviews.service';
 
 @Controller('/reviews')
 export class ReviewsController {
-  constructor(private reviewsService: ReviewsService) { }
+  constructor(private reviewsService: ReviewsService) {}
 
   @Post()
   async createReview(

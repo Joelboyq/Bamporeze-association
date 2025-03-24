@@ -16,7 +16,7 @@ import { WritingService } from './writing.service';
 
 @Controller('/writing')
 export class WritingController {
-  constructor(private writingService: WritingService) { }
+  constructor(private writingService: WritingService) {}
 
   @Post()
   async createWriting(

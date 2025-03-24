@@ -13,7 +13,7 @@ import { OfficialsService } from './officials.service';
 
 @Controller('/officials')
 export class OfficialsController {
-  constructor(private officialsService: OfficialsService) { }
+  constructor(private officialsService: OfficialsService) {}
 
   @Post()
   async createOfficial(@Body() createOfficialDto: OfficialDto) {

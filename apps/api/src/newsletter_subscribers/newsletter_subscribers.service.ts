@@ -14,7 +14,7 @@ export class NewsletterSubscribersService {
   constructor(
     private prisma: PrismaService,
     private mailer: NodemailerService,
-  ) { }
+  ) {}
 
   async createNewsletterSubscriber(createSubDto: CreateSubDto) {
     try {
@@ -31,7 +31,7 @@ export class NewsletterSubscribersService {
       return new ApiResponse<NewsletterSubscriber>(
         200,
         'Subscriber created',
-        subscriber
+        subscriber,
       );
     } catch (error) {
       throw new NotAcceptableException(error);
@@ -58,13 +58,18 @@ export class NewsletterSubscribersService {
     try {
       await this.prisma.newsletterSubscriber.delete({
         where: {
-          id
+          id,
         },
       });
 
       return new ApiResponse<null>(200, 'Subscriber deleted', null);
     } catch (error) {
-      return new ApiResponse<null>(401, 'Something went wrong', null, error.message);
+      return new ApiResponse<null>(
+        401,
+        'Something went wrong',
+        null,
+        error.message,
+      );
     }
   }
 

@@ -21,30 +21,24 @@ export class AuthGuard implements CanActivate {
     //  Non protected routes here  ( do not change )
     if (request.method == 'GET') return true;
     if (request.url.includes('login')) return true;
-    if (
-      request.url.includes('job-application') &&
-      request.method == 'POST'
-    ) return true;
+    if (request.url.includes('job-application') && request.method == 'POST')
+      return true;
     if (
       request.url.includes('newsletter_subscribers') &&
       request.method == 'POST'
-    ) return true;
-    if (
-      request.url.includes('files/upload') &&
-      request.method == 'POST'
-    ) return true;
-    if (
-      request.url.includes('files/delete') &&
-      request.method == 'DELETE'
-    ) return true;
+    )
+      return true;
+    if (request.url.includes('files/upload') && request.method == 'POST')
+      return true;
+    if (request.url.includes('files/delete') && request.method == 'DELETE')
+      return true;
     if (
       request.url.includes('contact-us/new-message') &&
       request.method == 'POST'
-    ) return true;
-    if (
-      request.url.includes('visits/create') &&
-      request.method == 'POST'
-    ) return true;
+    )
+      return true;
+    if (request.url.includes('visits/create') && request.method == 'POST')
+      return true;
 
     const token = this.extractTokenFromHeader(request);
     if (!token) {
