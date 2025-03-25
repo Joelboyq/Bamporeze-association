@@ -35,9 +35,9 @@ export default async function Page({ params, searchParams }: {
       // Fetch some other blogs for "Related Articles" section
       const blogsResponse = await getBlogs();
       const relatedBlogs = Array.isArray(blogsResponse) 
-          ? blogsResponse.filter(blog => blog.id !== blogId).slice(0, 3)
+          ? (blogsResponse as Array<any>).filter((blog: any) => blog.id !== blogId).slice(0, 3)
           : Array.isArray(blogsResponse) 
-              ? blogsResponse.filter(blog => blog.id !== blogId).slice(0, 3)
+              ? (blogsResponse as Array<any>).filter((blog: any) => blog.id !== blogId).slice(0, 3)
               : [];
       
       // Check specifically for content

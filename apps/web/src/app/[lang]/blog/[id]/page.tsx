@@ -39,7 +39,7 @@ export default async function BlogPostPage({ params }: { params: { lang: Locale;
        
       />
       
-      <WebSection className="py-16">
+      <WebSection about={dictionary.pages.blog.title} className="py-16">
 
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">

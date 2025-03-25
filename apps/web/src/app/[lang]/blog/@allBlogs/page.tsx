@@ -17,11 +17,8 @@ export default async function AllBlogs({ params }: { params: { lang: Locale } })
     try {
         // Fetch and process blog data
         const blogsResponse = await getBlogs();
-        const blogs = Array.isArray(blogsResponse?.data) 
-            ? blogsResponse.data 
-            : Array.isArray(blogsResponse) 
-                ? blogsResponse 
-                : [];
+        const blogs = Array.isArray(blogsResponse) 
+            ? blogsResponse  : [];
         
         // Process blogs to ensure they have all required data
         const processedBlogs = processBlogData(blogs, PLACEHOLDER_AVATAR);
@@ -32,8 +29,8 @@ export default async function AllBlogs({ params }: { params: { lang: Locale } })
                 <div className="py-10 flex flex-col gap-6">
                     <SectionTitle 
                         direction="horizontal" 
-                        title={dictionary.pages?.blog?.more_blogs?.title || "More from our blog"} 
-                        subtitle={dictionary.pages?.blog?.more_blogs?.subtitle || "Check out other posts"} 
+                        title={dictionary.pages?.blog?.title || "More from our blog"} 
+                        subtitle={dictionary.pages?.blog?.subtitle || "Check out other posts"} 
                     />
                     <div className="text-center p-10 bg-gray-50 rounded-lg">
                         <Text>No blog posts available at the moment.</Text>
@@ -46,8 +43,8 @@ export default async function AllBlogs({ params }: { params: { lang: Locale } })
             <div className="py-10 flex flex-col gap-8 w-full">
                 <SectionTitle 
                     direction="horizontal" 
-                    title={dictionary.pages?.blog?.more_blogs?.title || "More from our blog"} 
-                    subtitle={dictionary.pages?.blog?.more_blogs?.subtitle || "Check out other posts"} 
+                    title={dictionary.pages?.blog?.title || "More from our blog"} 
+                    subtitle={dictionary.pages?.blog?.subtitle || "Check out other posts"} 
                 />
                 
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6 w-full">
@@ -73,8 +70,8 @@ export default async function AllBlogs({ params }: { params: { lang: Locale } })
             <div className="py-10 flex flex-col gap-6">
                 <SectionTitle 
                     direction="horizontal" 
-                    title={dictionary.pages?.blog?.more_blogs?.title || "More from our blog"} 
-                    subtitle={dictionary.pages?.blog?.more_blogs?.subtitle || "Check out other posts"} 
+                    title={dictionary.pages?.blog?.title || "More from our blog"} 
+                    subtitle={dictionary.pages?.blog?.subtitle || "Check out other posts"} 
                 />
                 <div className="text-center p-10 bg-red-50 rounded-lg">
                     <Text>There was an error loading blog posts. Please try again later.</Text>

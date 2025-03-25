@@ -1,0 +1,11 @@
+[2K[1G[2m$ tailwindcss -i ./src/styles.css -o dist/index.css[22m
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+
+Rebuilding...
+(node:38326) ExperimentalWarning: CommonJS module /Users/ndizeye/Documents/BamporezeIn/node_modules/tailwindcss/lib/lib/load-config.js is loading ES Module /Users/ndizeye/Documents/BamporezeIn/packages/ui/tailwind.config.ts using require().
+Support for loading ES Module in require() is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+Done in 194ms.

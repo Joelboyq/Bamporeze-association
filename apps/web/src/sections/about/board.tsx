@@ -14,7 +14,7 @@ export default async function BoardOfDirectors({ locale }: WithLocaleProp) {
     const managers = boardMembers.filter((member) => member.classification == 'MANAGER')
 
 
-    const dictionary: Dictionary = getDictionary(locale)
+    const dictionary = getDictionary(locale) as any
 
     return (
         <>

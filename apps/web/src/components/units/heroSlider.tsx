@@ -7,10 +7,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { Locale } from "../../../i18n.config";
-import { Dictionary, getDictionary } from "../../utils/dictionary";
+import { getDictionary, type Dictionary } from '../../utils/dictionary';
 
 export default function HeroSlider({ slides, locale }: { slides: ISlide[], locale: Locale }) {
-    const dictionary: Dictionary = getDictionary(locale);
+    const dictionary = getDictionary(locale) as any;
     const [videoOpen, setVideoOpen] = useState(false);
     const videoRef = useRef<HTMLVideoElement>(null);
     

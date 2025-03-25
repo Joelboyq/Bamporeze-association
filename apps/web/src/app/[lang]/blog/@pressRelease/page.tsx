@@ -11,14 +11,14 @@ export default async function PressRelease({ params }: { params: { lang: Locale 
     const pressReleasesResponse = await getPressReleases()
     
     // Extract the actual array from the response
-    const pressReleases = pressReleasesResponse?.data || []
+    const pressReleases = pressReleasesResponse || []
     
     // Check if we have a valid array
     if (!Array.isArray(pressReleases)) {
         console.error("Invalid press releases format:", pressReleasesResponse)
         return (
             <div className="bg-brand-darkblue-5 p-5 rounded-xl">
-                <Text variant="heading2">Press Releases</Text>
+                <Text variant="heading3">Press Releases</Text>
                 <Text>No press releases available at the moment.</Text>
             </div>
         )

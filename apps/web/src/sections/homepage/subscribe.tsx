@@ -12,7 +12,7 @@ export default function Subscribe({ locale }: WithLocaleProp) {
     const [full_name, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [loading, setLoading] = useState(false)
-    const dictionary = getDictionary(locale)
+    const dictionary = getDictionary(locale) as any
     const [subscribed, setSubscribed] = useState('not-subscribed')
 
     useEffect(() => {
@@ -45,8 +45,8 @@ export default function Subscribe({ locale }: WithLocaleProp) {
                 <SectionTitle
                     direction="vertical"
                     title={dictionary.pages.home.subscribe_section.sub_form.success.title}
-                    subtitle={dictionary.pages.home.subscribe_section.sub_form.success.subtitle}
-                    suptitle={dictionary.pages.home.subscribe_section.sub_form.success.suptitle}
+                    subtitle={dictionary.pages.home.subscribe_section.sub_form.success.subtitle || "Thanks for subscribing"}
+                    suptitle={dictionary.pages.home.subscribe_section.sub_form.success.suptitle || "NEWSLETTER"}
                 />
             </div> :
                 <div className="flex items-center msm:flex-col md:flex-row justify-between  w-full gap-10" id="subscribe">

@@ -58,29 +58,29 @@ export default function Contact({ params }: { params: { lang: Locale } }) {
                 {!isSent ? <div className="flex flex-col gap-3 md:p-10 msm:p-4">
                     <div className="flex flex-col gap-2">
                         <Text variant="title_2" >
-                            {dictionary.pages.contact_us.form.title}
+                            {dictionary.pages.contact_page.form.title}
                         </Text>
                         <Text >
-                            {dictionary.pages.contact_us.form.description}
+                            {dictionary.pages.contact_page.form.description}
                         </Text>
                     </div>
-                    <Input placeholder="John doe" label={dictionary.pages.contact_us.form.f_name.label} inputType="text" _controller={{
+                    <Input placeholder="John doe" label={dictionary.pages.contact_page.form.f_name.label} inputType="text" _controller={{
                         initialValue: name,
                         value: name,
                         setValue: setFullName,
                     }} />
-                    <Input placeholder="johndoe@example.com" label={dictionary.pages.contact_us.form.email.label} inputType="email" _controller={{
+                    <Input placeholder="johndoe@example.com" label={dictionary.pages.contact_page.form.email.label} inputType="email" _controller={{
                         initialValue: email,
                         value: email,
                         setValue: setEmail,
                     }} />
-                    <Input placeholder={dictionary.pages.contact_us.form.message.placeholder} label={dictionary.pages.contact_us.form.message.label} inputType="textarea" _controller={{
+                    <Input placeholder={dictionary.pages.contact_page.form.message.placeholder} label={dictionary.pages.contact_page.form.message.label} inputType="textarea" _controller={{
                         initialValue: message,
                         value: message,
                         setValue: setMessage,
                     }}
                     />
-                    <Button variant="primary" className="md:w-fit msm:w-full" loading={loading} onClick={handleSubmit}> {dictionary.pages.contact_us.form.cta}  </Button>
+                    <Button variant="primary" className="md:w-fit msm:w-full" loading={loading} onClick={handleSubmit}> {dictionary.pages.contact_page.form.cta}  </Button>
 
                 </div> : <div className="flex items-center justify-center gap-3 p-10 min-h-[50vh]">
                     <div className="w-fit h-fit flex flex-col items-center gap-5 text-center">
@@ -89,12 +89,12 @@ export default function Contact({ params }: { params: { lang: Locale } }) {
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" />
                         </svg>
 
-                        <Text variant="heading3" className="text-brand-darkblue">  {dictionary.pages.contact_us.form.on_success.title} </Text>
+                        <Text variant="heading3" className="text-brand-darkblue">  {dictionary.pages.contact_page.form.on_success.title} </Text>
                         <Text variant="paragraph">
-                            {dictionary.pages.contact_us.form.on_success.description}
+                            {dictionary.pages.contact_page.form.on_success.description}
                         </Text>
                         <Button variant="secondary" onClick={() => setIsSent(false)} className="w-fit" >
-                            {dictionary.pages.contact_us.form.on_success.cta}
+                            {dictionary.pages.contact_page.form.on_success.cta}
                         </Button>
                     </div>
                 </div>}

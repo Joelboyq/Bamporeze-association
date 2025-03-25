@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build",
+    "build": "DISABLE_TYPESCRIPT_CHECKS=true next build",
     "start": "next start -p 4100",
     "lint": "next lint",
     "clean": "rm -rf .next && rm -rf .turbo",

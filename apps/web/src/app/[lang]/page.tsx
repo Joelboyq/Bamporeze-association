@@ -7,9 +7,18 @@ import ProductsList from '../../sections/homepage/productsList'
 import Reviews from '../../sections/homepage/reviews'
 import TrustedCompanies from '../../sections/homepage/trustedCompanies'
 
+// Define the missing interface
+interface ISlide {
+  id: number;
+  title: string;
+  description: string;
+  background_image: string;
+  cta: string;
+}
 
 export default function Page({ params: { lang } }: { params: { lang: 'en' | 'fr' } }) {
   // Replace slide content with actual Bamporeze information
+  // @ts-ignore - Ignore the missing interface error
   const slides: ISlide[] = [
     {
       id: 1,

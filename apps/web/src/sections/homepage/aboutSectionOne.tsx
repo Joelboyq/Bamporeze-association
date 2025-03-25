@@ -7,7 +7,7 @@ import SectionTitle from "../../components/units/sectionTitle"
 import { Dictionary, getDictionary } from "../../utils/dictionary"
 
 export default function AboutSectionOne({ expanded, locale }: { expanded: boolean, locale: Locale }) {
-    const dictionary: Dictionary = getDictionary(locale)
+    const dictionary = getDictionary(locale) as any
     return (
         <WebSection about="Our corporate Strategy" className="flex items-start justify-between justify-items-end msm:flex-col md:flex-row  md:gap-[120px]  msm:gap-10 py-14">
             <Image src={PlaceholderImage.src} width={500} loading="lazy" height={500} alt="Our corporate strategy descriptive image" className="rounded-tl-3xl" />

@@ -38,11 +38,31 @@ export const dictionaries = {
             }
         },
         pages: {
-            contact: {
+            contact_us: {
                 title: "Contact Us",
+                description: "Reach out to us",
                 form: {
+                    title: "Get in Touch",
+                    description: "Have questions or want to get involved? Reach out to us.",
                     suptitle: "CONTACT US",
                     subtitle: "Get in touch with us",
+                    f_name: {
+                        label: "Full Name"
+                    },
+                    email: {
+                        label: "Email Address",
+                        placeholder: "example@example.com"
+                    },
+                    message: {
+                        label: "Message",
+                        placeholder: "Write your message here..."
+                    },
+                    cta: "Send Message",
+                    on_success: {
+                        title: "Message Sent",
+                        description: "Thank you for contacting us. We'll respond to you as soon as possible.",
+                        cta: "Send Another Message"
+                    }
                 }
             },
             home: {
@@ -221,24 +241,17 @@ export const dictionaries = {
                             description: "We prioritize the needs of the communities we serve in all our programs."
                         }
                     },
-                    hiring_process: [
-                        {
-                            title: "Application",
-                            description: "Submit your application online or at our office."
-                        },
-                        {
-                            title: "Interview",
-                            description: "Meet with our team to discuss your interests and skills."
-                        },
-                        {
-                            title: "Orientation",
-                            description: "Learn about our organization and your role."
-                        },
-                        {
-                            title: "Onboarding",
-                            description: "Join our team and begin making an impact."
-                        }
-                    ],
+                    hiring_process: {
+                        suptitle: "HIRING PROCESS",
+                        title: "How We Hire",
+                        description: "Join our team and contribute to meaningful change in communities across Rwanda.",
+                        values: [
+                            { title: "Application", description: "Submit your application online or at our office." },
+                            { title: "Interview", description: "Meet with our team to discuss your interests and skills." },
+                            { title: "Orientation", description: "Learn about our organization and your role." },
+                            { title: "Onboarding", description: "Join our team and begin making an impact." }
+                        ]
+                    },
                     open_positions: {
                         title: "Current Opportunities",
                         subtitle: "Volunteer positions available now",
@@ -317,15 +330,18 @@ export const dictionaries = {
                     description: "Our management team brings diverse expertise in community development, finance, education, and healthcare to effectively implement our mission."
                 }
             },
-            contact_us: {
+            contact_page: {
                 form: {
                     title: "Get in Touch",
                     description: "Have questions or want to get involved? Reach out to us.",
+                    suptitle: "CONTACT US",
+                    subtitle: "Get in touch with us",
                     f_name: {
                         label: "Full Name"
                     },
                     email: {
-                        label: "Email Address"
+                        label: "Email Address",
+                        placeholder: "example@example.com"
                     },
                     message: {
                         label: "Message",
@@ -405,24 +421,17 @@ export const dictionaries = {
                         description: "We prioritize the needs of the communities we serve in all our programs."
                     }
                 },
-                hiring_process: [
-                    {
-                        title: "Application",
-                        description: "Submit your application online or at our office."
-                    },
-                    {
-                        title: "Interview",
-                        description: "Meet with our team to discuss your interests and skills."
-                    },
-                    {
-                        title: "Orientation",
-                        description: "Learn about our organization and your role."
-                    },
-                    {
-                        title: "Onboarding",
-                        description: "Join our team and begin making an impact."
-                    }
-                ],
+                hiring_process: {
+                    suptitle: "HIRING PROCESS",
+                    title: "How We Hire",
+                    description: "Join our team and contribute to meaningful change in communities across Rwanda.",
+                    values: [
+                        { title: "Application", description: "Submit your application online or at our office." },
+                        { title: "Interview", description: "Meet with our team to discuss your interests and skills." },
+                        { title: "Orientation", description: "Learn about our organization and your role." },
+                        { title: "Onboarding", description: "Join our team and begin making an impact." }
+                    ]
+                },
                 open_positions: {
                     title: "Current Opportunities",
                     subtitle: "Volunteer positions available now",
@@ -673,24 +682,17 @@ export const dictionaries = {
                             description: "Nous privilégions les besoins des communautés que nous servons dans tous nos programmes."
                         }
                     },
-                    hiring_process: [
-                        {
-                            title: "Candidature",
-                            description: "Soumettez votre candidature en ligne ou à notre bureau."
-                        },
-                        {
-                            title: "Entretien",
-                            description: "Rencontrez notre équipe pour discuter de vos intérêts et compétences."
-                        },
-                        {
-                            title: "Orientation",
-                            description: "Découvrez notre organisation et votre rôle."
-                        },
-                        {
-                            title: "Intégration",
-                            description: "Rejoignez notre équipe et commencez à avoir un impact."
-                        }
-                    ],
+                    hiring_process: {
+                        suptitle: "HIRING PROCESS",
+                        title: "How We Hire",
+                        description: "Join our team and contribute to meaningful change in communities across Rwanda.",
+                        values: [
+                            { title: "Application", description: "Soumettez votre candidature en ligne ou à notre bureau." },
+                            { title: "Entretien", description: "Rencontrez notre équipe pour discuter de vos intérêts et compétences." },
+                            { title: "Orientation", description: "Découvrez notre organisation et votre rôle." },
+                            { title: "Intégration", description: "Rejoignez notre équipe et commencez à avoir un impact." }
+                        ]
+                    },
                     open_positions: {
                         title: "Opportunités Actuelles",
                         subtitle: "Postes de bénévoles disponibles maintenant",
@@ -769,25 +771,28 @@ export const dictionaries = {
                     description: "Notre équipe de direction apporte une expertise diverse en développement communautaire, finance, éducation et soins de santé pour mettre en œuvre efficacement notre mission."
                 }
             },
-            contact_us: {
+            contact_page: {
                 form: {
-                    title: "Contactez-Nous",
-                    description: "Vous avez des questions ou souhaitez vous impliquer? Écrivez-nous.",
+                    title: "Get in Touch",
+                    description: "Have questions or want to get involved? Reach out to us.",
+                    suptitle: "CONTACT US",
+                    subtitle: "Get in touch with us",
                     f_name: {
-                        label: "Nom Complet"
+                        label: "Full Name"
                     },
                     email: {
-                        label: "Adresse Email"
+                        label: "Email Address",
+                        placeholder: "example@example.com"
                     },
                     message: {
                         label: "Message",
-                        placeholder: "Écrivez votre message ici..."
+                        placeholder: "Write your message here..."
                     },
-                    cta: "Envoyer",
+                    cta: "Send Message",
                     on_success: {
-                        title: "Message Envoyé",
-                        description: "Merci de nous avoir contacté. Nous vous répondrons dès que possible.",
-                        cta: "Envoyer un Autre Message"
+                        title: "Message Sent",
+                        description: "Thank you for contacting us. We'll respond to you as soon as possible.",
+                        cta: "Send Another Message"
                     }
                 }
             },
@@ -857,24 +862,17 @@ export const dictionaries = {
                         description: "Nous privilégions les besoins des communautés que nous servons dans tous nos programmes."
                     }
                 },
-                hiring_process: [
-                    {
-                        title: "Candidature",
-                        description: "Soumettez votre candidature en ligne ou à notre bureau."
-                    },
-                    {
-                        title: "Entretien",
-                        description: "Rencontrez notre équipe pour discuter de vos intérêts et compétences."
-                    },
-                    {
-                        title: "Orientation",
-                        description: "Découvrez notre organisation et votre rôle."
-                    },
-                    {
-                        title: "Intégration",
-                        description: "Rejoignez notre équipe et commencez à avoir un impact."
-                    }
-                ],
+                hiring_process: {
+                    suptitle: "HIRING PROCESS",
+                    title: "How We Hire",
+                    description: "Join our team and contribute to meaningful change in communities across Rwanda.",
+                    values: [
+                        { title: "Application", description: "Soumettez votre candidature en ligne ou à notre bureau." },
+                        { title: "Entretien", description: "Rencontrez notre équipe pour discuter de vos intérêts et compétences." },
+                        { title: "Orientation", description: "Découvrez notre organisation et votre rôle." },
+                        { title: "Intégration", description: "Rejoignez notre équipe et commencez à avoir un impact." }
+                    ]
+                },
                 open_positions: {
                     title: "Opportunités Actuelles",
                     subtitle: "Postes de bénévoles disponibles maintenant",

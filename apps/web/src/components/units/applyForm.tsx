@@ -18,7 +18,7 @@ export default function ApplyForm({ jobId, locale }: { jobId: string, locale: Lo
     const [resume, setResume] = useState<string | null>(null)
     const [loading, setLoading] = useState(false)
 
-    const dictionary = getDictionary(locale)
+    const dictionary = getDictionary(locale) as any
     const handleSendApplication = async (e: any) => {
         e.preventDefault()
         try {
@@ -78,8 +78,8 @@ export default function ApplyForm({ jobId, locale }: { jobId: string, locale: Lo
                     <Button variant="primary" onClick={handleSendApplication} loading={loading} className="md:w-fit msm:w-full my-4" > Submit application </Button>
                 </div>
             </div> : <div className="flex flex-col items-center justify-center text-center fade-in">
-                <Text variant="heading4" >{dictionary.pages.careers.apply_form.on_success.title}  </Text>
-                <Text variant="paragraph" > {dictionary.pages.careers.apply_form.on_success.description}  </Text>
+                <Text variant="heading4" >{dictionary.pages.careers.apply_form.success.title}  </Text>
+                <Text variant="paragraph" > {dictionary.pages.careers.apply_form.success.message}  </Text>
             </div>}
         </>
     )

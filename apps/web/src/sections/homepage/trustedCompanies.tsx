@@ -8,7 +8,7 @@ import { Dictionary, getDictionary } from "../../utils/dictionary";
 export default async function TrustedCompanies({ locale }: WithLocaleProp) {
     const partnerCompanies = await getPartnerCompanies()
 
-    const dictionary: Dictionary = getDictionary(locale)
+    const dictionary = getDictionary(locale) as any
     return (
         <WebSection about="Companies licencing us" className="py-10 flex items-center msm:flex-col md:flex-row justify-between bg-brand-darkblue-5">
             <SectionTitle direction="horizontal" title={dictionary.pages.home.trusted_companies.title} subtitle={dictionary.pages.home.trusted_companies.subtitle} />

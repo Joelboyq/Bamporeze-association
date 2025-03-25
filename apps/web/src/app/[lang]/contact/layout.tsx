@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 export default function Layout({ children, params }: { children: any, params: { lang: Locale } }) {
     const dictionary = getDictionary(params.lang)
     const pageMeta: IPageHeadProps = {
-        title: dictionary.pages.contact.title,
-        suptitle: dictionary.pages.contact.suptitle,
-        subtitle: dictionary.pages.contact.subtitle,
+        title: dictionary.pages.contact_page.form.title,
+        suptitle: dictionary.pages.contact_page.form.suptitle,
+        subtitle: dictionary.pages.contact_page.form.subtitle,
         backgroundImage: ContactUSBackground.src
     }
 

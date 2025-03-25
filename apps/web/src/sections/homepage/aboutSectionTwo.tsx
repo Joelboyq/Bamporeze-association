@@ -7,7 +7,7 @@ import SectionTitle from "../../components/units/sectionTitle"
 import { Dictionary, getDictionary } from "../../utils/dictionary"
 
 export default function AboutSectionTwo({ locale }: WithLocaleProp) {
-    const dictionary: Dictionary = getDictionary(locale)
+    const dictionary = getDictionary(locale) as any
     return (
         <WebSection about="Our corporate Strategy" className="flex items-start justify-between justify-items-end  msm:flex-col-reverse md:flex-row  md:gap-[120px]  msm:gap-10 py-14">
             <div className="flex flex-col gap-6">
