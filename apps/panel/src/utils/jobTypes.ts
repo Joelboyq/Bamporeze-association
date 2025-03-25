@@ -1,17 +1,16 @@
 export const jobTypes = [
     {
-        label: 'Full time',
-        value: 'FULL_TIME'
+        label: 'DONATION',
+        value: 'UNDERGRADUATE'
     },
     {
-        label: 'Part time',
-        value: 'PART_TIME'
+        label: 'COLLABORATION',
+        value: 'POSTGRADUATE'
     },
     {
-        label: 'Internship',
-        value: 'INTERNSHIP'
+        label: 'PART TIME',
+        value: 'DOCTORATE'
     },
-
 ]
 
 export const formatJobType = (jobtype: string) => {

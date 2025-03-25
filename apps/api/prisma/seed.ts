@@ -13,13 +13,14 @@ async function main() {
     // Check if super admin exists
     const existingAdmin = await prisma.admin.findFirst({
       where: {
-        email: 'admin@bamporeze.org',
-      },
+        email: 'admin@bamporeze.org'
+      }
     });
 
     if (!existingAdmin) {
       const hashedPassword = await bcrypt.hash('Admin@123', 10);
       const verification_code = generateVerificationCode();
+      
       await prisma.admin.create({
         data: {
           email: 'admin@bamporeze.org',
@@ -28,9 +29,9 @@ async function main() {
           profile_picture: null,
           verification_code,
           refresh_token: null,
-        },
+        }
       });
-
+      
       console.log('✅ Super admin seeded successfully');
     } else {
       console.log('⚠️ Super admin already exists');
@@ -48,4 +49,4 @@ main()
   })
   .finally(async () => {
     await prisma.$disconnect();
-  });
+  }); 
