@@ -1,6 +1,6 @@
 import { Button, Text } from "@repo/ui/units"
 import Image from "next/image"
-import PlaceholderImage from "../../../assets/about_pic_2.jpg"
+import PlaceholderImage from "../../../assets/images/about_pic_2.jpg"
 import WebSection from "../../components/layouts/websection"
 import { WithLocaleProp } from "../../components/units/navbar"
 import SectionTitle from "../../components/units/sectionTitle"

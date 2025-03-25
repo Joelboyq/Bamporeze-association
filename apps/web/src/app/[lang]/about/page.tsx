@@ -4,7 +4,7 @@ import { Locale } from "../../../../i18n.config";
 import PageHead from "../../../components/units/pageTitle";
 import AboutAimCards from "../../../sections/about/aimCards";
 import BoardOfDirectors from "../../../sections/about/board";
-import AboutSectionOne from "../../../sections/homepage/aboutSectionOne";
+import AboutSectionOne from "../../../../assets/images/aboutSectionOne";
 import AboutSectionTwo from "../../../sections/homepage/aboutSectionTwo";
 import { getDictionary } from "../../../utils/dictionary";
 

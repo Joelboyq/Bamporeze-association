@@ -1,4 +1,4 @@
-import AboutSectionOne from '../../sections/homepage/aboutSectionOne'
+import AboutSectionOne from '../../../assets/images/aboutSectionOne'
 import AboutSectionTwo from '../../sections/homepage/aboutSectionTwo'
 import BlogHighlight from '../../sections/homepage/blogHighlight'
 import OurHappyClients from '../../sections/homepage/happyClients'

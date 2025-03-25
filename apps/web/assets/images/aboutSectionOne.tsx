@@ -1,16 +1,16 @@
 import { Button, Text } from "@repo/ui/units"
 import Image from "next/image"
 import PlaceholderImage from "../../../assets/about_pic_1.jpg"
-import { Locale } from "../../../i18n.config"
-import WebSection from "../../components/layouts/websection"
-import SectionTitle from "../../components/units/sectionTitle"
-import { Dictionary, getDictionary } from "../../utils/dictionary"
+import { Locale } from "../../i18n.config"
+import WebSection from "../../src/components/layouts/websection"
+import SectionTitle from "../../src/components/units/sectionTitle"
+import { Dictionary, getDictionary } from "../../src/utils/dictionary"
 
 export default function AboutSectionOne({ expanded, locale }: { expanded: boolean, locale: Locale }) {
     const dictionary = getDictionary(locale) as any
     return (
         <WebSection about="Our corporate Strategy" className="flex items-start justify-between justify-items-end msm:flex-col md:flex-row  md:gap-[120px]  msm:gap-10 py-14">
-            <Image src={PlaceholderImage.src} width={500} loading="lazy" height={500} alt="Our corporate strategy descriptive image" className="rounded-tl-3xl" />
+            <Image src={PlaceholderImage} width={500} loading="lazy" height={500} alt="Our corporate strategy descriptive image" className="rounded-tl-3xl" />
             <div className="flex flex-col gap-6">
                 <SectionTitle
                     direction="horizontal"
