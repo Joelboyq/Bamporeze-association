@@ -1,6 +1,6 @@
 import { Button, Text } from "@repo/ui/units"
 import Image from "next/image"
-import PlaceholderImage from "../../../assets/about_pic_1.jpg"
+import PlaceholderImage from "../about_pic_1.jpg"
 import { Locale } from "../../i18n.config"
 import WebSection from "../../src/components/layouts/websection"
 import SectionTitle from "../../src/components/units/sectionTitle"
