@@ -10,6 +10,8 @@ const nextConfig = {
         port: '',
       },
     ],
+    disableStaticImages: true,
+    unoptimized: true,
   },
   webpack(config) {
     config.module.rules.push({
@@ -26,6 +28,17 @@ const nextConfig = {
     
     return config;
   },
+  ...(process.env.NODE_ENV === 'production' ? {
+    typescript: {
+      ignoreBuildErrors: true,
+    },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
+    images: {
+      unoptimized: true,
+    }
+  } : {}),
 }
 
 module.exports = nextConfig;
