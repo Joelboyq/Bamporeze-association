@@ -26,7 +26,14 @@ export default function AboutSectionTwo({ locale }: WithLocaleProp) {
                     </div>
                 </Button>
             </div>
-            <Image src={PlaceholderImage.src} width={300} height={300} loading="lazy" alt="Our corporate strategy descriptive image" className="rounded-tr-3xl" />
+            <Image 
+                src="/images/about_pic_2.jpg" 
+                width={300} 
+                height={300} 
+                loading="lazy" 
+                alt="Our corporate strategy descriptive image" 
+                className="rounded-tr-3xl" 
+            />
 
         </WebSection>
     )

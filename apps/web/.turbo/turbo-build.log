@@ -3,71 +3,72 @@
    - Environments: .env
 
  [37m[1m [22m[39m Creating an optimized production build ...
+Compiler edge-server unexpectedly exited with code: null and signal: SIGTERM
 Browserslist: caniuse-lite is outdated. Please run:
   npx update-browserslist-db@latest
   Why you should do it regularly: https://github.com/browserslist/update-db#readme
-(node:38329) ExperimentalWarning: CommonJS module /Users/ndizeye/Documents/BamporezeIn/node_modules/tailwindcss/lib/lib/load-config.js is loading ES Module /Users/ndizeye/Documents/BamporezeIn/apps/web/tailwind.config.ts using require().
+(node:97639) ExperimentalWarning: CommonJS module /Users/ndizeye/Documents/BamporezeIn/node_modules/tailwindcss/lib/lib/load-config.js is loading ES Module /Users/ndizeye/Documents/BamporezeIn/apps/web/tailwind.config.ts using require().
 Support for loading ES Module in require() is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+<w> [webpack.cache.PackFileCacheStrategy] Skipped not serializable cache item 'Compilation/modules|/Users/ndizeye/Documents/BamporezeIn/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!/Users/ndizeye/Documents/BamporezeIn/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!/Users/ndizeye/Documents/BamporezeIn/packages/ui/dist/index.css': No serializer registered for Warning
+<w> while serializing webpack/lib/cache/PackFileCacheStrategy.PackContentItems -> webpack/lib/NormalModule -> Array { 1 items } -> webpack/lib/ModuleWarning -> Warning
+ ⚠ Compiled with warnings
+
+../../packages/ui/dist/index.css.webpack[javascript/auto]!=!../../node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!../../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!../../packages/ui/dist/index.css
+Warning
+
+(758:3) Nested CSS was detected, but CSS nesting has not been configured correctly.
+Please enable a CSS nesting plugin *before* Tailwind in your configuration.
+See how here: https://tailwindcss.com/docs/using-with-preprocessors#nesting
+
+Import trace for requested module:
+../../packages/ui/dist/index.css.webpack[javascript/auto]!=!../../node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!../../node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!../../packages/ui/dist/index.css
+../../packages/ui/dist/index.css
+
  [32m[1m✓[22m[39m Compiled successfully
-[?25l [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G[?25h [37m[1m [22m[39m Linting and checking validity of types     [32m[1m✓[22m[39m Linting and checking validity of types 
-[?25l [37m[1m [22m[39m Collecting page data  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m.[39m[2K[1G[?25h [37m[1m [22m[39m Collecting page data     [32m[1m✓[22m[39m Collecting page data 
-[?25l [37m[1m [22m[39m Generating static pages (0/24)  [36m[    ][39m[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[=   ][39m
- ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[?25l [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G[1A[2K[1G[?25h [37m[1m [22m[39m Linting and checking validity of types     [32m[1m✓[22m[39m Linting and checking validity of types 
+[?25l [37m[1m [22m[39m Collecting page data  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m...[39m[2K[1G[?25h [37m[1m [22m[39m Collecting page data     [32m[1m✓[22m[39m Collecting page data 
+[?25l [37m[1m [22m[39m Generating static pages (0/24)  [36m[    ][39m[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[=   ][39m  [37m[1m [22m[39m Generating static pages (3/24) 
 
  ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
 
  ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[==  ][39m  [37m[1m [22m[39m Generating static pages (6/24) 
-
- ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[2K[1G[1A[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[==  ][39m  [37m[1m [22m[39m Generating static pages (5/24) 
 
  ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
 
  ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
 
  ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[=== ][39m  [37m[1m [22m[39m Generating static pages (6/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (6/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (6/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (6/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[    ][39m  [37m[1m [22m[39m Generating static pages (6/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (6/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (6/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (6/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[====][39m  [37m[1m [22m[39m Generating static pages (8/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[=== ][39m  [37m[1m [22m[39m Generating static pages (8/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[==  ][39m  [37m[1m [22m[39m Generating static pages (9/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[=   ][39m  [37m[1m [22m[39m Generating static pages (9/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[    ][39m  [37m[1m [22m[39m Generating static pages (10/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[=   ][39m  [37m[1m [22m[39m Generating static pages (13/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[==  ][39m  [37m[1m [22m[39m Generating static pages (16/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[=== ][39m  [37m[1m [22m[39m Generating static pages (20/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (20/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (20/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (20/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[    ][39m  [37m[1m [22m[39m Generating static pages (20/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (21/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (23/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (23/24) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[====][39m  [37m[1m [22m[39m Generating static pages (23/24) 
-[2K[1G[1A[2K[1G[?25h [32m[1m✓[22m[39m Generating static pages (24/24) 
-[?25l [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[?25l [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G[?25h [37m[1m [22m[39m Collecting build traces     [32m[1m✓[22m[39m Collecting build traces 
+[2K[1G[1A[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[=== ][39m  [37m[1m [22m[39m Generating static pages (11/24) 
+
+ ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+
+ ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[2K[1G[1A[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (17/24) 
+[2K[1G[1A[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (18/24) 
+[2K[1G[1A[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (18/24) 
+[2K[1G[1A[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/24)  [36m[    ][39m  [37m[1m [22m[39m Generating static pages (23/24) 
+[2K[1G[1A[2K[1G[1A[2K[1G[?25h [32m[1m✓[22m[39m Generating static pages (24/24) 
+[?25l [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[?25l [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G[?25h [37m[1m [22m[39m Collecting build traces     [32m[1m✓[22m[39m Collecting build traces 
 [2K[1G[?25h [37m[1m [22m[39m Finalizing page optimization     [32m[1m✓[22m[39m Finalizing page optimization 
 
 [4mRoute (app)[24m                              [4mSize[24m     [4mFirst Load JS[24m
 ┌ ○ /_not-found                          881 B          [37m[1m85.3 kB[22m[39m
-├ ● /[lang]                              20.9 kB         [37m[1m197 kB[22m[39m
+├ ● /[lang]                              19.8 kB         [37m[1m195 kB[22m[39m
 ├   ├ /en
 ├   └ /fr
-├ ● /[lang]/about                        5.8 kB          [37m[1m175 kB[22m[39m
+├ ● /[lang]/about                        4.89 kB         [37m[1m174 kB[22m[39m
 ├   ├ /en/about
 ├   └ /fr/about
-├ ● /[lang]/blog                         1.98 kB         [37m[1m165 kB[22m[39m
+├ ● /[lang]/blog                         1.79 kB         [37m[1m160 kB[22m[39m
 ├   ├ /en/blog
 ├   └ /fr/blog
-├ λ /[lang]/blog/[id]                    1.95 kB         [37m[1m170 kB[22m[39m
-├ ● /[lang]/careers                      1.94 kB         [37m[1m165 kB[22m[39m
+├ λ /[lang]/blog/[id]                    1.94 kB         [37m[1m170 kB[22m[39m
+├ ● /[lang]/careers                      1.93 kB         [37m[1m165 kB[22m[39m
 ├   ├ /en/careers
 ├   └ /fr/careers
 ├ λ /[lang]/careers/[jobId]              2.73 kB         [37m[1m178 kB[22m[39m
@@ -77,7 +78,7 @@ Support for loading ES Module in require() is an experimental feature and might 
 ├ ● /[lang]/gallery                      2.19 kB         [37m[1m103 kB[22m[39m
 ├   ├ /en/gallery
 ├   └ /fr/gallery
-├ ● /[lang]/services                     2.38 kB         [37m[1m163 kB[22m[39m
+├ ● /[lang]/services                     2.02 kB         [37m[1m163 kB[22m[39m
 ├   ├ /en/services
 ├   └ /fr/services
 ├ ● /[lang]/test                         295 B          [37m[1m84.7 kB[22m[39m
@@ -89,7 +90,7 @@ Support for loading ES Module in require() is an experimental feature and might 
 └ ○ /sitemap.xml                         0 B                [37m[1m0 B[22m[39m
 + First Load JS shared by all            [37m[1m84.4 kB[22m[39m
   ├ chunks/1dd3208c-02a6a0c6822294fb.js  53.4 kB
-  ├ chunks/997-69c849cd5236fb8a.js       28.9 kB
+  ├ chunks/997-e720b921542e81c9.js       28.9 kB
   └ other shared chunks (total)          2.12 kB
 
 

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ServiceBackground from "../../../../assets/images/services-page-background.png";
+
 import { Locale } from "../../../../i18n.config";
 import PageHead from "../../../components/units/pageTitle";
 import ServicesSection from "../../../sections/services/services";
@@ -26,7 +26,7 @@ export default function ServicesPage({ params }: {
                 title={dictionary.pages.services.page_title}
                 subtitle={dictionary.pages.services.subtitle}
                 suptitle={dictionary.pages.services.suptitle}
-                backgroundImage={ServiceBackground.src}
+                backgroundImage={"/images/services-page-background.png"}
             />
             <ServicesSection />
         </>

@@ -1,7 +1,7 @@
 import { Text } from "@repo/ui/units"
 import Image from "next/image"
 import { FC } from "react"
-import PlaceholderImage from "../../../assets/images/placeholder.webp"
+
 import formatDate from "../../utils/formatDate"
 export interface IAuthor {
     name: string,
@@ -14,7 +14,7 @@ const Author: FC<IAuthor> = ({ name, profile_image, releaseDate }) => {
         <div className="flex items-center gap-3">
             <div className="flex gap-2 items-center">
                 <Image
-                    src={profile_image ? profile_image : PlaceholderImage.src}
+                    src={profile_image ? profile_image : "/images/placeholder.webp"}
                     alt={name}
                     className="rounded-full w-6 h-6 object-cover"
                     width={40}

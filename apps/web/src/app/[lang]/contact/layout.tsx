@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import ContactUSBackground from "../../../../assets/images/careers-page-background.png"
+
 import { Locale } from "../../../../i18n.config"
 import PageHead, { IPageHeadProps } from "../../../components/units/pageTitle"
 import { getDictionary } from "../../../utils/dictionary"
@@ -17,7 +17,7 @@ export default function Layout({ children, params }: { children: any, params: { 
         title: dictionary.pages.contact_page.form.title,
         suptitle: dictionary.pages.contact_page.form.suptitle,
         subtitle: dictionary.pages.contact_page.form.subtitle,
-        backgroundImage: ContactUSBackground.src
+        backgroundImage: "/images/contact-us-page-background.png",
     }
 
 

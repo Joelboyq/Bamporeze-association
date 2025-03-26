@@ -4,7 +4,7 @@ import { Locale } from "../../../../i18n.config";
 import PageHead from "../../../components/units/pageTitle";
 import AboutAimCards from "../../../sections/about/aimCards";
 import BoardOfDirectors from "../../../sections/about/board";
-import AboutSectionOne from "../../../../assets/images/aboutSectionOne";
+import AboutSectionOne from "../../../sections/homepage/aboutSectionOne";
 import AboutSectionTwo from "../../../sections/homepage/aboutSectionTwo";
 import { getDictionary } from "../../../utils/dictionary";
 
@@ -52,7 +52,7 @@ export default function AboutPage({ params }: {
                 title={dictionary.pages.about.page_title}
                 suptitle={dictionary.pages.about.suptitle}
                 subtitle={dictionary.pages.about.subtitle}
-                backgroundImage={AboutBackground.src}
+                backgroundImage="/images/about-page-background.png"
                 padBottom={true}
             />
             <AboutAimCards locale={params.lang} />

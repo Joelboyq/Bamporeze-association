@@ -1,4 +1,4 @@
-import AboutSectionOne from '../../../assets/images/aboutSectionOne'
+import AboutSectionOne from '../../sections/homepage/aboutSectionOne'
 import AboutSectionTwo from '../../sections/homepage/aboutSectionTwo'
 import BlogHighlight from '../../sections/homepage/blogHighlight'
 import OurHappyClients from '../../sections/homepage/happyClients'
@@ -6,6 +6,7 @@ import Hero from '../../sections/homepage/hero'
 import ProductsList from '../../sections/homepage/productsList'
 import Reviews from '../../sections/homepage/reviews'
 import TrustedCompanies from '../../sections/homepage/trustedCompanies'
+import type { Metadata } from 'next'
 
 // Define the missing interface
 interface ISlide {
@@ -15,6 +16,12 @@ interface ISlide {
   background_image: string;
   cta: string;
 }
+
+// Static metadata
+export const metadata: Metadata = {
+  title: 'Home',
+  description: 'Empowering Communities in Rwanda',
+};
 
 export default function Page({ params: { lang } }: { params: { lang: 'en' | 'fr' } }) {
   // Replace slide content with actual Bamporeze information

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import CareersBackground from "../../../../assets/images/careers-page-background.png";
+
 import { Locale } from "../../../../i18n.config";
 import PageHead, { IPageHeadProps } from "../../../components/units/pageTitle";
 import { getDictionary } from "../../../utils/dictionary";
@@ -18,7 +18,7 @@ export default function GalleryLayout({ children, params }: { children: React.Re
         suptitle: dictionary.pages.gallery.suptitle,
         subtitle: dictionary.pages.gallery.subtitle,
         title: dictionary.pages.gallery.title,
-        backgroundImage: CareersBackground.src,
+        backgroundImage: "/images/gallery-page-background.png",
 
     }
 

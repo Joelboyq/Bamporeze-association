@@ -11,7 +11,12 @@ export function middleware(request: NextRequest) {
     pathname.includes('/api/') ||
     pathname.includes('/static/') ||
     pathname.includes('/videos/') ||
-    pathname.includes('/assets/')
+    pathname.includes('/assets/') ||
+    pathname.includes('/public/') ||
+    pathname.includes('/images/') ||
+    pathname.includes('/favicon.ico') ||
+    pathname.includes('/favicon.png') ||
+    pathname.includes('/favicon.svg')
   ) {
     return NextResponse.next()
   }

@@ -1,6 +1,6 @@
 'use client'
 import { usePathname } from "next/navigation";
-import CareersBackground from "../../../../assets/images/careers-page-background.png";
+
 import { Locale } from "../../../../i18n.config";
 import PageHead, { IPageHeadProps } from "../../../components/units/pageTitle";
 import { getDictionary } from "../../../utils/dictionary";
@@ -14,7 +14,7 @@ export default function CareersLayout({ children, params }: { children: React.Re
         title: dictionary.pages.careers.page_title,
         subtitle: dictionary.pages.careers.subtitle,
         suptitle: dictionary.pages.careers.suptitle,
-        backgroundImage: CareersBackground.src,
+        backgroundImage: "/images/careers-page-background.png",
         padBottom: pathname.split('/').pop() != 'careers'
 
     }
