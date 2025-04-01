@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "NEXT_SKIP_METADATA_CHECK=true DISABLE_ESLINT_PLUGIN=true DISABLE_TYPESCRIPT_CHECKS=true next dev -p 3000",
-    "build": "DISABLE_TYPESCRIPT_CHECKS=true next build",
+    "build": "next build",
     "start": "next start -p 4100",
     "lint": "next lint",
     "clean": "rm -rf .next && rm -rf .turbo",
     "type-check": "tsc --noEmit",
-    "deploy": "next build && next start -p 4100"
+    "deploy": "next build && next start -p 4100",
+    "production": "NODE_ENV=production next build && NODE_ENV=production next start -p 4100"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",

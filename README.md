@@ -6,9 +6,6 @@ This is a full stack monorepo for BAMPOREZEproject built using `nextjs`, `nestjs
 
 1. Clone this repo
 
-```bash
-$ git clone https://github.com/scriptylabsdotrw/comidu.git
-```
 
 2. Run `yarn` to install dependencies
 

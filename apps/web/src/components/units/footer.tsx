@@ -69,11 +69,9 @@ export default function Footer(props: WithLocaleProp) {
 
                 <hr className="border border-brand-white-10" />
                 <Text className="text-center w-full">
-                    © 2021 BAMPOREZE. All rights reserved
+                    &copy; {new Date().getFullYear()} BAMPOREZE. All rights reserved
                 </Text>
-                <Text variant='label' className="text-center w-full opacity-60">
-                    Website developed by <a href="https://scriptylabs.com" className="hover:underline"> Scriptylabs  Inc.</a>
-                </Text>
+                
             </WebSection>
         </footer>
     )

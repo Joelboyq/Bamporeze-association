@@ -113,7 +113,7 @@ export const dictionaries = {
                     subtitle: "Bamporeze is a non-profit organization dedicated to empowering communities in Rwanda through sustainable development initiatives.",
                     description: "Founded in 2008, we work directly with local communities to implement programs that address their most pressing needs, from education and healthcare to economic empowerment and infrastructure development.",
                     cta: "Learn More About Us",
-                    content: "Bamporeze was founded with a simple mission: to help vulnerable communities in Rwanda build sustainable futures. What began as a small community initiative has grown into a respected organization working across multiple regions of Rwanda. We focus on holistic community development, understanding that education, healthcare, economic opportunities, and infrastructure are all interconnected. Our approach involves working directly with communities to identify their most pressing needs and co-create solutions that are sustainable and culturally appropriate. Through partnerships with local leaders, government agencies, and international organizations, we maximize our impact and ensure that our programs create lasting positive change. Over the years, we have helped thousands of individuals gain access to education, improved healthcare facilities, developed income-generating activities, and built essential community infrastructure. Our success is measured not just by the number of people we reach, but by the degree to which communities become self-sufficient and resilient."
+                    content: "   Bamporeze was founded with a simple mission: to help vulnerable communities in Rwanda build sustainable futures. What began as a small community initiative has grown into a respected organization working across multiple regions of Rwanda. We focus on holistic community development, understanding that education, healthcare, economic opportunities, and infrastructure are all interconnected. Our approach involves working directly with communities to identify their most pressing needs and co-create solutions that are sustainable and culturally appropriate. Through partnerships with local leaders, government agencies, and international organizations, we maximize our impact and ensure that our programs create lasting positive change. Over the years, we have helped thousands of individuals gain access to education, improved healthcare facilities, developed income-generating activities, and built essential community infrastructure. Our success is measured not just by the number of people we reach, but by the degree to which communities become self-sufficient and resilient."
                 },
                 about_section_two: {
                     title: "Our Impact",
@@ -163,22 +163,22 @@ export const dictionaries = {
                         {
                             title: "Education Support",
                             description: "Providing scholarships and educational resources",
-                            image: "/images/education.jpg"
+                            image: "/images/gold.jpg"
                         },
                         {
                             title: "Healthcare Access",
                             description: "Improving health services for rural communities",
-                            image: "/images/healthcare.jpg"
+                            image: "/images/sulfur.jpg"
                         },
                         {
                             title: "Economic Empowerment",
                             description: "Training and support for small businesses",
-                            image: "/images/economic.jpg"
+                            image: "/images/tungsten.jpg"
                         },
                         {
                             title: "Community Infrastructure",
                             description: "Building essential community facilities",
-                            image: "/images/infrastructure.jpg"
+                            image: "/images/casittererite.jpg"
                         }
                     ]
                 },
