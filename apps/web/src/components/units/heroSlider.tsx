@@ -50,7 +50,7 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
                 {slides.map((slide, i) => (
                     <div key={slide.id} className="slider-item">
                         <section 
-                            className="w-[100vw] md:min-h-[70vh] msm:min-h-[80vh] relative bg-cover bg-center"
+                            className="w-[100vw] md:min-h-[80vh] msm:min-h-[90vh] relative bg-cover bg-center"
                         >
                             <img 
                                 src={slide.background_image} 
@@ -59,14 +59,14 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
                                 className="absolute top-0 right-0 left-0 bottom-0 w-full h-full z-0 object-cover"
                                 width={1920} height={1080}
                             />
-                            <div className="flex flex-col msm:items-center justify-center absolute top-0 right-0 left-0 bottom-0 md:items-start gap-6 md:w-2/3 msm:w-full md:px-[10vw] msm:px-4 py-20 bg-gradient-to-r from-black to-transparent">
-                                <Text variant="suptitle" className="md:text-start msm:text-center text-brand-white-60">
+                            <div className="flex flex-col msm:items-center justify-center absolute top-0 right-0 left-0 bottom-0 md:items-start gap-8 md:w-2/3 msm:w-full md:px-[10vw] msm:px-4 py-20 bg-gradient-to-r from-black/90 to-black/40">
+                                <Text variant="suptitle" className="md:text-start msm:text-center text-white font-bold text-xl tracking-wider">
                                     BAMPOREZE
                                 </Text>
-                                <Text variant="title" className="md:text-start msm:text-center text-white">
+                                <Text variant="title" className="md:text-start msm:text-center text-white font-bold text-4xl md:text-5xl lg:text-6xl leading-tight">
                                     {slide.title}
                                 </Text>
-                                <Text variant="subtitle" className="md:text-start msm:text-center text-brand-white">
+                                <Text variant="subtitle" className="md:text-start msm:text-center text-white text-xl md:text-2xl">
                                     {slide.description}
                                 </Text>
                                 {i === 0 && (
