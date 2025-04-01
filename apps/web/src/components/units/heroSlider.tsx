@@ -44,9 +44,12 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
         setVideoOpen(false);
     };
     
+    // Use type casting to fix the TypeScript error
+    const SliderComponent = Slider as any;
+    
     return (
         <>
-            <Slider {...settings}>
+            <SliderComponent {...settings}>
                 {slides.map((slide, i) => (
                     <div key={slide.id} className="slider-item">
                         <section 
@@ -92,7 +95,7 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
                         </section>
                     </div>
                 ))}
-            </Slider>
+            </SliderComponent>
             
             {/* Video Modal with integrated player */}
             {videoOpen && (
