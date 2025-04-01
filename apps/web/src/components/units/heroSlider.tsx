@@ -1,6 +1,5 @@
 'use client'
 import { ISlide } from "@repo/ui/types";
-import { Text } from "@repo/ui/units";
 import Link from "next/link";
 import Image from "next/image";
 import Slider from "react-slick";
@@ -62,9 +61,12 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
         setVideoOpen(false);
     };
     
+    // Type casting to fix TypeScript error in production build
+    const SliderComponent = Slider as any;
+    
     return (
         <div className="relative w-full">
-            <Slider {...settings} className="w-full">
+            <SliderComponent {...settings} className="w-full">
                 {slides.map((slide, i) => (
                     <div key={slide.id || i} className="relative md:h-[80vh] msm:h-[90vh]">
                         {/* Background image - with Next.js Image */}
@@ -92,15 +94,15 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
                                 {/* Desktop layout */}
                                 <div className="md:block msm:hidden">
                                     <div className="max-w-2xl">
-                                        <h1 className="text-white font-bold text-xl tracking-wider mb-4">
+                                        <span className="text-white font-bold text-xl tracking-wider mb-4 block">
                                             BAMPOREZE
-                                        </h1>
+                                        </span>
                                         <h1 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 drop-shadow-lg">
                                             {slide.title}
                                         </h1>
-                                        <h2 className="text-white text-xl md:text-2xl mb-8 max-w-2xl drop-shadow-md">
+                                        <p className="text-white text-xl md:text-2xl mb-8 max-w-2xl drop-shadow-md">
                                             {slide.description}
-                                        </h2>
+                                        </p>
                                         
                                         {i === activeSlide && i === 0 && (
                                             <div className="flex items-center gap-6 mt-4">
@@ -126,15 +128,15 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
                                 
                                 {/* Mobile layout */}
                                 <div className="md:hidden msm:block text-center">
-                                    <Text className="text-white font-bold text-xl tracking-wider mb-4">
+                                    <span className="text-white font-bold text-xl tracking-wider mb-4 block">
                                         BAMPOREZE
-                                    </Text>
-                                    <Text className="text-white font-bold text-4xl leading-tight mb-6 drop-shadow-lg">
+                                    </span>
+                                    <h1 className="text-white font-bold text-4xl leading-tight mb-6 drop-shadow-lg">
                                         {slide.title}
-                                    </Text>
-                                    <Text className="text-white text-lg mb-8 drop-shadow-md">
+                                    </h1>
+                                    <p className="text-white text-lg mb-8 drop-shadow-md">
                                         {slide.description}
-                                    </Text>
+                                    </p>
                                     
                                     {i === activeSlide && i === 0 && (
                                         <div className="flex flex-col items-center gap-4 mt-4">
@@ -160,7 +162,7 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
                         </div>
                     </div>
                 ))}
-            </Slider>
+            </SliderComponent>
             
             {/* Custom pagination indicators */}
             <div className="absolute bottom-8 left-0 right-0 flex justify-center z-30">
