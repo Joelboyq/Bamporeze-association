@@ -8,6 +8,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { NotFoundExceptionFilter } from './notfound/notfound.filter';
 import { UnauthorizedExceptionFilter } from './unauthorized/unauthorized.filter';
 import env from './utils/env';
+
 const corsConfig = {
   origin: '*',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -15,9 +16,14 @@ const corsConfig = {
 };
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  app.use(urlencoded());
+  const app = await NestFactory.create(AppModule, {
+    bodyParser: true,
+  });
+
+  // Configure body parser for large files
   app.use(json({ limit: '50mb' }));
+  app.use(urlencoded({ extended: true, limit: '50mb' }));
+
   app.setGlobalPrefix('api/v1');
   app.useGlobalFilters(
     new UnauthorizedExceptionFilter(),
@@ -29,8 +35,8 @@ async function bootstrap() {
       type: 'apiKey',
       scheme: 'bearer',
     })
-    .setTitle('RwandAir Catering API')
-    .setDescription('RwandAir Catering API for web and dashboard')
+    .setTitle('Bamporeze API')
+    .setDescription('Bamporeze API Documentation')
     .setVersion('1.0')
     // .addTag('latest')
     .build();
@@ -41,6 +47,7 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
+      whitelist: true,
     }),
   );
 

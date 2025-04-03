@@ -34,7 +34,7 @@ export default function AddJobPosition({ onDone }: { onDone?: () => void }) {
                 }
             })
             if (res.status == 201) {
-                toast.success('Job added successfully')
+                toast.success('added successfully')
                 const newJob: IJobPosition = {
                     title: res.data['title'],
                     applications: [],
@@ -47,7 +47,7 @@ export default function AddJobPosition({ onDone }: { onDone?: () => void }) {
                 setJobs([...jobs, newJob])
                 setModal(null)
             } else {
-                throw new Error('Failed to add job')
+                throw new Error('Failed to Add')
             }
         } catch (error: any) {
             toast.error(error.message || 'Failed to add subscriber')
@@ -59,7 +59,7 @@ export default function AddJobPosition({ onDone }: { onDone?: () => void }) {
 
     return (
         <div className="bg-white p-8 rounded-md w-[500px]  flex flex-col gap-4">
-            <SectionTitle title="New job" description="Add job position" />
+            <SectionTitle title="New Volunteering Program" description="Add job position" />
             <div className="flex  flex-col items-center gap-3">
                 <Input<string> placeholder="Senior javascript engineer" _controller={{
                     initialValue: title,
@@ -83,7 +83,7 @@ export default function AddJobPosition({ onDone }: { onDone?: () => void }) {
                 <div className="flex  w-full my-4">
                     <input id="default-checkbox" type="checkbox" checked={isOpen} onChange={() => setIsOpen(!isOpen)} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                     <label htmlFor="default-checkbox" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                        <Text variant='label'>This position is currently open</Text>
+                        <Text variant='label'>This volunteering Program is currently open</Text>
                     </label>
                 </div>
             </div>

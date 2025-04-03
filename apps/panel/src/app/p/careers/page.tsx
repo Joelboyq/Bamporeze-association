@@ -32,7 +32,7 @@ export default function NewsletterReleases() {
                             <SectionTitle title="Job positions" description="Manage job positions" />
                             <Button variant={'secondary'}
                                 onClick={() => setModal(<AddJobPosition onDone={mutate} />)}
-                            >Add position</Button>
+                            >Add Volunteering Programms</Button>
                         </div>
                         <div>
                             <CustomTable columns={['Title', 'Applicants', 'actions']}

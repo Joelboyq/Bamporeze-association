@@ -22,7 +22,7 @@ export const dictionaries = {
                 links: {
                     home: "Home",
                     about: "About Us",
-                    services: "Programs",
+                    services: "Services",
                     products: "Initiatives",
                     blog: "News",
                     gallery: "Gallery",
@@ -356,10 +356,10 @@ export const dictionaries = {
                 }
             },
             services: {
-                page_title: "Our Programs",
+                page_title: "Our Services",
                 subtitle: "How we support communities across Rwanda",
-                suptitle: "PROGRAMS",
-                description: "At Bamporeze, we implement various programs designed to address the most pressing needs of vulnerable communities in Rwanda. Our holistic approach combines education, healthcare, economic empowerment, and infrastructure development."
+                suptitle: "SERVICES",
+                description: "At Bamporeze, we implement various services designed to address the most pressing needs of vulnerable communities in Rwanda. Our holistic approach combines education, healthcare, economic empowerment, and infrastructure development."
             },
             blog: {
                 title: "News & Updates",
@@ -485,7 +485,7 @@ export const dictionaries = {
                 links: {
                     home: "Accueil",
                     about: "À Propos",
-                    services: "Programmes",
+                    services: "Services",
                     products: "Initiatives",
                     blog: "Actualités",
                     gallery: "Galerie",
@@ -797,10 +797,10 @@ export const dictionaries = {
                 }
             },
             services: {
-                page_title: "Nos Programmes",
+                page_title: "Nos Services",
                 subtitle: "Comment nous soutenons les communautés à travers le Rwanda",
-                suptitle: "PROGRAMMES",
-                description: "À Bamporeze, nous mettons en œuvre divers programmes conçus pour répondre aux besoins les plus pressants des communautés vulnérables au Rwanda. Notre approche holistique combine l'éducation, la santé, l'autonomisation économique et le développement des infrastructures."
+                suptitle: "SERVICES",
+                description: "À Bamporeze, nous mettons en œuvre divers service conçus pour répondre aux besoins les plus pressants des communautés vulnérables au Rwanda. Notre approche holistique combine l'éducation, la santé, l'autonomisation économique et le développement des infrastructures."
             },
             blog: {
                 title: "Actualités & Mises à jour",
