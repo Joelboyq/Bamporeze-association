@@ -106,56 +106,6 @@ export default function ProductsList({ locale }: WithLocaleProp) {
                     </div>
                 ))}
             </div>
-            
-            {/* Featured program (larger) - Fixed to avoid cutting off heads */}
-            <div className="relative w-full rounded-xl overflow-hidden shadow-xl mt-8">
-                <div className="w-full aspect-[16/9] md:aspect-[21/9] relative">
-                    <Image 
-                        src={programItems[0].image} 
-                        fill
-                        style={{ 
-                            objectFit: 'cover',
-                            objectPosition: 'center 33%' // Focus more on the upper part of the image where faces are
-                        }}
-                        alt="Featured Program" 
-                        className="transition-all duration-700 hover:scale-105"
-                    />
-                    
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
-                    
-                    {/* Content */}
-                    <div className="absolute bottom-0 left-0 w-full md:w-1/2 p-6 md:p-10 text-white">
-                        <span className="inline-block bg-brand-darkblue text-white text-sm py-1 px-4 rounded-full mb-4">
-                            Featured Program
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">{programItems[0].title}</h2>
-                        <p className="text-white text-base md:text-lg mb-6 md:mb-8 leading-relaxed">{programItems[0].description}</p>
-                        
-                        {/* Key points */}
-                        <div className="flex flex-col gap-2">
-                            <div className="flex items-center gap-2">
-                                <svg className="w-5 h-5 text-brand-lightblue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Life-changing impact for communities</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <svg className="w-5 h-5 text-brand-lightblue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Sustainable long-term solutions</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <svg className="w-5 h-5 text-brand-lightblue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Community-driven development</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </WebSection>
     );
 }

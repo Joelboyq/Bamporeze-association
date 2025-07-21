@@ -5,20 +5,20 @@
 }
 
 .hooverable-card:hover {
-  border-color: #3B8C6E !important; /* Green border on hover */
+  border-color: #A0C654 !important; /* Green border on hover */
   box-shadow: 0 10px 25px rgba(59, 140, 110, 0.2) !important; /* Green shadow */
 }
 
 /* Update the icon SVG background on hover */
 .hooverable-card:hover svg rect {
-  fill: #3B8C6E !important; /* Change background of SVG icons to green */
+  fill: #A0C654 !important; /* Change background of SVG icons to green */
 }
 
 /* Text hover effects */
 .hooverable-card:hover .hv-text {
-  color: #3B8C6E !important;
+  color: #A0C654 !important;
 }
 
 .hooverable-card:hover .hv-subtext {
-  color: rgba(59, 140, 110, 0.9) !important;
+  color: #A0C654 !important;
 } 

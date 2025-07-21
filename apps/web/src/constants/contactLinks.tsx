@@ -11,11 +11,7 @@ interface IContactInfo {
 
 
 export const contactLinks: IContactInfo[] = [
-  {
-    icon: PhoneIcon,
-    text: '+250 788 888 888',
-    href: 'tel:+250788888888'
-  },
+
   {
     icon: LocationIcon,
     text: 'Kigali, Rwanda',
@@ -55,8 +51,8 @@ export const getNavlinks = (locale: Locale): INavLink[] => {
       active: false,
     },
     {
-      name: navLinks.services,
-      href: '/services',
+      name: navLinks.programs,
+      href: '/programs',
       active: false,
     },
     {
@@ -69,16 +65,16 @@ export const getNavlinks = (locale: Locale): INavLink[] => {
       href: '/blog',
       active: false,
     },
-    {
-      name: navLinks.gallery,
-      href: '/gallery',
-      active: false,
-    },
-    {
-      name: navLinks.contact,
-      href: '/contact',
-      active: false,
-    },
+    // {
+    //   name: navLinks.gallery,
+    //   href: '/gallery',
+    //   active: false,
+    // },
+    // {
+    //   name: navLinks.contact,
+    //   href: '/contact',
+    //   active: false,
+    // },
   ]
 
 }

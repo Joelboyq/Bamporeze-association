@@ -53,12 +53,14 @@ export default function Page({ params: { lang } }: { params: { lang: 'en' | 'fr'
   return (
     <div className=''>
       <Hero locale={lang} />
-      <TrustedCompanies locale={lang} />
+      
       <AboutSectionOne expanded={false} locale={lang} />
       <AboutSectionTwo locale={lang} />
       <ProductsList locale={lang} />
       <BlogHighlight />
+
       <Reviews locale={lang} />
+      <TrustedCompanies locale={lang} />
 
     </div>
   )

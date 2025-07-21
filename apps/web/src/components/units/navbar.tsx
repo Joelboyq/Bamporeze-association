@@ -92,14 +92,64 @@ export default function Navbar(props: WithLocaleProp) {
           <div className='w-28'>
             <Logo variant="light" />
           </div>
-          <div className="flex items-center gap-6">
-            {navLinks.map((link, index) => (
-              <Link key={index} href={`/${props.locale + link.href}`}>
-                <Text variant="paragraph" className="hover:text-brand-darkblue">
-                  {link.name}
-                </Text>
-              </Link>
-            ))}
+          <div className="flex items-center gap-2">
+            {navLinks.map((link, index) => {
+              // For home page, we need an exact match
+              const isHome = link.href === '/';
+              // For other pages, check if the current path starts with the link's href
+              const isActive = isHome 
+                ? pathname === `/${props.locale}` || pathname === `/${props.locale}/`
+                : pathname.startsWith(`/${props.locale}${link.href}`);
+                
+              return (
+                <Link key={index} href={`/${props.locale}${link.href}`}>
+                  <div className={`
+                    relative px-3 py-2 mx-1 rounded-lg transition-all duration-300 ease-in-out 
+                    group cursor-pointer overflow-hidden
+                    ${isActive 
+                      ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg' 
+                      : 'hover:bg-gradient-to-r hover:from-green-50 hover:to-blue-50 hover:text-brand-darkblue hover:shadow-md'
+                    }
+                    transform hover:scale-105 hover:-translate-y-1
+                  `}>
+                    {/* Animated background effect */}
+                    <div className={`
+                      absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 opacity-0 
+                      transition-opacity duration-300 group-hover:opacity-10
+                      ${isActive ? 'opacity-100' : ''}
+                    `}></div>
+                    
+                    {/* Shine effect */}
+                    <div className="absolute inset-0 -top-full opacity-0 group-hover:opacity-100 group-hover:top-full transition-all duration-700 bg-gradient-to-b from-transparent via-white/20 to-transparent transform -skew-y-12"></div>
+                    
+                    <Text variant="heading3" className={`
+                      relative z-10 font-semibold leading-6 transition-all duration-300
+                      ${isActive 
+                        ? 'text-white' 
+                        : 'text-gray-700 group-hover:text-brand-darkblue'
+                      }
+                    `}>
+                      {link.name}
+                    </Text>
+                    
+                    {/* Bottom border animation */}
+                    <div className={`
+                      absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-green-500 to-blue-500 
+                      transition-all duration-300 ease-out
+                      ${isActive 
+                        ? 'w-full' 
+                        : 'w-0 group-hover:w-full'
+                      }
+                    `}></div>
+                    
+                    {/* Glow effect for active link */}
+                    {isActive && (
+                      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-green-500/20 to-blue-500/20 blur-sm -z-10"></div>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
           </div>
           <div className='flex items-center gap-2'>
             <Select
@@ -115,7 +165,7 @@ export default function Navbar(props: WithLocaleProp) {
             <Link href={'/contact'}>
 
               <Button>
-                <Text variant="paragraph" className='text-white'>
+                <Text variant="heading4" className='text-white'>
                   {dictionary.global_layout.navigation.buttons.contact}
                 </Text>
               </Button>

@@ -27,7 +27,8 @@ export const dictionaries = {
                     blog: "News",
                     gallery: "Gallery",
                     careers: "Volunteer",
-                    contact: "Contact"
+                    contact: "Contact",
+                    programs: "Programs"
                 },
                 buttons: {
                     contact: "Contact Us"
@@ -38,6 +39,12 @@ export const dictionaries = {
             }
         },
         pages: {
+            programs: {
+                page_title: "Our Programs",
+                subtitle: "How We Serve Communities",
+                suptitle: "PROGRAMS",
+                description: "At Bamporeze, we implement various programs designed to address the most pressing needs of vulnerable communities in Rwanda. Our holistic approach combines education, healthcare, economic empowerment, and infrastructure development."
+            },
             contact_us: {
                 title: "Contact Us",
                 description: "Reach out to us",
@@ -489,6 +496,7 @@ export const dictionaries = {
                     products: "Initiatives",
                     blog: "Actualités",
                     gallery: "Galerie",
+                    programs: "Programmes",
                     careers: "Bénévolat",
                     contact: "Contact"
                 },
@@ -501,6 +509,12 @@ export const dictionaries = {
             }
         },
         pages: {
+            programs: {
+                page_title: "Nos Programmes",
+                subtitle: "Comment Nous Servons les Communautés",
+                suptitle: "PROGRAMMES",
+                description: "At Bamporeze, we implement various programs designed to address the most pressing needs of vulnerable communities in Rwanda. Our holistic approach combines education, healthcare, economic empowerment, and infrastructure development."
+            },
             home: {
                 hero: {
                     ctas: {
