@@ -71,7 +71,7 @@ export default function Footer(props: WithLocaleProp) {
                 <Text className="text-center text-white w-full">
                     &copy; {new Date().getFullYear()} BAMPOREZE. All rights reserved
                 </Text>
-                
+
             </WebSection>
         </footer>
     )

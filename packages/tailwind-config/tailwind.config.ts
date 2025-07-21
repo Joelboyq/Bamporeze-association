@@ -14,6 +14,8 @@ const config: Omit<Config, "content"> = {
         "blue-to-transparent": "linear-gradient(90deg, rgba(10, 92, 54, 0.17) 5.99%, rgba(10, 92, 54, 0.00) 83.92%)",
       },
       colors: {
+        white: "#FFFFFF",
+
         brand: {
           "darkblue": {
             DEFAULT: "#0A5C36",
