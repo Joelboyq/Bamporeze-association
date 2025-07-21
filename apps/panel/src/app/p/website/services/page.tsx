@@ -52,7 +52,7 @@ function EditService(props: IEditServiceProps) {
                     <Text>Descriptive Image </Text>
                     <FileInput value={descriptive_image} setValue={setDescriptiveImage} />
                 </div>
-                <Input<string> placeholder="Mining" _controller={{
+                <Input<string> placeholder="....." _controller={{
                     initialValue: title,
                     value: title,
                     setValue: setTitle
@@ -108,7 +108,7 @@ function AddService({ onDone }: { onDone: () => void }) {
                     <Text>Descriptive Image </Text>
                     <FileInput value={descriptive_image} setValue={setDescriptiveImage} />
                 </div>
-                <Input<string> placeholder="Mining" _controller={{
+                <Input<string> placeholder="....." _controller={{
                     initialValue: title,
                     value: title,
                     setValue: setTitle

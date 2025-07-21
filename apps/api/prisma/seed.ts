@@ -18,7 +18,7 @@ async function main() {
     });
 
     if (!existingAdmin) {
-      const hashedPassword = await bcrypt.hash('Admin@123', 10);
+      const hashedPassword = await bcrypt.hash('Admin@123', 10);    
       const verification_code = generateVerificationCode();
       
       await prisma.admin.create({

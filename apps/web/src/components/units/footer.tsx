@@ -18,28 +18,28 @@ export default function Footer(props: WithLocaleProp) {
                         <div className="w-28">
                             <Logo variant="dark" />
                         </div>
-                        <Text variant="paragraph" className="text-brand-lightblack/60">
+                        <Text variant="paragraph" className="text-white">
                             {dictionary.common.footer.slogan}
                         </Text>
                         <div className="flex items-center gap-4">
-                            <a href="#">
+                            <a href="https://www.instagram.com/bamporeze/">
                                 <InstaIcon />
                             </a>
-                            <a href="#">
+                            <a href="https://www.linkedin.com/company/bamporeze/">
                                 <LinkedIcon />
                             </a>
-                            <a href="#">
+                            <a href="https://www.facebook.com/bamporeze">
                                 <FacebookIcon />
                             </a>
                         </div>
                     </div>
                     <div className="flex flex-col  gap-3">
-                        <Text variant="subtitle" className="text-white">{dictionary.common.footer.contact_links.title}</Text>
+                        <Text variant="subtitle" className="text-yellow">Navigation</Text>
                         <div className="pl-2 flex flex-col  gap-2">
                             {
                                 navLinks.map((link, index) => (
                                     <a key={index} href={link.href}>
-                                        <Text variant="paragraph" className="hover:text-brand-lightblue">
+                                        <Text variant="paragraph" className="text-white hover:text-brand-lightblue">
                                             {link.name}
                                         </Text>
                                     </a>
@@ -48,13 +48,13 @@ export default function Footer(props: WithLocaleProp) {
                         </div>
                     </div>
                     <div className="flex flex-col  gap-3">
-                        <Text variant="subtitle" className="text-white">{dictionary.common.footer.contact_us.title}</Text>
-                        <div className="pl-2 flex flex-col  gap-2">
+                        <Text variant="subtitle" className="text-yellow">{dictionary.common.footer.contact_us.title}</Text>
+                        <div className="pl-2 flex flex-col   gap-2">
                             {
                                 contactLinks.map((link, index) => (
                                     <a key={index} className="flex items-center gap-2" href={link.href}>
                                         <link.icon />
-                                        <Text variant="paragraph" className="hover:text-brand-lightblue">
+                                        <Text variant="paragraph" className="text-white hover:text-brand-lightblue">
                                             {link.text}
                                         </Text>
                                     </a>
@@ -68,7 +68,7 @@ export default function Footer(props: WithLocaleProp) {
                 </div>
 
                 <hr className="border border-brand-white-10" />
-                <Text className="text-center w-full">
+                <Text className="text-center text-white w-full">
                     &copy; {new Date().getFullYear()} BAMPOREZE. All rights reserved
                 </Text>
                 

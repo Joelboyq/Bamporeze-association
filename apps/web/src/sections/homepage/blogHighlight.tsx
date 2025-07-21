@@ -8,13 +8,13 @@ export default async function BlogHighlight() {
     if (!randomBlog) return null
     return (
         <WebSection about="Blog Highlight" className={`my-12`}>
-            <div className="bg-black rounded-xl p-10 flex items-center justify-center">
+            <div className="bg-brand-blackblue rounded-xl p-10 flex items-center justify-center">
                 <div className="max-w-[1000px] flex flex-col items-center gap-3 ">
-                    <Text variant='suptitle' className="text-center ">from our blog</Text>
+                    <Text variant='suptitle' className="text-center text-white">from our blog</Text>
                     <Text variant='title_2' className="text-center  text-white">
                         {randomBlog.title}
                     </Text>
-                    <Text variant='subtitle' className="text-center">Latest release from our blog</Text>
+                    <Text variant='subtitle' className="text-center text-white">Latest release from our blog</Text>
                     <Link href={`/blog`} className="h-[40px] px-3 bg-brand-darkblue-5 text-white"> Visit our blog </Link>
                 </div>
             </div>

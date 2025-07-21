@@ -77,11 +77,11 @@ export default function Navbar(props: WithLocaleProp) {
   return (
     <div className='top-0 sticky w-full z-50'>
       <header id=''>
-        <WebSection about="BAMPOREZE" className='md:flex msm:hidden msm:grid-cols-2 items-center justify-end gap-4 py-2 bg-brand-blackblue ' animate={false} >
+        <WebSection about="BAMPOREZE" className='md:flex msm:hidden msm:grid-cols-2 items-center justify-end gap-4 py-2 bg-brand-blackblue text-white ' animate={false} >
           {contactLinks.map((contact, i) => (
             <Link href={contact.href} key={i} className='flex items-center gap-2 fill-white'>
-              <contact.icon />
-              <Text variant="paragraph" className='text-[12px] text-white/60'>
+              <contact.icon/>
+              <Text variant="paragraph" className='text-[12px] text-white'>
                 {contact.text}
               </Text>
             </Link>))}

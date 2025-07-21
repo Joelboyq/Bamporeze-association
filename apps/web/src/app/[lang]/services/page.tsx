@@ -8,7 +8,7 @@ import { getDictionary } from "../../../utils/dictionary";
 
 export const metadata: Metadata = {
     title: "Our services",
-    description: "Us COMIDU, We provide all mining services to our clients, we swing in our client’s way",
+    description: "Us COMIDU, We provide all ..... services to our clients, we swing in our client’s way",
     icons: ['/favicon.ico']
 }
 

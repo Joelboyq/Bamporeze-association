@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
     return {
         name: 'BAMPOREZE.',
         short_name: 'BAMPOREZE.',
-        description: 'Mining company based in Rwanda',
+        description: '..... company based in Rwanda',
         start_url: '/',
         display: 'standalone',
         background_color: '#fff',

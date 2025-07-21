@@ -5,7 +5,7 @@ import { FC } from "react"
 
 const Review: FC<IReview> = ({ reviewer_company, review_message, reviewer_name, reviewer_image }) => {
     return (
-        <div className="md:p-6 msm:p-2 rounded-md relative shadowed hooverable-card">
+        <div className="md:p-6 msm:p-2 rounded-md relative shadowed hover:bg-brand-darkblue-10 hover:border hover:border-brand-darkblue-10">
             <div className="z-0 flex flex-col gap-3">
                 <Text variant="heading3" className="py-4 hv-text">{reviewer_company}</Text>
                 <Text className="italic hv-subtext">&quot;&nbsp;{review_message}&apos;&quot;</Text>

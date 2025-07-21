@@ -30,7 +30,6 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
     };
     
     const openVideo = () => {
-        // Pause slider autoplay when video opens
         const slider = document.querySelector('.slick-slider') as any;
         if (slider && slider.slickPause) {
             slider.slickPause();
@@ -38,7 +37,6 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
         
         setVideoOpen(true);
         
-        // Give browser time to render modal before playing
         setTimeout(() => {
             if (videoRef.current) {
                 videoRef.current.play().catch(err => {
@@ -49,7 +47,6 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
     };
     
     const closeVideo = () => {
-        // Resume slider autoplay when video closes
         const slider = document.querySelector('.slick-slider') as any;
         if (slider && slider.slickPlay) {
             slider.slickPlay();
@@ -61,15 +58,14 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
         setVideoOpen(false);
     };
     
-    // Type casting to fix TypeScript error in production build
     const SliderComponent = Slider as any;
     
     return (
         <div className="relative w-full">
             <SliderComponent {...settings} className="w-full">
                 {slides.map((slide, i) => (
-                    <div key={slide.id || i} className="relative md:h-[80vh] msm:h-[90vh]">
-                        {/* Background image - with Next.js Image */}
+                    <div key={slide.id || i} className="relative h-screen min-h-[600px]">
+                        {/* Background image */}
                         <div className="absolute inset-0 z-0 overflow-hidden bg-black">
                             <Image
                                 src={slide.background_image}
@@ -78,95 +74,62 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
                                 priority={i === 0}
                                 quality={85}
                                 sizes="100vw"
-                                style={{
-                                    objectFit: "cover",
-                                    objectPosition: "center"
-                                }}
+                                className="object-cover object-center"
                             />
                         </div>
                         
-                        {/* Simple dark overlay with fixed opacity */}
-                        <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
+                        {/* Dark overlay */}
+                        <div className="absolute inset-0 bg-black/50 z-10"></div>
                         
                         {/* Content */}
-                        <div className="relative z-20 h-full flex items-center">
-                            <div className="container mx-auto px-8">
-                                {/* Desktop layout */}
-                                <div className="md:block msm:hidden">
-                                    <div className="max-w-2xl">
-                                        <span className="text-white font-bold text-xl tracking-wider mb-4 block">
-                                            BAMPOREZE
-                                        </span>
-                                        <h1 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 drop-shadow-lg">
-                                            {slide.title}
-                                        </h1>
-                                        <p className="text-white text-xl md:text-2xl mb-8 max-w-2xl drop-shadow-md">
-                                            {slide.description}
-                                        </p>
-                                        
-                                        {i === activeSlide && i === 0 && (
-                                            <div className="flex items-center gap-6 mt-4">
-                                                <Link href="/contact">
-                                                    <button className="bg-green-700 hover:bg-green-800 text-white font-medium rounded-md px-8 py-3 text-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">
-                                                        {dictionary.pages.home.hero.ctas.contact_us}
-                                                    </button>
-                                                </Link>
-                                                <button 
-                                                    className="border border-white text-white hover:bg-white/20 font-medium rounded-md px-8 py-3 text-lg flex items-center gap-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
-                                                    onClick={openVideo}
-                                                    type="button"
-                                                >
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                                        <path d="M8 5v14l11-7z"/>
-                                                    </svg>
-                                                    {dictionary.pages.home.hero.ctas.watch_yt}
-                                                </button>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                                
-                                {/* Mobile layout */}
-                                <div className="md:hidden msm:block text-center">
-                                    <span className="text-white font-bold text-xl tracking-wider mb-4 block">
+                        <div className="relative z-20 h-full flex items-center justify-center">
+                            <div className="container mx-auto px-4 text-center max-w-4xl">
+                                {/* Brand */}
+                                <div className="mb-4 md:mb-6">
+                                    <span className="text-white font-bold text-base md:text-lg lg:text-xl tracking-[0.2em] uppercase">
                                         BAMPOREZE
                                     </span>
-                                    <h1 className="text-white font-bold text-4xl leading-tight mb-6 drop-shadow-lg">
-                                        {slide.title}
-                                    </h1>
-                                    <p className="text-white text-lg mb-8 drop-shadow-md">
-                                        {slide.description}
-                                    </p>
-                                    
-                                    {i === activeSlide && i === 0 && (
-                                        <div className="flex flex-col items-center gap-4 mt-4">
-                                            <Link href="/contact" className="w-full">
-                                                <button className="w-full bg-green-700 hover:bg-green-800 text-white font-medium rounded-md px-8 py-3 text-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">
-                                                    {dictionary.pages.home.hero.ctas.contact_us}
-                                                </button>
-                                            </Link>
-                                            <button 
-                                                className="w-full border border-white text-white hover:bg-white/20 font-medium rounded-md px-8 py-3 text-lg flex items-center justify-center gap-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
-                                                onClick={openVideo}
-                                                type="button"
-                                            >
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                                    <path d="M8 5v14l11-7z"/>
-                                                </svg>
-                                                {dictionary.pages.home.hero.ctas.watch_yt}
-                                            </button>
-                                        </div>
-                                    )}
                                 </div>
+                                
+                                {/* Main Title */}
+                                <h1 className="text-white font-bold leading-tight mb-6 md:mb-8 drop-shadow-2xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+                                    {slide.title}
+                                </h1>
+                                
+                                {/* Description */}
+                                <p className="text-white/90 mb-8 md:mb-12 drop-shadow-lg max-w-3xl mx-auto leading-relaxed text-lg sm:text-xl md:text-2xl lg:text-3xl">
+                                    {slide.description}
+                                </p>
+                                
+                                {/* Buttons - Only show on first slide */}
+                                {i === activeSlide && i === 0 && (
+                                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                                        <Link href="/contact">
+                                            <button className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-8 py-4 text-lg md:text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-[200px]">
+                                                {dictionary.pages.home.hero.ctas.contact_us}
+                                            </button>
+                                        </Link>
+                                        <button 
+                                            className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-black font-semibold rounded-lg px-8 py-4 text-lg md:text-xl flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-[200px]"
+                                            onClick={openVideo}
+                                            type="button"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                                <path d="M8 5v14l11-7z"/>
+                                            </svg>
+                                            {dictionary.pages.home.hero.ctas.watch_yt}
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
                 ))}
             </SliderComponent>
             
-            {/* Custom pagination indicators */}
+            {/* Pagination dots */}
             <div className="absolute bottom-8 left-0 right-0 flex justify-center z-30">
-                <div className="flex space-x-4">
+                <div className="flex space-x-3">
                     {slides.map((_, index) => (
                         <button 
                             key={index} 
@@ -176,10 +139,10 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
                                     slider.slickGoTo(index);
                                 }
                             }}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                            className={`w-3 h-3 rounded-full transition-all duration-300 transform hover:scale-125 ${
                                 index === activeSlide 
-                                    ? 'bg-white' 
-                                    : 'bg-white/50 hover:bg-white/70'
+                                    ? 'bg-white shadow-lg' 
+                                    : 'bg-white/40 hover:bg-white/70'
                             }`}
                             aria-label={`Go to slide ${index + 1}`}
                             type="button"
@@ -190,31 +153,29 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
             
             {/* Video Modal */}
             {videoOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 animate-fadeIn">
-                    <div className="relative w-full max-w-5xl rounded-lg overflow-hidden">
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4">
+                    <div className="relative w-full max-w-5xl aspect-video rounded-xl overflow-hidden shadow-2xl">
                         <button 
                             onClick={closeVideo}
-                            className="absolute top-4 right-4 text-white text-2xl z-10 bg-black/50 w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/70 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                            className="absolute top-4 right-4 text-white text-2xl z-10 bg-black/60 w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/80 transition-all duration-200 transform hover:scale-110"
                             type="button"
                             aria-label="Close video"
                         >
                             ✕
                         </button>
                         
-                        <div className="w-full aspect-video bg-black">
-                            <video 
-                                ref={videoRef}
-                                controls
-                                className="w-full h-full object-contain"
-                                onError={(e) => {
-                                    console.error("Video error:", e);
-                                    alert("There was an error loading the video. Please try again later.");
-                                }}
-                            >
-                                <source src="/videos/intro.mp4" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
+                        <video 
+                            ref={videoRef}
+                            controls
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                                console.error("Video error:", e);
+                                alert("There was an error loading the video. Please try again later.");
+                            }}
+                        >
+                            <source src="/videos/intro.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </div>
             )}
