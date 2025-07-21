@@ -59,7 +59,7 @@ export default function Page({ params: { lang } }: { params: { lang: 'en' | 'fr'
       <ProductsList locale={lang} />
       <BlogHighlight />
       <Reviews locale={lang} />
-      <OurHappyClients locale={lang} />
+
     </div>
   )
 }
