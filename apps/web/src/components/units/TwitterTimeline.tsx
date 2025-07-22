@@ -4,7 +4,8 @@ import { useEffect } from 'react';
 export default function TwitterTimeline() {
   useEffect(() => {
     // Only load the script if it hasn't been loaded yet
-    if (!window['twttr']) {
+    const win = window as unknown as Record<string, any>;
+    if (!win['twttr']) {
       const script = document.createElement('script');
       script.src = 'https://platform.twitter.com/widgets.js';
       script.async = true;
@@ -12,7 +13,7 @@ export default function TwitterTimeline() {
       document.body.appendChild(script);
     } else {
       // If script is already loaded, re-render widgets
-      window['twttr']?.widgets?.load();
+      win['twttr']?.widgets?.load();
     }
   }, []);
 
