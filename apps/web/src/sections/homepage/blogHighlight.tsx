@@ -2,6 +2,7 @@ import { Text } from "@repo/ui/units";
 import Link from "next/link";
 import WebSection from "../../components/layouts/websection";
 import { getBlogHighlight } from "../../utils/api";
+import TwitterTimeline from '../../components/units/TwitterTimeline';
 
 export default async function BlogHighlight() {
     const randomBlog = await getBlogHighlight()
@@ -18,6 +19,7 @@ export default async function BlogHighlight() {
                     <Link href={`/blog`} className="h-[40px] px-3 bg-brand-darkblue-5 text-white"> Visit our blog </Link>
                 </div>
             </div>
+            <TwitterTimeline />
         </WebSection>
     )
 }

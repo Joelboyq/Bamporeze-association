@@ -9,6 +9,7 @@ import { IWriting } from "@repo/ui/types";
 import { redirect } from "next/navigation";
 import SectionTitle from "../../../components/units/sectionTitle";
 import BlogCard from "../../../components/blog/BlogCard";
+import TwitterTimeline from '../../../components/units/TwitterTimeline';
 
 // Base64 encoded SVG placeholders
 const PLACEHOLDER_IMAGE = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTJlOGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzQ3NTU2OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgYWxpZ25tZW50LWJhc2VsaW5lPSJtaWRkbGUiPkJsb2cgSW1hZ2U8L3RleHQ+PC9zdmc+";
@@ -219,6 +220,7 @@ export default async function Page({ params, searchParams }: {
           <div className="w-full flex flex-col gap-4">
               <Text variant="heading3">Blog</Text>
               <Text variant="paragraph">No blog posts available at the moment.</Text>
+              <TwitterTimeline />
           </div>
       );
   }
@@ -246,6 +248,7 @@ export default async function Page({ params, searchParams }: {
           <Link href={`/blog/${blog.id}`}>
               <Text variant="paragraph" className="text-brand-darkblue hover:underline">Read more</Text>
           </Link>
+          <TwitterTimeline />
       </div>
   );
 }

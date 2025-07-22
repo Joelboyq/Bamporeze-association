@@ -9,6 +9,9 @@ import { contactLinks, getNavlinks } from '../../constants/contactLinks'
 import { getDictionary } from '../../utils/dictionary'
 import WebSection from '../layouts/websection'
 import { remoteAxios } from '../../utils/axios.config'
+import axios from 'axios'
+import DonateModal from './DonateModal';
+import { FaHeart } from 'react-icons/fa';
 
 const locales = [
   {
@@ -52,11 +55,11 @@ export default function Navbar(props: WithLocaleProp) {
   const [hidenav, setHideNav] = useState(false)
   const navLinks = getNavlinks(props.locale)
   const dictionary = getDictionary(props.locale)
+  const [donateOpen, setDonateOpen] = useState(false);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      console.log(position)
-      remoteAxios.post('/visits/create', {
+      axios.post('http://65.181.118.17:5234/api/v1/visits/create', {
         location: `${position.coords.latitude},${position.coords.longitude}`
       })
     })
@@ -85,7 +88,18 @@ export default function Navbar(props: WithLocaleProp) {
                 {contact.text}
               </Text>
             </Link>))}
+          {/* Donate Button */}
+          <button
+            onClick={() => setDonateOpen(true)}
+            className="text-white ml-4 px-5 py-2 rounded-full bg-yellow-400 hover:bg-yellow-500 text-brand-darkblue font-extrabold flex items-center gap-2 shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 animate-pulse hover:animate-none"
+            style={{ border: '2px solid #fff', boxShadow: '0 2px 12px 0 rgba(255,193,7,0.25)' }}
+            aria-label="Donate"
+          >
+            <FaHeart className="text-red-500 animate-bounce mr-1" />
+            Donate
+          </button>
         </WebSection>
+        <DonateModal isOpen={donateOpen} onClose={() => setDonateOpen(false)} />
       </header>
       <nav className='top-0 md:block  sticky z-50  bg-white msm:hidden'>
         <WebSection about='BAMPOREZE.' className="flex flex-row justify-between items-center py-4 ui-bg-red-500 shadow-1 " animate={false}>

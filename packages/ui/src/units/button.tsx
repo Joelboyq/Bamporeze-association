@@ -8,7 +8,7 @@ const buttonVariants = cva('ui-h-[50px] ui-text-[14px]  ui-px-10 ui-rounded-[6px
             primary:
                 'ui-bg-brand-darkblue  ui-text-brand-white hover:ui-bg-brand-blackblue',
             secondary:
-                'ui-bg-brand-darkblue-10  ui-text-brand-darkblue  hover:ui-bg-white',
+                'ui-bg-brand-darkblue-10  ui-text-brand-darkblue  hover:ui-bg-white hover:border-brand-darkblue',
             tertiary:
                 'ui-bg-transparent  ui-text-brand-darkblue  hover:ui-bg-white ui-border ui-border-brand-darkblue/10',
             ondark:

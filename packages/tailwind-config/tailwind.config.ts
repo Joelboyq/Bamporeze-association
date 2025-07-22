@@ -18,9 +18,9 @@ const config: Omit<Config, "content"> = {
 
         brand: {
           "darkblue": {
-            DEFAULT: "#0A5C36",
-            10: "#0A5C3610",
-            5: '#0A5C3605'
+            DEFAULT: "#A0C654",
+            10: "#A0C65410",
+            5: '#A0C65405'
           },
           "white": {
             DEFAULT: "#FFFFFF",
@@ -30,7 +30,7 @@ const config: Omit<Config, "content"> = {
           },
           "black": "#000000",
           "lightblack": "#385845",
-          "blackblue": "#0A2E1C",
+          "blackblue": "#A0C654",
           "red": "#DC5436"
         }
       },

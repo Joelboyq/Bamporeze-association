@@ -106,6 +106,7 @@ export default function ProductsList({ locale }: WithLocaleProp) {
                     </div>
                 ))}
             </div>
+            {/* Twitter widget below programs - REMOVED as per user request */}
         </WebSection>
     );
 }

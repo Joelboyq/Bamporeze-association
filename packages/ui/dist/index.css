@@ -598,16 +598,16 @@ video {
 }
 
 .ui-border-brand-darkblue\/10 {
-  border-color: rgb(10 92 54 / 0.1);
+  border-color: rgb(160 198 84 / 0.1);
 }
 
 .ui-bg-brand-darkblue {
   --tw-bg-opacity: 1;
-  background-color: rgb(10 92 54 / var(--tw-bg-opacity));
+  background-color: rgb(160 198 84 / var(--tw-bg-opacity));
 }
 
 .ui-bg-brand-darkblue-10 {
-  background-color: #0A5C3610;
+  background-color: #A0C65410;
 }
 
 .ui-bg-brand-white-10 {
@@ -664,12 +664,12 @@ video {
 
 .ui-text-brand-blackblue {
   --tw-text-opacity: 1;
-  color: rgb(10 46 28 / var(--tw-text-opacity));
+  color: rgb(160 198 84 / var(--tw-text-opacity));
 }
 
 .ui-text-brand-darkblue {
   --tw-text-opacity: 1;
-  color: rgb(10 92 54 / var(--tw-text-opacity));
+  color: rgb(160 198 84 / var(--tw-text-opacity));
 }
 
 .ui-text-brand-lightblack {
@@ -753,7 +753,7 @@ video {
 }
 
 .hooverable-card:hover {
-  background-color: #0bb037;
+  background-color: #A0C654;
   color: white;
   .hv-text {
     color: white;
@@ -784,7 +784,7 @@ video {
 
 .hover\:ui-bg-brand-blackblue:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(10 46 28 / var(--tw-bg-opacity));
+  background-color: rgb(160 198 84 / var(--tw-bg-opacity));
 }
 
 .hover\:ui-bg-white:hover {
@@ -794,7 +794,7 @@ video {
 
 .hover\:ui-text-brand-darkblue:hover {
   --tw-text-opacity: 1;
-  color: rgb(10 92 54 / var(--tw-text-opacity));
+  color: rgb(160 198 84 / var(--tw-text-opacity));
 }
 
 .focus\:ui-ring-2:focus {
@@ -804,7 +804,7 @@ video {
 }
 
 .focus\:ui-ring-brand-darkblue\/50:focus {
-  --tw-ring-color: rgb(10 92 54 / 0.5);
+  --tw-ring-color: rgb(160 198 84 / 0.5);
 }
 
 .disabled\:ui-opacity-30:disabled {
@@ -838,12 +838,20 @@ video {
     font-size: 16px;
   }
 
-  .md\:ui-text-\[18px\] {
-    font-size: 18px;
+  .md\:ui-text-\[20px\] {
+    font-size: 20px;
   }
 
-  .md\:ui-text-\[34px\] {
-    font-size: 34px;
+  .md\:ui-text-\[21px\] {
+    font-size: 21px;
+  }
+
+  .md\:ui-text-\[22px\] {
+    font-size: 22px;
+  }
+
+  .md\:ui-text-\[39px\] {
+    font-size: 39px;
   }
 
   .md\:ui-text-\[54px\] {
