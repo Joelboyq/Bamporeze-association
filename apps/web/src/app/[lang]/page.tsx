@@ -51,7 +51,7 @@ export default function Page({ params: { lang } }: { params: { lang: 'en' | 'fr'
   ]
 
   return (
-    <div className=''>
+    <>
       <Hero locale={lang} />
       
       <AboutSectionOne expanded={false} locale={lang} />
@@ -61,7 +61,7 @@ export default function Page({ params: { lang } }: { params: { lang: 'en' | 'fr'
 
       <Reviews locale={lang} />
       <TrustedCompanies locale={lang} />
+      </>
 
-    </div>
   )
 }

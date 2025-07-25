@@ -53,7 +53,7 @@ export default function AboutSectionTwo({ locale }: WithLocaleProp) {
     return (
         <WebSection 
             about="Our impact" 
-            className="text-[30px] flex items-start justify-between justify-items-end msm:flex-col-reverse md:flex-row md:gap-[120px] msm:gap-10 py-20"
+            className="text-[30px] flex items-start justify-between justify-items-end msm:flex-col-reverse md:flex-row md:gap-8 msm:gap-6 py-16"
         >
             <div className="flex flex-col gap-8 md:w-7/12">
                 <SectionTitle

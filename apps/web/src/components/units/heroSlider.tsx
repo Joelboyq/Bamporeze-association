@@ -58,109 +58,76 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
         setVideoOpen(false);
     };
     
+
     const SliderComponent = Slider as any;
     
     return (
         <div className="relative w-full">
-            <SliderComponent {...settings} className="w-full">
-                {slides.map((slide, i) => (
-                    <div key={slide.id || i} className="relative h-screen min-h-[600px]">
-                        {/* Split layout container */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 h-full sm:-[200px]">
-                            
-                            {/* Text Content Side */}
-                            <div className="relative z-20 flex items-center justify-center bg-gradient-to-r from-gray-900 to-gray-800 md:bg-none lg:bg-white order-2 lg:order-1">
-                                <div className="container mx-auto px-6 lg:px-12 text-center lg:text-left max-w-2xl">
-                                    {/* Brand */}
-                                    <div className="mb-4 md:mb-6">
-                                        <span className="text-white lg:text-gray-800 font-bold text-base md:text-lg lg:text-xl tracking-[0.2em] uppercase">
-                                            BAMPOREZE
-                                        </span>
-                                    </div>
-                                    
-                                    {/* Main Title */}
-                                    <h1 className="text-white lg:text-gray-900 font-bold leading-tight mb-6 md:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-                                        {slide.title}
-                                    </h1>
-                                    
-                                    {/* Description */}
-                                    <p className="text-white/90 lg:text-gray-700 mb-8 md:mb-12 leading-relaxed text-lg sm:text-xl md:text-2xl">
-                                        {slide.description}
-                                    </p>
-                                    
-                                    {/* Buttons - Only show on first slide */}
-                                    {i === activeSlide && i === 0 && (
-                                        <div className="flex flex-col sm:flex-row items-center lg:items-start lg:justify-start justify-center gap-4 sm:gap-6">
-                                            <Link href="/contact">
-                                                <button className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-8 py-4 text-lg md:text-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-[200px]">
-                                                    {dictionary.pages.home.hero.ctas.contact_us}
-                                                </button>
-                                            </Link>
-                                            <button 
-                                                className="w-full sm:w-auto border-2 border-green-600 lg:border-gray-400 text-white lg:text-gray-800 hover:bg-green-600 hover:text-white lg:hover:bg-gray-800 lg:hover:text-white lg:hover:border-gray-800 font-semibold rounded-lg px-8 py-4 text-lg md:text-xl flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl min-w-[200px]"
-                                                onClick={openVideo}
-                                                type="button"
-                                            >
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                                    <path d="M8 5v14l11-7z"/>
-                                                </svg>
-                                                {dictionary.pages.home.hero.ctas.watch_yt}
-                                            </button>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-
-                            {/* Image Side */}
-                            <div className="relative overflow-hidden order-1 lg:order-2 bg-gray-100">
-                                {/* Background image with higher quality - fits within container */}
-                                <div className="absolute inset-0 z-0 flex items-center justify-center p-4 lg:p-8">
-                                    <div className="hidden sm:block md:block lg:block relative w-full h-full">
-                                        <Image
-                                            src={slide.background_image}
-                                            alt={slide.title}
-                                            fill
-                                            priority={i === 0}
-                                            quality={95}
-                                            sizes="(max-width: 1024px) 100vw, 50vw"
-                                            className="object-contain"
-                                        />
-                                    </div>
-                                </div>
-                                
-                                {/* Light overlay for mobile only */}
-                                <div className="absolute inset-0 bg-black/10 lg:bg-transparent z-10"></div>
-                            </div>
+            <div className="relative h-screen min-h-[600px] grid grid-cols-1 lg:grid-cols-2 mt-0 pt-0 py-0">
+                {/* Image Side with overlay/stat */}
+                <div className="relative order-1 lg:order-2 flex items-center justify-center bg-transparent px-4 py-0 lg:py-0">
+                    <div className="relative max-w-lg w-full rounded-3xl shadow-2xl overflow-hidden border-l-8 border-green-600 bg-white">
+                        <Image
+                            src={slides[0]?.background_image || '/images/hero-fr.jpg'}
+                            alt={slides[0]?.title || 'Bamporeze Hero'}
+                            width={600}
+                            height={400}
+                            quality={95}
+                            className="object-cover w-full h-[320px] md:h-[400px] lg:h-[480px]"
+                            style={{ borderRadius: '1.5rem' }}
+                        />
+                        {/* Stat Badge */}
+                        <div className="absolute top-4 left-4 bg-white/90 text-brand-darkblue font-bold px-5 py-2 rounded-full shadow-lg z-20 text-base flex items-center gap-2">
+                            <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#22c55e" /><text x="12" y="16" textAnchor="middle" fontSize="10" fill="#fff">10K+</text></svg>
+                            {locale === 'fr' ? 'Enfants aidés' : 'Children Empowered'}
                         </div>
                     </div>
-                ))}
-            </SliderComponent>
-            
-            {/* Pagination dots */}
-            <div className="absolute bottom-8 left-0 right-0 flex justify-center z-30">
-                <div className="flex space-x-3">
-                    {slides.map((_, index) => (
-                        <button 
-                            key={index} 
-                            onClick={() => {
-                                const slider = document.querySelector('.slick-slider') as any;
-                                if (slider && slider.slickGoTo) {
-                                    slider.slickGoTo(index);
-                                }
-                            }}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 transform hover:scale-125 ${
-                                index === activeSlide 
-                                    ? 'bg-green-600 shadow-lg' 
-                                    : 'bg-gray-400 hover:bg-gray-600'
-                            }`}
-                            aria-label={`Go to slide ${index + 1}`}
-                            type="button"
-                        />
-                    ))}
+                </div>
+                {/* Content Side */}
+                <div className="relative z-20 flex items-center justify-center bg-white/95 order-2 lg:order-1 shadow-lg lg:shadow-none">
+                    <div className="container mx-auto px-6 lg:px-12 text-center lg:text-left max-w-2xl">
+                        <div className="mb-4 md:mb-6">
+                            <span className="text-brand-darkblue font-bold text-xs md:text-sm lg:text-base tracking-[0.2em] uppercase bg-brand-lightblue/10 px-3 py-1 rounded-full inline-block">
+                                BAMPOREZE | {locale === 'fr' ? 'ONG' : ' NGO'}
+                            </span>
+                        </div>
+                        <h1 className="text-brand-darkblue font-extrabold leading-tight mb-6 md:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                            {dictionary.pages.home.hero.title || (locale === 'fr' ? 'Bienvenue chez BAMPOREZE' : 'WELCOME TO BAMPOREZE')}
+                        </h1>
+                        <p className="text-brand-darkblue/80 mb-8 md:mb-12 leading-relaxed text-lg sm:text-xl md:text-2xl">
+                            {dictionary.pages.home.hero.description || (locale === 'fr' ? 'Autonomiser les enfants vulnérables. Transformer les avenirs.' : 'Empowering Vulnerable Children. Transforming Futures.')}
+                        </p>
+                        {/* CTAs with icons */}
+                        <div className="flex flex-col sm:flex-row items-center lg:items-start lg:justify-start justify-center gap-4 sm:gap-6 mb-6">
+                            <Link href="/contact">
+                                <button className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-8 py-4 text-base md:text-lg transition-colors duration-150 min-w-[200px] shadow-md flex items-center gap-2">
+                                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 17.5v-11Z" stroke="#fff" strokeWidth="2"/><path d="m3 7 8.293 6.293a1 1 0 0 0 1.414 0L21 7" stroke="#fff" strokeWidth="2"/></svg>
+                                    {dictionary.pages.home.hero.ctas.contact_us}
+                                </button>
+                            </Link>
+                            <button 
+                                className="w-full sm:w-auto border-2 border-green-600 text-green-700 hover:bg-green-600 hover:text-white font-semibold rounded-lg px-8 py-4 text-base md:text-lg flex items-center justify-center gap-3 transition-colors duration-150 min-w-[200px] shadow-md"
+                                onClick={openVideo}
+                                type="button"
+                            >
+                                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#22c55e" /><polygon points="10,8 16,12 10,16" fill="#fff"/></svg>
+                                {dictionary.pages.home.hero.ctas.watch_yt}
+                            </button>
+                        </div>
+                        {/* Testimonial/Impact Quote */}
+                        <div className="mt-4 flex items-center gap-3 bg-brand-lightblue/10 rounded-lg px-4 py-3 shadow-sm">
+                            <svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#22c55e"/><text x="16" y="22" textAnchor="middle" fontSize="18" fill="#fff">“</text></svg>
+                            <span className="text-brand-darkblue text-base italic">{locale === 'fr' ? '“Grâce à Bamporeze, j’ai pu retourner à l’école et rêver d’un meilleur avenir.”' : '“Thanks to Bamporeze, I was able to return to school and dream of a better future.”'}</span>
+                        </div>
+                    </div>
+                </div>
+                {/* Scroll Indicator */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center">
+                    <span className="text-brand-darkblue text-xs mb-1">{locale === 'fr' ? 'En savoir plus' : 'Learn more'}</span>
+                    <svg className="animate-bounce" width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M12 5v14m0 0-7-7m7 7 7-7" stroke="#22c55e" strokeWidth="2" strokeLinecap="round"/></svg>
                 </div>
             </div>
-            
-            {/* Video Modal */}
+            {/* Video Modal: always render if videoOpen is true */}
             {videoOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4">
                     <div className="relative w-full max-w-5xl aspect-video rounded-xl overflow-hidden shadow-2xl">
@@ -172,7 +139,6 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
                         >
                             ✕
                         </button>
-                        
                         <video 
                             ref={videoRef}
                             controls

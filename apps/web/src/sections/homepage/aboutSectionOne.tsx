@@ -17,7 +17,7 @@ export default function useAboutSectionOne({ expanded, locale }: { expanded: boo
     
         const itTrue = currentPath.includes("about");
     return (
-        <WebSection about="Our corporate Strategy" className="flex items-start justify-between justify-items-end msm:flex-col md:flex-row md:gap-[120px] msm:gap-10 py-20">
+        <WebSection about="Our corporate Strategy" className="flex items-start justify-between justify-items-end msm:flex-col md:flex-row md:gap-8 msm:gap-6 py-16">
             <div className="md:w-5/12">
                 <Image 
                     src={'/images/about_pic_1.jpg'} 

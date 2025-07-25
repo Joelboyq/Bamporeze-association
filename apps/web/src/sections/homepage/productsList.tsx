@@ -39,7 +39,7 @@ export default function ProductsList({ locale }: WithLocaleProp) {
     ];
     
     return (
-        <WebSection about="Our programs" className="py-24 flex flex-col gap-16 overflow-hidden bg-gradient-to-b from-white to-white">
+        <WebSection about="Our programs" className="py-16 flex flex-col gap-8 overflow-hidden bg-gradient-to-b from-white to-white">
             <div className="flex flex-col items-center">
                 <SectionTitle
                     direction="vertical"
@@ -50,7 +50,7 @@ export default function ProductsList({ locale }: WithLocaleProp) {
                 <div className="w-20 h-1 bg-brand-darkblue mt-6 rounded-full"></div>
             </div>
             
-            <div className="grid md:grid-cols-2 msm:grid-cols-1 gap-12">
+            <div className="grid md:grid-cols-2 msm:grid-cols-1 gap-6">
                 {programItems.map((program, index) => (
                     <div key={index} className="group relative h-[400px] overflow-hidden rounded-xl shadow-lg">
                         {/* Program image */}

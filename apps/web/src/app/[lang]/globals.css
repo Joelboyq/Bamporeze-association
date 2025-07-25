@@ -53,3 +53,8 @@ code {
 .navbar-hidden {
   top: -100px; /* Adjust the hiding distance as needed */
 }
+
+body, html {
+  margin: 0;
+  padding: 0;
+}

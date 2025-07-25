@@ -102,9 +102,11 @@ export default function Navbar(props: WithLocaleProp) {
         <DonateModal isOpen={donateOpen} onClose={() => setDonateOpen(false)} />
       </header>
       <nav className='top-0 md:block  sticky z-50  bg-white msm:hidden'>
-        <WebSection about='BAMPOREZE.' className="flex flex-row justify-between items-center py-4 ui-bg-red-500 shadow-1 " animate={false}>
+        <WebSection about='BAMPOREZE.' className="flex flex-row justify-between items-center py-2 ui-bg-red-500 shadow-1 " animate={false}>
           <div className='w-28'>
-            <Logo variant="light" />
+            <Link href="/" aria-label="Go to homepage">
+              <Logo variant="light" />
+            </Link>
           </div>
           <div className="flex items-center gap-2">
             {navLinks.map((link, index) => {
@@ -118,48 +120,21 @@ export default function Navbar(props: WithLocaleProp) {
               return (
                 <Link key={index} href={`/${props.locale}${link.href}`}>
                   <div className={`
-                    relative px-3 py-2 mx-1 rounded-lg transition-all duration-300 ease-in-out 
+                    relative px-3 py-2 mx-1 rounded-lg transition-colors duration-150 ease-in-out 
                     group cursor-pointer overflow-hidden
                     ${isActive 
-                      ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg' 
-                      : 'hover:bg-gradient-to-r hover:from-green-50 hover:to-blue-50 hover:text-brand-darkblue hover:shadow-md'
-                    }
-                    transform hover:scale-105 hover:-translate-y-1
+                      ? 'bg-brand-darkblue text-white' 
+                      : 'hover:bg-brand-lightblue hover:text-brand-darkblue'}
                   `}>
-                    {/* Animated background effect */}
-                    <div className={`
-                      absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 opacity-0 
-                      transition-opacity duration-300 group-hover:opacity-10
-                      ${isActive ? 'opacity-100' : ''}
-                    `}></div>
-                    
-                    {/* Shine effect */}
-                    <div className="absolute inset-0 -top-full opacity-0 group-hover:opacity-100 group-hover:top-full transition-all duration-700 bg-gradient-to-b from-transparent via-white/20 to-transparent transform -skew-y-12"></div>
-                    
                     <Text variant="heading3" className={`
-                      relative z-10 font-semibold leading-6 transition-all duration-300
+                      relative z-10 font-semibold leading-6 transition-colors duration-150 text-base
                       ${isActive 
                         ? 'text-white' 
-                        : 'text-gray-700 group-hover:text-brand-darkblue'
-                      }
+                        : 'text-gray-700 group-hover:text-brand-darkblue'}
+                      ${props.locale === 'fr' ? 'text-sm' : ''}
                     `}>
                       {link.name}
                     </Text>
-                    
-                    {/* Bottom border animation */}
-                    <div className={`
-                      absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-green-500 to-blue-500 
-                      transition-all duration-300 ease-out
-                      ${isActive 
-                        ? 'w-full' 
-                        : 'w-0 group-hover:w-full'
-                      }
-                    `}></div>
-                    
-                    {/* Glow effect for active link */}
-                    {isActive && (
-                      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-green-500/20 to-blue-500/20 blur-sm -z-10"></div>
-                    )}
                   </div>
                 </Link>
               );
@@ -179,7 +154,7 @@ export default function Navbar(props: WithLocaleProp) {
             <Link href={'/contact'}>
 
               <Button>
-                <Text variant="heading4" className='text-white'>
+                <Text variant="heading4" className='text-white text-base'>
                   {dictionary.global_layout.navigation.buttons.contact}
                 </Text>
               </Button>
@@ -188,7 +163,7 @@ export default function Navbar(props: WithLocaleProp) {
         </WebSection>
       </nav>
       <nav className='top-0 msm:block bg-white sticky z-50  md:hidden'>
-        <WebSection about='BAMPOREZE.' className="flex flex-col justify-between items-center py-4 ui-bg-red-500 shadow-1 " animate={false}>
+        <WebSection about='BAMPOREZE.' className="flex flex-col justify-between items-center py-2 ui-bg-red-500 shadow-1 " animate={false}>
           <div className='flex items-center justify-between  w-full'>
             <div className='w-28'>
 
@@ -227,11 +202,11 @@ export default function Navbar(props: WithLocaleProp) {
               </option>
             </select>
             <Button>
-              <Text variant="paragraph" className='text-white md:w-fit msm:w-full'>
+              <Text variant="paragraph" className='text-white text-base md:w-fit msm:w-full'>
                 Contact us
               </Text>
             </Button>
-            <WebSection about="BAMPOREZE" className='md:flex msm:grid msm:grid-cols-2 items-center justify-end gap-4 py-2 ' animate={false} >
+            <WebSection about="BAMPOREZE" className='md:flex msm:grid msm:grid-cols-2 items-center justify-end gap-4 py-0 ' animate={false} >
               {contactLinks.map((contact, i) => (
                 <Link href={contact.href} key={i} className='flex items-center gap-2'>
                   <contact.icon />

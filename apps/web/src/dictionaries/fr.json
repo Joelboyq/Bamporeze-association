@@ -52,10 +52,8 @@
 
     "home": {
       "hero": {
-        "ctas": {
-          "contact_us": "Contactez-nous",
-          "watch_yt": "Regarder la vidéo d'introduction"
-        }
+        "title": "Bienvenue chez BAMPOREZE",
+        "description": "Autonomiser les enfants vulnérables. Transformer les avenirs."
       },
       "trusted_companies": {
         "title": "Entreprises de confiance",

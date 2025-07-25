@@ -49,7 +49,7 @@ export default function Subscribe({ locale }: WithLocaleProp) {
                     suptitle={dictionary.pages.home.subscribe_section.sub_form.success.suptitle || "NEWSLETTER"}
                 />
             </div> :
-                <div className="flex items-center msm:flex-col md:flex-row justify-between  w-full gap-10" id="subscribe">
+                <div className="flex items-center msm:flex-col md:flex-row justify-between  w-full gap-8" id="subscribe">
                     <SectionTitle
                         direction="horizontal"
                         title={dictionary.pages.home.subscribe_section.title}
