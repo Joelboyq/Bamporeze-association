@@ -11,26 +11,11 @@ const donationOptions = [
     label: 'Mobile Money (MoMo)',
     value: 'momo',
     icon: (
-      <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FFD600" /><text x="12" y="16" textAnchor="middle" fontSize="12" fill="#000">MoMo</text></svg>
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="15" cy="15" r="10" fill="#FFD600" /><text x="16" y="15" textAnchor="middle" fontSize="6" fill="#000">MoMo</text></svg>
     ),
-    details: 'N/A (MTN Rwanda)'
+    details: '0788304120'
   },
-  {
-    label: 'Bank Account',
-    value: 'bank',
-    icon: (
-      <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="10" rx="2" fill="#1976D2" /><text x="12" y="17" textAnchor="middle" fontSize="10" fill="#fff">BANK</text></svg>
-    ),
-    details: 'N/A'
-  },
-  {
-    label: 'PayPal',
-    value: 'paypal',
-    icon: (
-      <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="10" rx="2" fill="#003087" /><text x="12" y="17" textAnchor="middle" fontSize="10" fill="#fff">PayPal</text></svg>
-    ),
-    details: 'N/A'
-  }
+    
 ];
 
 export default function DonateModal({ isOpen, onClose }: DonateModalProps) {

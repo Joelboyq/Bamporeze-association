@@ -16,8 +16,8 @@ export default function AboutAimCards({ locale }: WithLocaleProp) {
     const dictionary = getDictionary(locale);
     const [hoveredCard, setHoveredCard] = useState<number | null>(null);
     
-    const brandGreen = "#254434";
-    const brandBlue = "#254434";
+    const brandGreen = "#A6CA66";
+    const brandBlue = "#A6CA66";
 
     const aimCards: IAimCard[] = [
         {

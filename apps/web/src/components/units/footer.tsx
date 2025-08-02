@@ -21,14 +21,14 @@ export default function Footer(props: WithLocaleProp) {
                         <Text variant="paragraph" className="text-white">
                             {dictionary.common.footer.slogan}
                         </Text>
-                        <div className="flex items-center gap-4">
-                            <a href="https://www.instagram.com/bamporeze/">
+                        <div className="flex text-white items-center gap-4">
+                            <a href="https://www.instagram.com/bamporeze/" className="text-white">
                                 <InstaIcon />
                             </a>
-                            <a href="https://www.linkedin.com/company/bamporeze/">
+                            <a href="https://www.linkedin.com/company/bamporeze/" className="text-white">
                                 <LinkedIcon />
                             </a>
-                            <a href="https://www.facebook.com/bamporeze">
+                            <a href="https://www.facebook.com/bamporeze" className="text-white">
                                 <FacebookIcon />
                             </a>
                         </div>
@@ -52,8 +52,8 @@ export default function Footer(props: WithLocaleProp) {
                         <div className="pl-2 flex flex-col   gap-2">
                             {
                                 contactLinks.map((link, index) => (
-                                    <a key={index} className="flex items-center gap-2" href={link.href}>
-                                        <link.icon />
+                                    <a key={index} className="flex text-white items-center gap-2" href={link.href}>
+                                        <link.icon/>
                                         <Text variant="paragraph" className="text-white hover:text-brand-lightblue">
                                             {link.text}
                                         </Text>

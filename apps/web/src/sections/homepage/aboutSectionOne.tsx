@@ -35,7 +35,7 @@ export default function useAboutSectionOne({ expanded, locale }: { expanded: boo
                     suptitle={dictionary.pages.home.about_section_one.suptitle}
                     subtitle={dictionary.pages.home.about_section_one.subtitle} />
 
-                <Text variant="heading4" className="text-lg leading-relaxed">
+                <Text variant="heading4" className="text-lg t leading-relaxed">
                     {itTrue ? dictionary.pages.home.about_section_one.content : dictionary.pages.home.about_section_one.content.slice(0, 200) + "..."}
                 </Text>
                 {!(itTrue) && (
