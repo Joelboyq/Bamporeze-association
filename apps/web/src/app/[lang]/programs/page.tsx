@@ -6,9 +6,9 @@ import { getDictionary } from "../../../utils/dictionary";
 import ProductsList from "../../../sections/homepage/productsList";
 
 export const metadata: Metadata = {
-  title: "Our Services | COMIDU",
-  description: "Discover COMIDU's comprehensive range of professional services designed to meet your business needs and exceed your expectations.",
-  keywords: "services, COMIDU, business solutions, professional services",
+  title: "Our Programs | BAMPOREZE Association",
+  description: "Discover BAMPOREZE ASSOCIATION's comprehensive range of professional services designed to meet your business needs and exceed your expectations.",
+  keywords: "Programs, BAMPOREZE, Association, Rwanda, Community Development, Education, Economic Empowerment",
   icons: ['/favicon.ico']
 }
 

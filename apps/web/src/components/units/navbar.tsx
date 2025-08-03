@@ -123,10 +123,10 @@ export default function Navbar(props: WithLocaleProp) {
                     relative px-3 py-2 mx-1 rounded-lg transition-colors duration-150 ease-in-out 
                     group cursor-pointer overflow-hidden
                     ${isActive 
-                      ? 'bg-brand-darkblue text-white' 
+                      ? 'bg-brand-darkblue  text-white' 
                       : 'hover:bg-brand-lightblue hover:text-brand-darkblue'}
                   `}>
-                    <Text variant="heading3" className={`
+                    <h2 className={`
                       relative z-10 font-semibold leading-6 transition-colors duration-150 text-base
                       ${isActive 
                         ? 'text-white' 
@@ -134,7 +134,7 @@ export default function Navbar(props: WithLocaleProp) {
                       ${props.locale === 'fr' ? 'text-sm' : ''}
                     `}>
                       {link.name}
-                    </Text>
+                    </h2>
                   </div>
                 </Link>
               );

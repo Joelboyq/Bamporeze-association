@@ -18,7 +18,7 @@ const textVariants = cva('w-fit', {
       heading3:
         'md:ui-text-[22px] ui-font-semibold msm:ui-text-[16px]  ui-text-brand-blackblue',
       heading4:
-        'md:ui-text-[21px] ui-font-semibold msm:ui-text-[14px]  text-black',
+        'md:ui-text-[21px] ui-font-semibold msm:ui-text-[14px]  text-white',
       label:
         'md:ui-text-sm ui-font-regular ui-text-brand-lightblack ',
       extraSubtitle:
