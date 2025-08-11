@@ -18,7 +18,7 @@ export default async function BoardOfDirectors({ locale }: WithLocaleProp) {
 
     return (
         <>
-            <WebSection about="Board of directors" className="py-16 flex flex-col gap-10">
+            {/* <WebSection about="Board of directors" className="py-16 flex flex-col gap-10">
                 <div className="flex ">
                     <SectionTitle
                         direction="horizontal"
@@ -41,7 +41,7 @@ export default async function BoardOfDirectors({ locale }: WithLocaleProp) {
                     ))
                     }
                 </div>
-            </WebSection>
+            </WebSection> */}
             <WebSection about="The management team" className="py-16 flex flex-col gap-10 bg-white">
                 <div>
                     <SectionTitle

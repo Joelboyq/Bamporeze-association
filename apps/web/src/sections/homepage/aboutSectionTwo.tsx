@@ -2,9 +2,7 @@
 
 import { Button, Text } from "@repo/ui/units"
 import Image from "next/image"
-import WebSection from "../../components/layouts/websection"
 import { WithLocaleProp } from "../../components/units/navbar"
-import SectionTitle from "../../components/units/sectionTitle"
 import { getDictionary } from "../../utils/dictionary"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -16,14 +14,41 @@ interface ImpactMetric {
   emoji?: string
 }
 
-
+// Professional SVG icons for metrics
+const getIcon = (type: string) => {
+  switch (type) {
+    case 'children':
+      return (
+        <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-white">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+        </svg>
+      );
+    case 'education':
+      return (
+        <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-white">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      );
+    case 'community':
+      return (
+        <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-white">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>
+      );
+    case 'impact':
+      return (
+        <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-white">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+};
 
 export default function AboutSectionTwo({ locale }: WithLocaleProp) {
-
     const currentPath = usePathname()
-
     const itTrue = currentPath.includes("about");
-
     const dictionary = getDictionary(locale) as any
     
     // Define your key impact metrics here - customize these values
@@ -31,115 +56,122 @@ export default function AboutSectionTwo({ locale }: WithLocaleProp) {
         {
             value: "1,200+",
             label: dictionary.pages.home.about_section_two.metrics?.children_supported || "Children Supported",
-            emoji: "👶"
+            emoji: "children"
         },
         {
             value: "85%",
             label: dictionary.pages.home.about_section_two.metrics?.school_retention || "School Retention Rate",
-            emoji: "📚"
+            emoji: "education"
         },
         {
             value: "50+",
             label: dictionary.pages.home.about_section_two.metrics?.communities || "Communities Reached",
-            emoji: "🏘️"
+            emoji: "community"
         },
         {
             value: "12",
             label: dictionary.pages.home.about_section_two.metrics?.years_active || "Years of Impact",
-            emoji: "⭐"
+            emoji: "impact"
         }
     ]
 
     return (
-        <WebSection 
-            about="Our impact" 
-            className="text-[30px] flex items-start justify-between justify-items-end msm:flex-col-reverse md:flex-row md:gap-8 msm:gap-6 py-16"
-        >
-            <div className="flex flex-col gap-8 md:w-7/12">
-                <SectionTitle
-                    direction="horizontal"
-                    title={dictionary.pages.home.about_section_two.title}
-                    suptitle={dictionary.pages.home.about_section_two.suptitle}
-                    subtitle={dictionary.pages.home.about_section_two.subtitle} 
-                />
+        <section className="bg-[#003d1d] py-16 lg:py-20">
+            <div className="container mx-auto px-6 lg:px-12">
+                {/* Title Section */}
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        {dictionary.pages.home.about_section_two.title}
+                    </h2>
+                    <div className="w-24 h-1 bg-green-400 mx-auto mb-6"></div>
+                    <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+                        {dictionary.pages.home.about_section_two.subtitle}
+                    </p>
+                </div>
 
-                {/* Impact Metrics Grid - Prominent Numbers */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                    {impactMetrics.map((metric, index) => (
-                        <div 
-                            key={index} 
-                            className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-100 text-center hover:shadow-md transition-shadow duration-200"
-                        >
-                            <div className="flex flex-col items-center space-y-2">
-                                {metric.emoji && (
-                                    <span className="text-xl md:text-2xl">{metric.emoji}</span>
-                                )}
+                {/* Content Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    {/* Left Side - Content and Metrics */}
+                    <div className="space-y-8">
+                        {/* Impact Metrics Grid */}
+                        <div className="grid grid-cols-2 gap-6">
+                            {impactMetrics.map((metric, index) => (
                                 <div 
-                                    className="font-bold text-blue-600 leading-none"
-                                    style={{ fontSize: 'max(24px, 1.75rem)' }} // Minimum 24px as requested
+                                    key={index} 
+                                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center hover:bg-white/15 transition-all duration-300"
                                 >
-                                    {metric.value}
+                                    <div className="flex flex-col items-center space-y-3">
+                                        {metric.emoji && (
+                                            <div className="text-2xl md:text-3xl">
+                                                {getIcon(metric.emoji)}
+                                            </div>
+                                        )}
+                                        <div className="font-bold text-white text-3xl md:text-4xl leading-none">
+                                            {metric.value}
+                                        </div>
+                                        <Text className="text-sm md:text-base font-medium text-white/90 text-center leading-tight">
+                                            {metric.label}
+                                        </Text>
+                                    </div>
                                 </div>
-                                <Text 
-                                    className="text-xs md:text-sm font-medium text-gray-700 text-center leading-tight"
-                                    style={{ fontSize: 'max(12px, 0.875rem)' }}
-                                >
-                                    {metric.label}
+                            ))}
+                        </div>
+
+                        {/* Descriptive Text Content */}
+                        <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                            <Text variant="heading4" className="text-lg leading-relaxed text-white/90">
+                                {itTrue ? dictionary.pages.home.about_section_two.content : dictionary.pages.home.about_section_two.content.slice(0, 300) + "..."}
+                            </Text>
+                        </div>
+
+                        {/* Call to Action */}
+                        {!(itTrue) && (
+                            <div className="pt-4">
+                                <Link href={"/about"}>
+                                    <Button 
+                                        variant="secondary" 
+                                        className="w-full md:w-fit flex items-center justify-center bg-white text-[#003d1d] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            {dictionary.common.ctas.read_more}
+                                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            </svg>
+                                        </div>
+                                    </Button>
+                                </Link>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Right Side - Image */}
+                    <div className="relative">
+                        <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                            <Image 
+                                src="/images/about_pic_2.jpg" 
+                                width={600} 
+                                height={600} 
+                                loading="lazy" 
+                                alt="Our impact descriptive image" 
+                                className="w-full h-[500px] lg:h-[600px] object-cover transform hover:scale-105 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                        
+                        {/* Floating achievement badge */}
+                        <div className="absolute -bottom-4 -left-4 bg-white p-6 rounded-xl shadow-xl border border-gray-100">
+                            <div className="text-center">
+                                <div className="font-bold text-green-600 text-2xl mb-2">
+                                    ✅ 95%
+                                </div>
+                                <Text className="text-sm font-medium text-gray-600">
+                                    {dictionary.pages.home.about_section_two.metrics?.success_rate || "Success Rate"}
                                 </Text>
                             </div>
                         </div>
-                    ))}
-                </div>
-                {itTrue && (
-                     <Text variant="heading4" className="text-lg leading-relaxed">
-                     {dictionary.pages.home.about_section_two.content}
-                 </Text>
-                ) }
-
-                {/* Content Text */}
-               
-
-                {/* Call to Action */}
-                {!(itTrue) && (
-                <Link href={"/about"}>
-                
-                    <Button 
-                        variant="secondary" 
-                        className="md:w-fit msm:w-full flex items-center justify-center mt-4"
-                    >
-                        <div className="flex items-center gap-2">
-                            {dictionary.common.ctas.read_more}
-                        </div>
-                    </Button>
-                </Link>
-                )}
-            </div>
-
-            <div className="md:w-5/12 relative">
-                <Image 
-                    src="/images/about_pic_2.jpg" 
-                    width={600} 
-                    height={600} 
-                    loading="lazy" 
-                    alt="Our impact descriptive image" 
-                    className="rounded-lg w-full h-auto shadow-md"
-                />
-                
-                {/* Optional: Floating achievement badge */}
-                <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-lg shadow-xl border border-gray-100 hidden md:block">
-                    <div className="text-center">
-                        <div 
-                            className="font-bold text-green-600 mb-1"
-                            style={{ fontSize: 'max(20px, 1.25rem)' }}
-                        >
-                            ✅ 95%
-                        </div>
-                        <Text className="text-xs font-medium text-gray-600">
-                            {dictionary.pages.home.about_section_two.metrics?.success_rate || "Success Rate"}
-                        </Text>
                     </div>
                 </div>
             </div>
-        </WebSection>
+        </section>
     )
 }

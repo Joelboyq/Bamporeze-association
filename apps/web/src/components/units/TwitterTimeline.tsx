@@ -24,13 +24,12 @@ export default function TwitterTimeline() {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 w-full">
+    <div className="space-y-6">
       {tweets.map((tweet, index) => (
-      <div key={index} className='max-w-full'>
+        <div key={index} className='max-w-full border-b border-gray-100 pb-6 last:border-b-0'>
           <div dangerouslySetInnerHTML={{__html: tweet}} />
-      </div>
+        </div>
       ))}
-    
     </div>
-
-    )};
+  );
+}

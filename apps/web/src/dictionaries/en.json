@@ -41,7 +41,16 @@
           "watch_yt": "Watch intro video"
         }
       },
-
+      "impact_stories": {
+        "title": "Impact Stories",
+        "subtitle": "See how your support transforms lives",
+        "suptitle": "TESTIMONIALS"
+      },
+      "transparency": {
+        "title": "Transparency & Accountability",
+        "subtitle": "We believe in complete transparency in how your donations are used",
+        "suptitle": "TRANSPARENCY"
+      },
       "contact": {
         "title": "Contact us",
         "suptitle": "CONTACT US",
@@ -69,7 +78,7 @@
       },
       "products": {
         "title": "Our mineral products",
-        "subtitle": "We aim at client’s satisfaction, we mine productions that our clients love",
+        "subtitle": "We aim at client's satisfaction, we mine productions that our clients love",
         "suptitle": "Minerals"
       },
       "reviews": {
@@ -112,7 +121,7 @@
       },
       "management_team": {
         "title": "Management team",
-        "subtitle": "The team managing COMIDU’s resources"
+        "subtitle": "The team managing COMIDU's resources"
       },
       "aim_cards": {
         "vision": {
@@ -132,7 +141,7 @@
     "services": {
       "page_title": "Our services",
       "suptitle": "What we offer",
-      "subtitle": "Us COMIDU, We provide all ..... services to our clients, we swing in our client’s way"
+      "subtitle": "Us COMIDU, We provide all ..... services to our clients, we swing in our client's way"
     },
     "careers": {
       "page_title": "Join our mission",

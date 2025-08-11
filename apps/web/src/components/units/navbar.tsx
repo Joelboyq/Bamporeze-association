@@ -5,13 +5,14 @@ import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Select, { StylesConfig } from 'react-select'
 import { Locale } from '../../../i18n.config'
-import { contactLinks, getNavlinks } from '../../constants/contactLinks'
+import { getNavlinks } from '../../constants/contactLinks'
 import { getDictionary } from '../../utils/dictionary'
 import WebSection from '../layouts/websection'
 import { remoteAxios } from '../../utils/axios.config'
 import axios from 'axios'
 import DonateModal from './DonateModal';
 import { FaHeart } from 'react-icons/fa';
+import SocialMediaBar from './socialMediaBar';
 
 const locales = [
   {
@@ -77,34 +78,16 @@ export default function Navbar(props: WithLocaleProp) {
     router.push(newPath)
   }
 
-  return (
-    <div className='top-0 sticky w-full z-50'>
-      <header id=''>
-        <WebSection about="BAMPOREZE" className='md:flex msm:hidden msm:grid-cols-2 items-center justify-end gap-4 py-2 bg-brand-blackblue text-white ' animate={false} >
-          {contactLinks.map((contact, i) => (
-            <Link href={contact.href} key={i} className='flex items-center gap-2 fill-white'>
-              <contact.icon/>
-              <Text variant="paragraph" className='text-[12px] text-white'>
-                {contact.text}
-              </Text>
-            </Link>))}
-          {/* Donate Button */}
-          <button
-            onClick={() => setDonateOpen(true)}
-            className="text-white ml-4 px-5 py-2 rounded-full bg-yellow-400 hover:bg-yellow-500 text-brand-darkblue font-extrabold flex items-center gap-2 shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 animate-pulse hover:animate-none"
-            style={{ border: '2px solid #fff', boxShadow: '0 2px 12px 0 rgba(255,193,7,0.25)' }}
-            aria-label="Donate"
-          >
-            <FaHeart className="text-red-500 animate-bounce mr-1" />
-            Donate
-          </button>
-        </WebSection>
-        <DonateModal isOpen={donateOpen} onClose={() => setDonateOpen(false)} />
-      </header>
-      <nav className='top-0 md:block  sticky z-50  bg-white msm:hidden'>
-        <WebSection about='BAMPOREZE.' className="flex flex-row justify-between items-center py-2 ui-bg-red-500 shadow-1 " animate={false}>
-          <div className='w-28'>
-            <Link href="/" aria-label="Go to homepage">
+  return (  
+    <div className='top-0 sticky w-full z-40'>
+      {/* Social Media Bar */}
+      <SocialMediaBar />
+      
+      {/* Main Navigation */}
+      <nav className='top-0 md:block sticky z-50 bg-white msm:hidden' style={{ marginTop: '40px' }}>
+        <WebSection about='BAMPOREZE.' className="flex flex-row justify-between items-end py-2 ui-bg-red-500 shadow-1 " animate={false}>
+          <div className='w-32 h-18'>
+            <Link href="/" >
               <Logo variant="light" />
             </Link>
           </div>
@@ -152,23 +135,34 @@ export default function Navbar(props: WithLocaleProp) {
               options={locales} />
 
             <Link href={'/contact'}>
-
               <Button>
                 <Text variant="heading4" className='text-white text-base'>
                   {dictionary.global_layout.navigation.buttons.contact}
                 </Text>
               </Button>
             </Link>
+            
+            {/* Donate Button */}
+            <button
+              onClick={() => setDonateOpen(true)}
+              className="text-white px-5 py-2 rounded-full bg-yellow-400 hover:bg-yellow-500 text-brand-darkblue font-extrabold flex items-center gap-2 shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 animate-pulse hover:animate-none"
+              style={{ border: '2px solid #fff', boxShadow: '0 2px 12px 0 rgba(255,193,7,0.25)' }}
+              aria-label="Donate"
+            >
+              <FaHeart className="text-red-500 animate-bounce mr-1" />
+              Donate
+            </button>
           </div>
         </WebSection>
       </nav>
-      <nav className='top-0 msm:block bg-white sticky z-50  md:hidden'>
+      
+      {/* Mobile Navigation */}
+      <nav className='top-0 msm:block bg-white sticky z-50 md:hidden' style={{ marginTop: '40px' }}>
         <WebSection about='BAMPOREZE.' className="flex flex-col justify-between items-center py-2 ui-bg-red-500 shadow-1 " animate={false}>
-          <div className='flex items-center justify-between  w-full'>
-            <div className='w-28'>
-
+          <div className='flex items-center justify-between w-full'>
+            <Link href="/" aria-label="Go to homepage">
               <Logo variant="light" />
-            </div>
+            </Link>
             <button onClick={() => setHideNav(!hidenav)}>
               <svg width="26" height="18" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1.5 1.5H24" stroke="#51697F" stroke-width="2.5" stroke-linecap="round" />
@@ -185,7 +179,7 @@ export default function Navbar(props: WithLocaleProp) {
                 </Text>
               </Link>
             ))}
-            <select name="country" id="" className='p-4 rounded-sm  outline-none appearance-none text-brand-lightblack font-lexend text-[14px]'>
+            <select name="country" id="" className='p-4 rounded-sm outline-none appearance-none text-brand-lightblack font-lexend text-[14px]'>
               <option value="en" selected={props.locale == 'en'}>
                 <Button className='flex items-center gap-2'>
                   <Text variant="paragraph">
@@ -206,18 +200,22 @@ export default function Navbar(props: WithLocaleProp) {
                 Contact us
               </Text>
             </Button>
-            <WebSection about="BAMPOREZE" className='md:flex msm:grid msm:grid-cols-2 items-center justify-end gap-4 py-0 ' animate={false} >
-              {contactLinks.map((contact, i) => (
-                <Link href={contact.href} key={i} className='flex items-center gap-2'>
-                  <contact.icon />
-                  <h1  className='text-white'>
-                    {contact.text}
-                  </h1>
-                </Link>))}
-            </WebSection>
+            
+            {/* Mobile Donate Button */}
+            <button
+              onClick={() => setDonateOpen(true)}
+              className="text-white px-5 py-2 rounded-full bg-yellow-400 hover:bg-yellow-500 text-brand-darkblue font-extrabold flex items-center gap-2 shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 animate-pulse hover:animate-none"
+              style={{ border: '2px solid #fff', boxShadow: '0 2px 12px 0 rgba(255,193,7,0.25)' }}
+              aria-label="Donate"
+            >
+              <FaHeart className="text-red-500 animate-bounce mr-1" />
+              Donate
+            </button>
           </div>
         </WebSection>
       </nav>
+      
+      <DonateModal isOpen={donateOpen} onClose={() => setDonateOpen(false)} />
     </div>
   )
 }

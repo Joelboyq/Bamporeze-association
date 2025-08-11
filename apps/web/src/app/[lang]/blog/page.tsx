@@ -1,8 +1,9 @@
+'use client'
 import { Text } from "@repo/ui/units";
 import Image from "next/image";
 import Link from "next/link";
 import { Locale } from "../../../../i18n.config";
-import { getBlog, getBlogHighlight, getBlogs } from "../../../utils/api";
+import { clientGetBlog, clientGetBlogHighlight, clientGetBlogs } from "../../../utils/client-api";
 import Author from "../../../components/units/author";
 import Tag from "../../../components/units/tag";
 import { IWriting } from "@repo/ui/types";
@@ -10,245 +11,409 @@ import { redirect } from "next/navigation";
 import SectionTitle from "../../../components/units/sectionTitle";
 import BlogCard from "../../../components/blog/BlogCard";
 import TwitterTimeline from '../../../components/units/TwitterTimeline';
+import { useState, useEffect } from "react";
 
 // Base64 encoded SVG placeholders
 const PLACEHOLDER_IMAGE = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTJlOGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzQ3NTU2OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgYWxpZ25tZW50LWJhc2VsaW5lPSJtaWRkbGUiPkJsb2cgSW1hZ2U8L3RleHQ+PC9zdmc+";
 const PLACEHOLDER_AVATAR = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iI2UyZThmMCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiM0NzU1NjkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIj5VPC90ZXh0Pjwvc3ZnPg==";
 
-export default async function Page({ params, searchParams }: { 
+export default function Page({ params, searchParams }: { 
   params: { lang: Locale },
   searchParams: { id?: string }
 }) {
+  const [blogData, setBlogData] = useState<any>(null);
+  const [relatedBlogs, setRelatedBlogs] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   // If ID is provided in query params, show blog detail view
   const blogId = searchParams.id;
   
-  if (blogId) {
-    try {
-      console.log("Fetching blog with ID:", blogId);
-      
-      // Fetch blog data using the ID parameter
-      const blogData = await getBlog(blogId);
-      console.log("API Response:", JSON.stringify(blogData, null, 2));
-      
-      // If we couldn't get the blog, redirect to the main blog page
-     
-      
-      // Fetch some other blogs for "Related Articles" section
-      const blogsResponse = await getBlogs();
-      const relatedBlogs = Array.isArray(blogsResponse) 
-          ? (blogsResponse as Array<any>).filter((blog: any) => blog.id !== blogId).slice(0, 3)
-          : Array.isArray(blogsResponse) 
+  useEffect(() => {
+    const fetchData = async () => {
+      if (blogId) {
+        try {
+          console.log("Fetching blog with ID:", blogId);
+          
+          // Fetch blog data using the ID parameter
+          const blogResponse = await clientGetBlog(blogId);
+          console.log("API Response:", JSON.stringify(blogResponse, null, 2));
+          
+          // Fetch some other blogs for "Related Articles" section
+          const blogsResponse = await clientGetBlogs();
+          const related = Array.isArray(blogsResponse) 
               ? (blogsResponse as Array<any>).filter((blog: any) => blog.id !== blogId).slice(0, 3)
               : [];
-      
-      // Check specifically for content
-      console.log("Content available:", !!blogData.content, "Content length:", blogData.content?.length || 0);
-      
-      // Extract data with fallbacks
-      const { 
-          title = "Untitled Post", 
-          content, 
-          description = "", 
-          thumbnail_image = PLACEHOLDER_IMAGE,
-          writingType = "Blog", 
-          author, 
-          releaseDate = new Date().toISOString()
-      } = blogData;
-      
-      // Check for empty content and provide a meaningful message
-      const displayContent = content && content.trim().length > 0 
-          ? content 
-          : "<p>No content available for this blog post. The content may still be in preparation.</p>";
-      
-      // Prepare author data
-      const authorName = author?.name || "Unknown Author";
-      const authorImage = author?.profile_picture || PLACEHOLDER_AVATAR;
-      
-      // Format date for better display
-      const formattedDate = new Date(releaseDate).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-      
-      return (
-        <div className="flex flex-col w-full">
-          {/* Full-width top section with gradient background */}
-          <div className="w-full bg-gradient-to-b from-brand-darkblue-5 to-white py-8">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6">
-              {/* Tag and title */}
-              <div className="mb-6">
-                <div className="mb-2">
-                  <Tag text={writingType} />
-                </div>
-                <h1 className="text-3xl md:text-4xl font-bold text-brand-darkblue">{title}</h1>
-              </div>
-              
-              {/* Author and date */}
-              <div className="mb-8 flex items-center">
-                <div className="flex-shrink-0 mr-3">
-                  <Image
-                    src={authorImage}
-                    alt={authorName}
-                    width={40}
-                    height={40}
-                    className="rounded-full"
-                    unoptimized={true}
-                  />
-                </div>
-                <div>
-                  <p className="font-medium text-gray-900">{authorName}</p>
-                  <p className="text-sm text-gray-500">{formattedDate}</p>
-                </div>
-              </div>
-            </div>
-          </div>
           
-          {/* Main content area */}
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-16 w-full">
-            {/* Featured image */}
-            <div className="aspect-video w-full overflow-hidden rounded-lg mb-8 shadow-lg">
-              <Image 
-                src={thumbnail_image} 
-                alt={title} 
-                width={1200} 
-                height={675}
-                className="w-full h-full object-cover" 
-                unoptimized={true}
-              />
-            </div>
-            
-            {/* Description if available */}
-            {description && (
-              <div className="text-lg text-gray-700 mb-8 font-medium italic border-l-4 border-brand-darkblue-20 pl-4">
-                {description}
-              </div>
-            )}
-            
-            {/* Main content with proper HTML rendering */}
-            <article className="prose prose-lg max-w-none prose-headings:text-brand-darkblue prose-a:text-brand-darkblue">
-              <div dangerouslySetInnerHTML={{ __html: displayContent }} />
-            </article>
-            
-            {/* Share buttons and tags section */}
-            <div className="border-t border-b border-gray-200 py-6 mt-12 mb-12">
-              <div className="flex flex-wrap justify-between items-center">
-                <div className="mb-4 md:mb-0">
-                  <span className="text-gray-500">Share this article:</span>
-                  <div className="flex space-x-4 mt-2">
-                    <Link 
-                      href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}`} 
-                      className="text-gray-400 hover:text-blue-400"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span>Twitter</span>
-                    </Link>
-                    <Link 
-                      href={`https://www.facebook.com/sharer/sharer.php`} 
-                      className="text-gray-400 hover:text-blue-600"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span>Facebook</span>
-                    </Link>
-                    <Link 
-                      href={`https://www.linkedin.com/shareArticle?mini=true&title=${encodeURIComponent(title)}`} 
-                      className="text-gray-400 hover:text-blue-700"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span>LinkedIn</span>
-                    </Link>
+          setBlogData(blogResponse);
+          setRelatedBlogs(related);
+        } catch (error) {
+          console.error("Error fetching blog:", error);
+          redirect('/blog');
+        }
+      }
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, [blogId]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading blog post...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (blogId && blogData) {
+    // Check specifically for content
+    console.log("Content available:", !!blogData.content, "Content length:", blogData.content?.length || 0);
+    
+    // Extract data with fallbacks
+    const { 
+        title = "Untitled Post", 
+        content, 
+        description = "", 
+        thumbnail_image = PLACEHOLDER_IMAGE,
+        writingType = "Blog", 
+        author, 
+        releaseDate = new Date().toISOString()
+    } = blogData;
+    
+    // Check for empty content and provide a meaningful message
+    const displayContent = content && content.trim().length > 0 
+        ? content 
+        : "<p>No content available for this blog post. The content may still be in preparation.</p>";
+    
+    // Prepare author data
+    const authorName = author?.name || "Unknown Author";
+    const authorImage = author?.profile_picture || PLACEHOLDER_AVATAR;
+    
+    // Format date for better display
+    const formattedDate = new Date(releaseDate).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+        {/* Hero Section */}
+        <section className="relative h-[60vh] lg:h-[70vh] overflow-hidden">
+          <Image
+            src={thumbnail_image}
+            fill
+            style={{ objectFit: 'cover' }}
+            alt={title}
+            className="brightness-75"
+            unoptimized={true}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+          <div className="absolute inset-0 flex items-center">
+            <div className="container mx-auto px-6 lg:px-12">
+              <div className="max-w-4xl">
+                <div className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-full text-sm font-medium mb-6">
+                  <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                  {writingType}
+                </div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  {title}
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
+                  {description || "Discover insights, stories, and updates from our community"}
+                </p>
+                
+                {/* Author and Date */}
+                <div className="flex items-center gap-6">
+                  <div className="flex items-center gap-4">
+                    <Image
+                      src={authorImage}
+                      alt={authorName}
+                      width={60}
+                      height={60}
+                      className="rounded-full border-2 border-white/20"
+                      unoptimized={true}
+                    />
+                    <div>
+                      <p className="font-semibold text-white text-lg">{authorName}</p>
+                      <p className="text-gray-300">{formattedDate}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Reading Time Estimate */}
+                  <div className="flex items-center gap-2 text-gray-300">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{Math.ceil((content?.length || 0) / 200)} min read</span>
                   </div>
                 </div>
-                <div>
-                  <Tag text={writingType} />
-                </div>
               </div>
-            </div>
-            
-            {/* Related articles section */}
-            {relatedBlogs.length > 0 && (
-              <div className="mt-12">
-                <SectionTitle
-                  direction="horizontal"
-                  title="Related Articles"
-                  subtitle="You might also be interested in these"
-                />
-                
-                <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 mt-8">
-                  {relatedBlogs.map((blog, index) => (
-                    <BlogCard
-                      key={blog.id || index}
-                      id={blog.id}
-                      title={blog.title || "Untitled"}
-                      description={blog.description || ""}
-                      thumbnailUrl={blog.thumbnail_image || PLACEHOLDER_IMAGE}
-                      authorName={blog.author?.name || "Unknown Author"}
-                      authorImageUrl={blog.author?.profile_picture || PLACEHOLDER_AVATAR}
-                      releaseDate={blog.releaseDate || blog.createdAt || new Date().toISOString()}
-                      index={index}
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
-            
-            {/* Back to all blogs button */}
-            <div className="mt-12 text-center">
-              {/* <Link href="/blog" className="inline-block px-6 py-3 bg-brand-darkblue text-white rounded-md hover:bg-brand-darkblue-70 transition duration-200">
-                Back to All Blogs
-              </Link> */}
             </div>
           </div>
-        </div>
-      );
-    } catch (error) {
-      console.error("Error displaying blog post:", error);
-      redirect('/blog');
-    }
+        </section>
+
+        {/* Main Content */}
+        <section className="py-16 lg:py-20">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-4xl mx-auto">
+              {/* Content */}
+              <article className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-a:text-green-600 prose-strong:text-gray-900 prose-blockquote:border-l-green-600 prose-blockquote:bg-green-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r-lg">
+                <div dangerouslySetInnerHTML={{ __html: displayContent }} />
+              </article>
+              
+              {/* Share Section */}
+              <div className="mt-12 pt-8 border-t border-gray-200">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <span className="text-gray-600 font-medium">Share this post:</span>
+                    <div className="flex gap-3">
+                      <Link 
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                      </Link>
+                      <Link 
+                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.href)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                      </Link>
+                      <Link 
+                        href={`https://www.linkedin.com/shareArticle?mini=true&title=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.href)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-2">
+                    <Tag text={writingType} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Related Articles */}
+        {relatedBlogs.length > 0 && (
+          <section className="py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-white">
+            <div className="container mx-auto px-6 lg:px-12">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  Related
+                  <span className="block text-green-600">Articles</span>
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  You might also be interested in these stories from our blog
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {relatedBlogs.map((blog, index) => (
+                  <BlogCard
+                    key={blog.id || index}
+                    id={blog.id}
+                    title={blog.title || "Untitled"}
+                    description={blog.description || ""}
+                    thumbnailUrl={blog.thumbnail_image || PLACEHOLDER_IMAGE}
+                    authorName={blog.author?.name || "Unknown Author"}
+                    authorImageUrl={blog.author?.profile_picture || PLACEHOLDER_AVATAR}
+                    releaseDate={blog.releaseDate || blog.createdAt || new Date().toISOString()}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Back to Blog Button */}
+        <section className="py-16">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="text-center">
+              <Link href="/blog" className="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-8 py-4 text-lg shadow-lg transition-all duration-300 group">
+                <svg className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to All Posts
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
   }
   
   // If no ID provided, show the blog highlight/homepage
-  const blogResponseUn = await getBlogHighlight();
-  const blogResponse = blogResponseUn as unknown as IWriting;
+  return <BlogHomepage lang={params.lang} />;
+}
+
+// Separate component for blog homepage
+function BlogHomepage({ lang }: { lang: Locale }) {
+  const [blogData, setBlogData] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogHighlight = async () => {
+      try {
+        const blogResponseUn = await clientGetBlogHighlight();
+        setBlogData(blogResponseUn);
+      } catch (error) {
+        console.error("Error fetching blog highlight:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchBlogHighlight();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading blog...</p>
+        </div>
+      </div>
+    );
+  }
+
+  const blog = blogData;
   
   // If blog data is not available, show a fallback
-  if (!blogResponse) {
-      return (
-          <div className="w-full flex flex-col gap-4">
-              <Text variant="heading3">Blog</Text>
-              <Text variant="paragraph">No blog posts available at the moment.</Text>
-              <TwitterTimeline />
+  if (!blog) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center">
+        <div className="text-center max-w-2xl mx-auto px-6">
+          <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
           </div>
-      );
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Blog</h2>
+          <p className="text-xl text-gray-600 mb-8">No blog posts available at the moment.</p>
+          <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <TwitterTimeline />
+          </div>
+        </div>
+      </div>
+    );
   }
   
-  const blog = blogResponse;
-  
   return (
-      <div className="w-full flex flex-col gap-4">
-          <Text variant="heading3">{blog.title}</Text>
-          <Tag text={blog.writingType || "Blog"} />
-          <Image 
-              src={blog.thumbnail_image} 
-              alt="Blog cover" 
-              width={1200} 
-              height={600} 
-              className="w-full h-[40vh] object-cover" 
-              loading="eager"
-              unoptimized={true}
-          />
-          <div 
-              className="prose prose-lg text-brand-darkblue my-4" 
-              dangerouslySetInnerHTML={{ __html: blog.content || "" }} 
-          />
-          {blog.author && <Author name={blog.author.name} releaseDate={blog.releaseDate} />}
-          <Link href={`/blog/${blog.id}`}>
-              <Text variant="paragraph" className="text-brand-darkblue hover:underline">Read more</Text>
-          </Link>
-          <TwitterTimeline />
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] lg:h-[70vh] overflow-hidden">
+        <Image 
+          src={blog.thumbnail_image} 
+          alt="Blog cover" 
+          fill
+          style={{ objectFit: 'cover' }}
+          className="brightness-75"
+          loading="eager"
+          unoptimized={true}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-4xl">
+              <div className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-full text-sm font-medium mb-6">
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                Featured Story
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                {blog.title}
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
+                {blog.description || "Discover insights, stories, and updates from our community"}
+              </p>
+              
+              {/* Author and Date */}
+              {blog.author && (
+                <div className="flex items-center gap-6">
+                  <div className="flex items-center gap-4">
+                    <Image
+                      src={blog.author.profile_picture || PLACEHOLDER_AVATAR}
+                      alt={blog.author.name}
+                      width={60}
+                      height={60}
+                      className="rounded-full border-2 border-white/20"
+                      unoptimized={true}
+                    />
+                    <div>
+                      <p className="font-semibold text-white text-lg">{blog.author.name}</p>
+                      <p className="text-gray-300">{new Date(blog.releaseDate).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="py-16 lg:py-20">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="max-w-4xl mx-auto">
+            <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-a:text-green-600 prose-strong:text-gray-900 prose-blockquote:border-l-green-600 prose-blockquote:bg-green-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r-lg">
+              <div dangerouslySetInnerHTML={{ __html: blog.content || "" }} />
+            </div>
+            
+            {/* Read More Link */}
+            <div className="mt-12 pt-8 border-t border-gray-200">
+              <Link href={`/blog/${blog.id}`} className="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-8 py-4 text-lg shadow-lg transition-all duration-300 group">
+                Read Full Story
+                <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Twitter Timeline */}
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Live Updates
+                <span className="block text-green-600">on Social Media</span>
+              </h2>
+              <p className="text-xl text-gray-600">Follow our journey and get real-time updates</p>
+            </div>
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-xl">
+              <TwitterTimeline />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

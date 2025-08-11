@@ -35,7 +35,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang={params.lang} className='w-screen overflow-x-hidden' style={font.style}>
-      <body className=' text-white text-[18px] bg-brand-darkblue-5'>
+      <body className=' text-white  bg-brand-darkblue-5'>
         <BaseLayout locale={params.lang}>
           {children}
         </BaseLayout>

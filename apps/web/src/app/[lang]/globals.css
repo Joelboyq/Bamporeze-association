@@ -54,6 +54,23 @@ code {
   top: -100px; /* Adjust the hiding distance as needed */
 }
 
+/* Social Media Bar Styles */
+.social-media-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-media-bar.hidden {
+  transform: translateY(-100%);
+}
+
+/* Adjust main content to account for social media bar */
+/* Removed body padding-top since navbar handles spacing */
+
 body, html {
   margin: 0;
   padding: 0;

@@ -5,22 +5,64 @@ import { FC } from "react"
 
 const Review: FC<IReview> = ({ reviewer_company, review_message, reviewer_name, reviewer_image }) => {
     return (
-        <div className="md:p-6 msm:p-2 rounded-md relative shadowed hover:bg-brand-darkblue-10 hover:border hover:border-brand-darkblue-10">
-            <div className="z-0 flex flex-col gap-3">
-                <Text variant="heading3" className="py-4 hv-text">{reviewer_company}</Text>
-                <Text className="italic hv-subtext">&quot;&nbsp;{review_message}&apos;&quot;</Text>
-                <div className="flex items-center gap-4">
-                    <Image width={50} height={50} loading="lazy" className="w-[50px] rounded-full h-[50px]" src={reviewer_image} alt={reviewer_name} />
-                    <Text variant={'extraSubtitle'} className="hv-text"> {reviewer_name}</Text>
+        <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden">
+            {/* Quote Icon */}
+            <div className="absolute top-6 right-6 text-blue-100">
+                <svg width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                </svg>
+            </div>
+
+            {/* Review Content */}
+            <div className="relative z-10">
+                {/* Company/Organization */}
+                <div className="mb-4">
+                    <Text variant="heading3" className="text-lg font-semibold text-gray-900">
+                        {reviewer_company}
+                    </Text>
+                </div>
+
+                {/* Review Message */}
+                <div className="mb-6">
+                    <Text className="text-gray-700 leading-relaxed italic text-base">
+                        &quot;{review_message}&quot;
+                    </Text>
+                </div>
+
+                {/* Reviewer Info */}
+                <div className="flex items-center gap-4 pt-4 border-t border-gray-100">
+                    <div className="relative">
+                        <Image 
+                            width={60} 
+                            height={60} 
+                            loading="lazy" 
+                            className="w-[60px] h-[60px] rounded-full object-cover border-2 border-blue-100" 
+                            src={reviewer_image} 
+                            alt={reviewer_name} 
+                        />
+                        {/* Verified badge */}
+                        <div className="absolute -bottom-1 -right-1 bg-blue-500 text-white rounded-full p-1">
+                            <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <Text variant={'extraSubtitle'} className="font-semibold text-gray-900">
+                            {reviewer_name}
+                        </Text>
+                        <div className="flex items-center gap-1 mt-1">
+                            {[...Array(5)].map((_, i) => (
+                                <svg key={i} width="16" height="16" fill="currentColor" viewBox="0 0 24 24" className="text-yellow-400">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
-            <svg width="37" height="15" viewBox="0 0 37 15" className="absolute top-4 right-4 opacity-10 z-10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.10113 2.2L5.18113 7.64L3.34113 8.16C3.55446 7.76 3.79446 7.44 4.06113 7.2C4.32779 6.93333 4.63446 6.8 4.98113 6.8C5.75446 6.8 6.44779 7.12 7.06113 7.76C7.70113 8.37333 8.02113 9.17333 8.02113 10.16C8.02113 11.2 7.66113 12.0933 6.94113 12.84C6.24779 13.5867 5.38113 13.96 4.34113 13.96C3.35446 13.96 2.48779 13.6 1.74113 12.88C1.02113 12.1333 0.661125 11.2267 0.661125 10.16C0.661125 9.73333 0.741125 9.24 0.901126 8.68C1.08779 8.12 1.42113 7.38667 1.90113 6.48L5.10113 0.559998L8.10113 2.2ZM17.1011 2.2L14.1811 7.64L12.3811 8.16C12.5678 7.76 12.7945 7.44 13.0611 7.2C13.3545 6.93333 13.6611 6.8 13.9811 6.8C14.7545 6.8 15.4611 7.12 16.1011 7.76C16.7411 8.37333 17.0611 9.17333 17.0611 10.16C17.0611 11.2 16.7011 12.0933 15.9811 12.84C15.2878 13.5867 14.4211 13.96 13.3811 13.96C12.3945 13.96 11.5278 13.6 10.7811 12.88C10.0611 12.1333 9.70113 11.2267 9.70113 10.16C9.70113 9.73333 9.78113 9.24 9.94113 8.68C10.1011 8.12 10.4211 7.38667 10.9011 6.48L14.1411 0.559998L17.1011 2.2ZM29.5533 13.12L32.4733 7.64L34.3133 7.16C34.1 7.53333 33.86 7.85333 33.5933 8.12C33.3266 8.38667 33.02 8.52 32.6733 8.52C31.9266 8.52 31.2333 8.2 30.5933 7.56C29.9533 6.92 29.6333 6.10667 29.6333 5.12C29.6333 4.08 29.98 3.2 30.6733 2.48C31.3933 1.73333 32.2733 1.36 33.3133 1.36C34.3 1.36 35.1533 1.73333 35.8733 2.48C36.62 3.2 36.9933 4.08 36.9933 5.12C36.9933 5.54667 36.9 6.05333 36.7133 6.64C36.5533 7.2 36.2333 7.92 35.7533 8.8L32.5533 14.72L29.5533 13.12ZM20.5533 13.12L23.4733 7.64L25.2733 7.16C25.0866 7.53333 24.86 7.85333 24.5933 8.12C24.3266 8.38667 24.02 8.52 23.6733 8.52C22.9 8.52 22.1933 8.2 21.5533 7.56C20.9133 6.92 20.5933 6.10667 20.5933 5.12C20.5933 4.08 20.94 3.2 21.6333 2.48C22.3533 1.73333 23.2333 1.36 24.2733 1.36C25.26 1.36 26.1133 1.73333 26.8333 2.48C27.58 3.2 27.9533 4.08 27.9533 5.12C27.9533 5.54667 27.8733 6.05333 27.7133 6.64C27.5533 7.2 27.2333 7.92 26.7533 8.8L23.5133 14.72L20.5533 13.12Z" fill="#0B60B0" />
-            </svg>
-
         </div>
     )
 }
-
 
 export default Review
