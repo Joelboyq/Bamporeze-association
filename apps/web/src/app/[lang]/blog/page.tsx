@@ -269,148 +269,99 @@ export default function Page({ params, searchParams }: {
 
 // Separate component for blog homepage
 function BlogHomepage({ lang }: { lang: Locale }) {
-  const [blogData, setBlogData] = useState<any>(null);
+  const [highlight, setHighlight] = useState<any>(null);
+  const [blogs, setBlogs] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchBlogHighlight = async () => {
+    const fetchAll = async () => {
       try {
-        const blogResponseUn = await clientGetBlogHighlight();
-        setBlogData(blogResponseUn);
+        const [hl, list] = await Promise.all([
+          clientGetBlogHighlight(),
+          clientGetBlogs()
+        ]);
+        setHighlight(hl);
+        setBlogs(Array.isArray(list) ? list : []);
       } catch (error) {
-        console.error("Error fetching blog highlight:", error);
+        console.error("Error loading blogs:", error);
       } finally {
         setIsLoading(false);
       }
     };
-
-    fetchBlogHighlight();
+    fetchAll();
   }, []);
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-green-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading blog...</p>
+          <p className="text-gray-600">Loading posts...</p>
         </div>
       </div>
     );
   }
 
-  const blog = blogData;
-  
-  // If blog data is not available, show a fallback
-  if (!blog) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center justify-center">
-        <div className="text-center max-w-2xl mx-auto px-6">
-          <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Blog</h2>
-          <p className="text-xl text-gray-600 mb-8">No blog posts available at the moment.</p>
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <TwitterTimeline />
-          </div>
-        </div>
-      </div>
-    );
-  }
-  
+  const posts = blogs || [];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] lg:h-[70vh] overflow-hidden">
-        <Image 
-          src={blog.thumbnail_image} 
-          alt="Blog cover" 
-          fill
-          style={{ objectFit: 'cover' }}
-          className="brightness-75"
-          loading="eager"
-          unoptimized={true}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
-        <div className="absolute inset-0 flex items-center">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-full text-sm font-medium mb-6">
-                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                Featured Story
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                {blog.title}
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-                {blog.description || "Discover insights, stories, and updates from our community"}
-              </p>
-              
-              {/* Author and Date */}
-              {blog.author && (
-                <div className="flex items-center gap-6">
-                  <div className="flex items-center gap-4">
-                    <Image
-                      src={blog.author.profile_picture || PLACEHOLDER_AVATAR}
-                      alt={blog.author.name}
-                      width={60}
-                      height={60}
-                      className="rounded-full border-2 border-white/20"
-                      unoptimized={true}
-                    />
-                    <div>
-                      <p className="font-semibold text-white text-lg">{blog.author.name}</p>
-                      <p className="text-gray-300">{new Date(blog.releaseDate).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                      })}</p>
-                    </div>
-                  </div>
+    <div className="min-h-screen bg-white">
+      {highlight && (
+        <section className="relative h-[55vh] lg:h-[65vh] overflow-hidden">
+          <Image 
+            src={highlight.thumbnail_image || PLACEHOLDER_IMAGE} 
+            alt={highlight.title || "Featured post"} 
+            fill
+            style={{ objectFit: 'cover' }}
+            className="brightness-75"
+            loading="eager"
+            unoptimized={true}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+          <div className="absolute inset-0 flex items-end">
+            <div className="container mx-auto px-4 lg:px-8 pb-8">
+              <div className="max-w-4xl">
+                <div className="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-4">
+                  <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                  Featured Story
                 </div>
-              )}
+                <h1 className="text-3xl md:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight">
+                  {highlight.title}
+                </h1>
+                <p className="text-base md:text-xl text-gray-200 mb-4 md:mb-6 leading-relaxed line-clamp-3">
+                  {highlight.description || "Discover insights, stories, and updates from our community"}
+                </p>
+                <Link href={`/blog/${highlight.id}`} className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-5 py-3 text-sm md:text-base shadow-lg transition-all duration-300 group">
+                  Read full story
+                  <svg className="w-4 h-4 md:w-5 md:h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Content Section */}
-      <section className="py-16 lg:py-20">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="max-w-4xl mx-auto">
-            <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-a:text-green-600 prose-strong:text-gray-900 prose-blockquote:border-l-green-600 prose-blockquote:bg-green-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r-lg">
-              <div dangerouslySetInnerHTML={{ __html: blog.content || "" }} />
-            </div>
-            
-            {/* Read More Link */}
-            <div className="mt-12 pt-8 border-t border-gray-200">
-              <Link href={`/blog/${blog.id}`} className="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-8 py-4 text-lg shadow-lg transition-all duration-300 group">
-                Read Full Story
-                <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Twitter Timeline */}
-      <section className="py-16 lg:py-20 bg-white">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Live Updates
-                <span className="block text-green-600">on Social Media</span>
-              </h2>
-              <p className="text-xl text-gray-600">Follow our journey and get real-time updates</p>
-            </div>
-            <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-xl">
-              <TwitterTimeline />
-            </div>
+      <section className="py-8 md:py-10">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+            {posts
+              .filter((p) => p.id !== highlight?.id)
+              .map((blog, index) => (
+                <BlogCard
+                  key={blog.id || index}
+                  id={blog.id}
+                  title={blog.title || "Untitled"}
+                  description={blog.description || ""}
+                  thumbnailUrl={blog.thumbnail_image || PLACEHOLDER_IMAGE}
+                  authorName={blog.author?.name || "Unknown Author"}
+                  authorImageUrl={blog.author?.profile_picture || PLACEHOLDER_AVATAR}
+                  releaseDate={blog.releaseDate || blog.createdAt || new Date().toISOString()}
+                  index={index}
+                  locale={params.lang}
+                />
+              ))}
           </div>
         </div>
       </section>

@@ -17,6 +17,7 @@ interface BlogCardProps {
     authorImageUrl: string;
     releaseDate: string;
     index: number;
+    locale?: string;
 }
 
 export default function BlogCard({
@@ -27,42 +28,41 @@ export default function BlogCard({
     authorName = "Unknown Author",
     authorImageUrl = PLACEHOLDER_AVATAR,
     releaseDate,
-    index
+    index,
+    locale
 }: BlogCardProps) {
     // Use the ID directly in URL path (not as query parameter)
     const blogId = id || `blog-${index}`;
     
+    const href = `/${locale ? `${locale}/` : ''}blog/${blogId}`;
     return (
-        <Link href={`/en/blog/${blogId}`} className="w-full h-full">
-            <div className="flex flex-col gap-4 h-full bg-white rounded-lg shadow-sm border border-brand-darkblue-10 overflow-hidden hover:shadow-lg transition-all duration-300">
-                <div className="aspect-video w-full overflow-hidden relative bg-gray-100">
+        <Link href={href} className="w-full h-full">
+            <div className="relative h-full overflow-hidden rounded-xl bg-black/5 group">
+                <div className="relative w-full aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/3]">
                     <Image 
                         src={thumbnailUrl} 
                         alt={title} 
-                        className="w-full h-full object-cover" 
-                        width={500} 
-                        height={300} 
-                        loading="lazy"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        priority={index < 6}
                         unoptimized={true}
                     />
-                </div>
-                <div className="flex flex-col gap-3 p-5 flex-grow">
-                    <div className="flex-1">
-                        <Text variant="heading4" className="line-clamp-2 mb-2">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 md:p-6">
+                        <Text variant="heading4" className="text-white mb-1 line-clamp-2">
                             {title}
                         </Text>
-                        <Text className="text-gray-600 line-clamp-2">
-                            {description && description.length > 0 
-                                ? `${description.slice(0, 100)}...` 
-                                : "No description available"}
-                        </Text>
-                    </div>
-                    <div className="pt-3 border-t border-gray-100 mt-auto">
-                        <Author 
-                            name={authorName} 
-                            releaseDate={releaseDate} 
-                            profile_image={authorImageUrl} 
-                        />
+                        <p className="text-white/80 text-sm line-clamp-2">
+                            {description && description.length > 0 ? `${description.slice(0, 110)}...` : ""}
+                        </p>
+                        <div className="mt-3">
+                            <Author 
+                                name={authorName} 
+                                releaseDate={releaseDate} 
+                                profile_image={authorImageUrl} 
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

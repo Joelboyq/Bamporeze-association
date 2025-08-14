@@ -1,9 +1,6 @@
 import { Text } from "@repo/ui/units";
 import { Locale } from "../../../../../i18n.config";
 import { getBlogById } from "../../../../utils/api";
-import { getDictionary } from "../../../../utils/dictionary";
-import PageHead from "../../../../components/units/pageTitle";
-import WebSection from "../../../../components/layouts/websection";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -13,67 +10,73 @@ const PLACEHOLDER_IMAGE = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWl
 const PLACEHOLDER_AVATAR = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1MCIgZmlsbD0iI2UyZThmMCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiM0NzU1NjkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIj5VPC90ZXh0Pjwvc3ZnPg==";
 
 export default async function BlogPostPage({ params }: { params: { lang: Locale; id: string } }) {
-  console.log("Attempting to fetch blog with ID:", params.id);
-  const dictionary = getDictionary(params.lang);
   const blog = await getBlogById(params.id);
-  
   if (!blog) {
     notFound();
   }
-  
-  // Format the date for display
-  const formattedDate = new Date(blog.publishedAt || blog.createdAt || new Date()).toLocaleDateString('en-US', {
+
+  const formattedDate = new Date(blog.publishedAt || blog.releaseDate || blog.createdAt || new Date()).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   });
-  
+
+  const authorName = blog.author?.name || "Bamporeze Team";
+  const authorImage = blog.author?.profile_picture || blog.author?.image || PLACEHOLDER_AVATAR;
+  const coverImage = blog.thumbnail_image || PLACEHOLDER_IMAGE;
+
   return (
-    <>
-
-    
-      <PageHead
-        title={blog.title}
-        subtitle={dictionary.pages.blog.subtitle}
-        suptitle={dictionary.pages.blog.suptitle}
-       
-      />
-      
-      <WebSection about={dictionary.pages.blog.title} className="py-16">
-
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
-            <Image src={blog.thumbnail_image} alt={blog.title} width={1000} height={1000} />
-            
-            <Text variant="title_2" className="mb-4 p-4">{blog.title}</Text>
-            
-            <div className="flex items-center gap-4 mb-8">
-              <div className="flex items-center">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden mr-3">
-                  <Image 
-                    src={blog.author?.image || PLACEHOLDER_AVATAR}
-                    alt={blog.author?.name || "Author"}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <Text className="text-gray-700">{blog.author?.name || "Bamporeze Team"}</Text>
+    <div className="min-h-screen bg-white">
+      <section className="relative h-[55vh] lg:h-[65vh] overflow-hidden">
+        <Image
+          src={coverImage}
+          alt={blog.title}
+          fill
+          style={{ objectFit: 'cover' }}
+          className="brightness-75"
+          unoptimized={true}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+        <div className="absolute inset-0 flex items-end">
+          <div className="container mx-auto px-4 lg:px-8 pb-8">
+            <div className="max-w-4xl">
+              <div className="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-4">
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                Blog
               </div>
-              <Text className="text-gray-500">{formattedDate}</Text>
-            </div>
-            
-           
-            
-            <div className="prose prose-lg max-w-none">
-              <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+              <h1 className="text-3xl md:text-5xl font-bold text-white mb-3 md:mb-4 leading-tight">
+                {blog.title}
+              </h1>
+              <div className="flex items-center gap-4 text-white/90">
+                <div className="relative w-10 h-10 rounded-full overflow-hidden">
+                  <Image src={authorImage} alt={authorName} fill className="object-cover" unoptimized={true} />
+                </div>
+                <span className="font-medium">{authorName}</span>
+                <span className="opacity-60">•</span>
+                <span className="opacity-90">{formattedDate}</span>
+              </div>
             </div>
           </div>
-          
-          <Link href={`/${params.lang}/blog`} className="text-blue-600 hover:underline mb-4 inline-block">
-              ← Back to all posts
-            </Link>
         </div>
-      </WebSection>
-    </>
+      </section>
+
+      <section className="py-10 md:py-14">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <article className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-a:text-green-600 prose-strong:text-gray-900">
+              <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+            </article>
+            <div className="mt-10">
+              <Link href={`/${params.lang}/blog`} className="inline-flex items-center gap-2 text-green-700 hover:text-green-800 font-medium">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to all posts
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
-} 
+}
