@@ -359,7 +359,7 @@ function BlogHomepage({ lang }: { lang: Locale }) {
                   authorImageUrl={blog.author?.profile_picture || PLACEHOLDER_AVATAR}
                   releaseDate={blog.releaseDate || blog.createdAt || new Date().toISOString()}
                   index={index}
-                  locale={params.lang}
+                  locale={lang}
                 />
               ))}
           </div>
