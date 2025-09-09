@@ -29,21 +29,9 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
     const fallbackSlides: ISlide[] = [
         {
             id: "1",
-            title: "Bamporeze Association",
-            description: "Empowering Vulnerable Children - At Scale",
+            title: "Empowering women. Protecting children. Transforming communities.",
+            description: "Bamporeze Association is a women-led Rwandan nonprofit organization established in 1996, committed to supporting vulnerable children, youth, women, and families through transformative approaches to alleviating poverty and building resiliency.",
             background_image: "/images/hero-bg-1.jpg"
-        },
-        {
-            id: "2", 
-            title: "Bamporeze Association",
-            description: "Education for All - At Scale",
-            background_image: "/images/hero-bg-2.jpg"
-        },
-        {
-            id: "3",
-            title: "Bamporeze Association", 
-            description: "Building Stronger Communities - At Scale",
-            background_image: "/images/hero-bg-3.jpg"
         }
     ];
 

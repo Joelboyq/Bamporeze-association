@@ -7,132 +7,40 @@ interface ImpactStatsProps {
 }
 
 export default function ImpactStats({ locale }: ImpactStatsProps) {
-  const [count1, setCount1] = useState(0);
-  const [count2, setCount2] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  const content = {
-    en: {
-      mainText: "Bamporeze Association is part of a global network empowering vulnerable children and building sustainable communities - at scale.",
-      supportingText: "We connect children and families to education, healthcare, and community development programs. Why? To build a just and sustainable future for all.",
-      stat1: {
-        number: 10000,
-        label: "Children Helped"
-      },
-      stat2: {
-        number: 15,
-        label: "Years of Impact"
-      }
-    },
-    fr: {
-      mainText: "L'Association Bamporeze fait partie d'un réseau mondial qui autonomise les enfants vulnérables et construit des communautés durables - à grande échelle.",
-      supportingText: "Nous connectons les enfants et les familles aux programmes d'éducation, de santé et de développement communautaire. Pourquoi? Pour construire un avenir juste et durable pour tous.",
-      stat1: {
-        number: 10000,
-        label: "Enfants Aidés"
-      },
-      stat2: {
-        number: 15,
-        label: "Années d'Impact"
-      }
-    }
-  };
-
-  const currentContent = content[locale];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            
-            // Animate first counter
-            const duration1 = 2000; // 2 seconds
-            const steps1 = 60;
-            const increment1 = currentContent.stat1.number / steps1;
-            let current1 = 0;
-            
-            const timer1 = setInterval(() => {
-              current1 += increment1;
-              if (current1 >= currentContent.stat1.number) {
-                setCount1(currentContent.stat1.number);
-                clearInterval(timer1);
-              } else {
-                setCount1(Math.floor(current1));
-              }
-            }, duration1 / steps1);
-
-            // Animate second counter
-            const duration2 = 2000; // 2 seconds
-            const steps2 = 60;
-            const increment2 = currentContent.stat2.number / steps2;
-            let current2 = 0;
-            
-            const timer2 = setInterval(() => {
-              current2 += increment2;
-              if (current2 >= currentContent.stat2.number) {
-                setCount2(currentContent.stat2.number);
-                clearInterval(timer2);
-              } else {
-                setCount2(Math.floor(current2));
-              }
-            }, duration2 / steps2);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [hasAnimated, currentContent.stat1.number, currentContent.stat2.number]);
+  // New infographics/numbers section based on user content
+  const stats = [
+    { label: "Women equipped with financial literacy, entrepreneurship, and business skills", value: "10,000+" },
+    { label: "Self-help Groups established", value: "500" },
+    { label: "Youth trained in TVET, life skills, and equipped with a start-up kit", value: "700+" },
+    { label: "Community-based ECDs built and supported", value: "3+" },
+    { label: "Home-based ECDs established and supported", value: "37+" },
+    { label: "Awareness-raising campaigns on Child Protection, Positive Parenting, SRHR, HIV Prevention, and GBV", value: "50+" },
+    { label: "Trees planted, restoring forests and fighting soil erosion", value: "25,000+" },
+    { label: "Energy-Saving Stoves distributed", value: "1,200" },
+    { label: "Water harvesting tanks provided for relocated households", value: "100" },
+    { label: "Houses built for child and woman-headed households", value: "300+" },
+    { label: "Studies to assess child protection and GBV issues", value: "2" },
+    { label: "Years of impact", value: "29" },
+  ];
 
   return (
-    <section ref={sectionRef} className="bg-[#003d1d] py-16 lg:py-16">
+    <section className="bg-[#003d1d] py-16 lg:py-20">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left Section - Descriptive Text */}
-          <div className="space-y-8">
-            {/* Main Text Block */}
-            <div className="text-white">
-              <h2 className="text-l md:text-2xl lg:text-1xl font-bold leading-tight mb-6">
-                {currentContent.mainText}
-              </h2>
-              
-              {/* Supporting Text Block */}
-              <p className="text-lg md:text-l text-white/90 leading-relaxed">
-                {currentContent.supportingText}
-              </p>
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Our Impact in Numbers
+          </h2>
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+            Bamporeze Association is a women-led Rwandan nonprofit organization established in 1996, committed to supporting vulnerable children, youth, women, and families through transformative approaches to alleviating poverty and building resiliency.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {stats.map((stat, idx) => (
+            <div key={idx} className="bg-white/10 rounded-xl p-6 border border-white/20 text-center">
+              <div className="text-3xl md:text-4xl font-bold text-green-300 mb-2">{stat.value}</div>
+              <div className="text-base md:text-lg text-white/90 leading-tight">{stat.label}</div>
             </div>
-          </div>
-
-          {/* Right Section - Statistics */}
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 justify-center lg:justify-end">
-            {/* First Statistic */}
-            <div className="text-center lg:text-left">
-              <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2">
-                {count1.toLocaleString()}+
-              </div>
-              <div className="text-lg md:text-xl text-white/90">
-                {currentContent.stat1.label}
-              </div>
-            </div>
-
-            {/* Second Statistic */}
-            <div className="text-center lg:text-left">
-              <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-2">
-                {count2}+
-              </div>
-              <div className="text-lg md:text-xl text-white/90">
-                {currentContent.stat2.label}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -84,37 +84,36 @@ export default function Navbar(props: WithLocaleProp) {
       <SocialMediaBar />
       
       {/* Main Navigation */}
-      <nav className='top-0 md:block sticky z-50 bg-white msm:hidden' style={{ marginTop: '40px' }}>
-        <WebSection about='BAMPOREZE.' className="flex flex-row justify-between items-end py-2 ui-bg-red-500 shadow-1 " animate={false}>
-          <div className='w-32 h-18'>
-            <Link href="/" >
+      <nav className='top-0 md:block sticky z-50 bg-white msm:hidden' style={{ marginTop: '40px', minHeight: '120px' }}>
+        <WebSection about='BAMPOREZE.' className="flex flex-row justify-start items-center py-6 px-8 shadow-1 gap-12" animate={false}>
+          {/* Much bigger logo, left-aligned */}
+          <div className='flex-shrink-0 flex items-center' style={{ minWidth: '220px' }}>
+            <Link href="/">
               <Logo variant="light" />
             </Link>
           </div>
-          <div className="flex items-center gap-2">
+          {/* Nav links - much larger and bolder */}
+          <div className="flex-1 flex items-center gap-10">
             {navLinks.map((link, index) => {
-              // For home page, we need an exact match
               const isHome = link.href === '/';
-              // For other pages, check if the current path starts with the link's href
               const isActive = isHome 
                 ? pathname === `/${props.locale}` || pathname === `/${props.locale}/`
                 : pathname.startsWith(`/${props.locale}${link.href}`);
-                
               return (
                 <Link key={index} href={`/${props.locale}${link.href}`}>
                   <div className={`
-                    relative px-3 py-2 mx-1 rounded-lg transition-colors duration-150 ease-in-out 
+                    relative px-7 py-4 mx-2 rounded-xl transition-colors duration-150 ease-in-out 
                     group cursor-pointer overflow-hidden
                     ${isActive 
-                      ? 'bg-brand-darkblue  text-white' 
+                      ? 'bg-brand-darkblue text-white scale-110 shadow-lg' 
                       : 'hover:bg-brand-lightblue hover:text-brand-darkblue'}
                   `}>
                     <h2 className={`
-                      relative z-10 font-semibold leading-6 transition-colors duration-150 text-base
+                      relative z-10 font-extrabold leading-8 transition-colors duration-150 text-2xl tracking-tight
                       ${isActive 
                         ? 'text-white' 
                         : 'text-gray-700 group-hover:text-brand-darkblue'}
-                      ${props.locale === 'fr' ? 'text-sm' : ''}
+                      ${props.locale === 'fr' ? 'text-xl' : ''}
                     `}>
                       {link.name}
                     </h2>
@@ -123,34 +122,23 @@ export default function Navbar(props: WithLocaleProp) {
               );
             })}
           </div>
-          <div className='flex items-center gap-2'>
-            <Select
-              styles={customStyles}
-              classNames={{
-                control: (state) =>
-                  state.isFocused ? 'border-[#51697F]' : 'border-none',
-              }}
-              value={locales.find(locale => locale.value == props.locale) ?? locales[0]}
-              onChange={(e) => handleChangeLocale((e as typeof locales[0]).value as 'en' | 'fr')}
-              options={locales} />
-
+          {/* Contact and Donate buttons, visually balanced */}
+          <div className='flex items-center gap-4 ml-8'>
             <Link href={'/contact'}>
-              <Button>
-                <Text variant="heading4" className='text-white text-base'>
+              <Button className="bg-green-600 hover:bg-green-700 px-8 py-4 rounded-xl text-2xl font-bold shadow-md">
+                <Text variant="heading4" className='text-white text-2xl font-bold'>
                   {dictionary.global_layout.navigation.buttons.contact}
                 </Text>
               </Button>
             </Link>
-            
-            {/* Donate Button */}
             <button
               onClick={() => setDonateOpen(true)}
-              className="text-white px-5 py-2 rounded-full bg-yellow-400 hover:bg-yellow-500 text-brand-darkblue font-extrabold flex items-center gap-2 shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 animate-pulse hover:animate-none"
+              className="text-white px-8 py-4 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-brand-darkblue font-extrabold flex items-center gap-3 shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500"
               style={{ border: '2px solid #fff', boxShadow: '0 2px 12px 0 rgba(255,193,7,0.25)' }}
               aria-label="Donate"
             >
-              <FaHeart className="text-red-500 animate-bounce mr-1" />
-              Donate
+              <FaHeart className="text-2xl text-blue-500 animate-bounce mr-2" />
+              <span className="text-2xl font-bold">Donate</span>
             </button>
           </div>
         </WebSection>
@@ -174,7 +162,7 @@ export default function Navbar(props: WithLocaleProp) {
           <div className={` ${hidenav ? 'absolute' : 'hidden'} flex flex-col items-center gap-6 absolute top-14 py-10 bg-white w-full`}>
             {navLinks.map((link, index) => (
               <Link key={index} href={link.href}>
-                <Text variant="paragraph" className="hover:text-brand-darkblue">
+                <Text variant="heading4" className="hover:text-brand-darkblue text-xl font-bold">
                   {link.name}
                 </Text>
               </Link>

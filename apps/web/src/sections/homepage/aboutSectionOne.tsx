@@ -22,18 +22,18 @@ export default function useAboutSectionOne({ expanded, locale }: { expanded: boo
                 <div className="text-center mb-8">
                     <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        {locale === 'fr' ? 'ONG Reconnue au Rwanda' : 'Registered NGO in Rwanda'}
+                        Women-led Nonprofit · Since 1996
                     </div>
                 </div>
 
                 {/* Main Title Section */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                        {dictionary.pages.home.about_section_one.title}
+                        Who we are
                     </h2>
                     <div className="w-24 h-1 bg-green-600 mx-auto mb-6"></div>
                     <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                        {dictionary.pages.home.about_section_one.subtitle}
+                        At Bamporeze, we believe every child deserves protection, every woman deserves empowerment, and every family deserves hope. Together with communities, we turn challenges into opportunities for a brighter, sustainable future.
                     </p>
                 </div>
 
@@ -54,52 +54,30 @@ export default function useAboutSectionOne({ expanded, locale }: { expanded: boo
                         </div>
                         {/* Impact badge on image */}
                         <div className="absolute -bottom-4 -right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg">
-                            <div className="text-2xl font-bold">15+</div>
+                            <div className="text-2xl font-bold">29</div>
                             <div className="text-sm">Years of Impact</div>
                         </div>
                     </div>
-                    
+
                     {/* Text Content with NGO styling */}
                     <div className="order-1 lg:order-2 space-y-8">
                         <div className="space-y-6">
                             <Text variant="heading4" className="text-lg md:text-xl leading-relaxed text-gray-700">
-                                {itTrue ? dictionary.pages.home.about_section_one.content : dictionary.pages.home.about_section_one.content.slice(0, 400) + "..."}
+                                <b>Our story</b><br/>
+                                Bamporeze was founded in 1996 with a simple but powerful message in mind: Building hope through families, shaping futures through children. Born in the aftermath of the 1994 Genocide against the Tutsi, Rwanda was in a deep humanitarian crisis. Families had been torn apart, children were left vulnerable, and communities struggled to rebuild. In response, Bamporeze began its journey by supporting children, youth, and vulnerable families with urgent humanitarian aid, providing food, clothing, shelter, and psychosocial support. At the same time, the organization focused on empowering families to restore their dignity and independence by building their capacity to start income-generating activities.<br/><br/>
+                                As HIV and AIDS continued to devastate communities, Bamporeze expanded its mission to include HIV prevention and Sexual and Reproductive Health and Rights (SRHR), ensuring that young people and families had the knowledge and resources to live healthier lives.<br/><br/>
+                                Today, Bamporeze has evolved into a dynamic organization committed to alleviating poverty, building resilience, and protecting the rights of women and children. Our programs now include education (basic education and early childhood development), child protection, community development, health, and environmental protection, which are all designed to strengthen families and communities.<br/><br/>
+                                Over the years, our work has been made possible through the support of global and national partners, including UNICEF, UNHCR, the Global Fund, Kindernothilfe (KNH), Plan International, Help a Child, AHF, Sanofi Foundation, Cornerstone Trust, and Firelight Foundation. Together, we have reached thousands of children, women, and families across Rwanda, turning a story of loss into a story of hope and resilience.
                             </Text>
                         </div>
-                        
-                        {/* Impact highlights */}
-                        <div className="grid grid-cols-2 gap-6 py-6">
-                            <div className="text-center p-4 bg-green-50 rounded-lg border border-green-200">
-                                <div className="text-2xl font-bold text-green-600">10,000+</div>
-                                <div className="text-sm text-gray-600">
-                                    {locale === 'fr' ? 'Enfants Aidés' : 'Children Helped'}
-                                </div>
-                            </div>
-                            <div className="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
-                                <div className="text-2xl font-bold text-blue-600">95%</div>
-                                <div className="text-sm text-gray-600">
-                                    {locale === 'fr' ? 'Taux de Réussite' : 'Success Rate'}
-                                </div>
-                            </div>
+
+                        {/* Mission and Vision */}
+                        <div className="bg-green-50 rounded-lg p-6">
+                            <div className="mb-2 text-lg font-bold text-green-800">Mission</div>
+                            <div className="mb-4 text-gray-700">To promote child protection, gender equality, and sustainable development through community-driven approaches and advocacy.</div>
+                            <div className="mb-2 text-lg font-bold text-green-800">Vision</div>
+                            <div className="text-gray-700">We envision an empowered community where every child thrives and lives a life of dignity.</div>
                         </div>
-                        
-                        {!(itTrue) && (
-                            <div className="pt-4">
-                                <Link href={"/about"}>
-                                    <Button 
-                                        variant="secondary" 
-                                        className="w-full md:w-fit flex items-center justify-center bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            {dictionary.common.ctas.read_more}
-                                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                            </svg>
-                                        </div>
-                                    </Button>
-                                </Link>
-                            </div>
-                        )}
                     </div>
                 </div>
             </div>

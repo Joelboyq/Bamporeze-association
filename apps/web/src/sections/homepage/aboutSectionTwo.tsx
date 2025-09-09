@@ -51,29 +51,15 @@ export default function AboutSectionTwo({ locale }: WithLocaleProp) {
     const itTrue = currentPath.includes("about");
     const dictionary = getDictionary(locale) as any
     
-    // Define your key impact metrics here - customize these values
+    // Updated impact metrics based on user content
     const impactMetrics: ImpactMetric[] = [
-        {
-            value: "1,200+",
-            label: dictionary.pages.home.about_section_two.metrics?.children_supported || "Children Supported",
-            emoji: "children"
-        },
-        {
-            value: "85%",
-            label: dictionary.pages.home.about_section_two.metrics?.school_retention || "School Retention Rate",
-            emoji: "education"
-        },
-        {
-            value: "50+",
-            label: dictionary.pages.home.about_section_two.metrics?.communities || "Communities Reached",
-            emoji: "community"
-        },
-        {
-            value: "12",
-            label: dictionary.pages.home.about_section_two.metrics?.years_active || "Years of Impact",
-            emoji: "impact"
-        }
-    ]
+        { value: "30,000+", label: "Children reached with education, protection, and psychosocial support", emoji: "children" },
+        { value: "500+", label: "Women’s Self-Help Groups (SHGs) formed", emoji: "community" },
+        { value: "Thousands", label: "Families supported with livelihood skills and income-generating activities", emoji: "impact" },
+        { value: "Expanded", label: "HIV prevention & SRHR programs for youth", emoji: "education" },
+        { value: "Reforestation", label: "Environmental protection initiatives", emoji: "impact" },
+        { value: "29", label: "Years of Impact", emoji: "impact" },
+    ];
 
     return (
         <section className="bg-[#003d1d] py-16 lg:py-20">
@@ -81,11 +67,11 @@ export default function AboutSectionTwo({ locale }: WithLocaleProp) {
                 {/* Title Section */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                        {dictionary.pages.home.about_section_two.title}
+                        Our Impact
                     </h2>
                     <div className="w-24 h-1 bg-green-400 mx-auto mb-6"></div>
                     <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-                        {dictionary.pages.home.about_section_two.subtitle}
+                        “Our work is more than numbers, it’s the story of families lifted from poverty, children growing up safe, and communities shaping brighter futures.”
                     </p>
                 </div>
 
@@ -120,7 +106,15 @@ export default function AboutSectionTwo({ locale }: WithLocaleProp) {
                         {/* Descriptive Text Content */}
                         <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
                             <Text variant="heading4" className="text-lg leading-relaxed text-white/90">
-                                {itTrue ? dictionary.pages.home.about_section_two.content : dictionary.pages.home.about_section_two.content.slice(0, 300) + "..."}
+                                For over two decades, the Bamporeze Association has collaborated closely with communities, local leaders, and partners to transform lives across Rwanda. Our programs put families at the center, empowering them to overcome poverty, protect their children, and build brighter futures.<br/><br/>
+                                <b>What We’ve Achieved Together</b><br/>
+                                • 30,000+ children reached with education, protection, and psychosocial support.<br/>
+                                • 500+ women’s Self-Help Groups (SHGs) formed, strengthening economic independence and advocacy.<br/>
+                                • Thousands of families supported with livelihood skills and income-generating activities.<br/>
+                                • Expanded HIV prevention & SRHR programs, equipping young people with knowledge and access to health services.<br/>
+                                • Reforestation & environmental protection initiatives, promoting eco-friendly practices in vulnerable communities.<br/><br/>
+                                <b>Beyond Numbers</b><br/>
+                                Our impact is not just in statistics, it’s in the resilience of families who can now provide for themselves, in children who grow up safe and protected, and in communities that stand stronger together.
                             </Text>
                         </div>
 
