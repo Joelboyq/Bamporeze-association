@@ -27,13 +27,13 @@ export default function SocialMediaBar() {
 
   return (
     <div 
-      className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
+      className={`w-full overflow-hidden transition-all duration-300 ease-in-out ${
+        isVisible ? 'h-12 opacity-100' : 'h-0 opacity-0'
       }`}
     >
-      <div className="bg-white border-b border-gray-200 shadow-sm">
+      <div className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-center py-2">
+          <div className="flex items-center justify-center py-3">
             <div className="flex items-center space-x-6">
               {socialMediaLinks.map((social, index) => (
                 <Link

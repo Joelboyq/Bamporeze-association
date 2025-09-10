@@ -3,6 +3,7 @@ import { Button, Logo, Text } from '@repo/ui/units'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Select, { StylesConfig } from 'react-select'
 import { Locale } from '../../../i18n.config'
 import { getNavlinks } from '../../constants/contactLinks'
@@ -10,14 +11,14 @@ import { getDictionary } from '../../utils/dictionary'
 import WebSection from '../layouts/websection'
 import { remoteAxios } from '../../utils/axios.config'
 import axios from 'axios'
-import DonateModal from './DonateModal';
-import { FaHeart } from 'react-icons/fa';
+import DonateModal from './DonateModal'
+import { FaHeart, FaBars, FaTimes } from 'react-icons/fa'
 import SocialMediaBar from './socialMediaBar';
 
 const locales = [
   {
     label: <div className="flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 36 36"><path fill="#eee" d="M32 5H4a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4V9a4 4 0 0 0-4-4" /><path fill="#ce1124" d="M21 5h-6v10H0v6h15v10h6V21h15v-6H21z" /></svg><span className='text-brand-blackblue'>English</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 36 36"><path fill="#eee" d="M32 5H4a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4V9a4 4 0 0 0-4-4" /><path fill="#ce1124" d="M21 5h-6v10H0v6h15v10h6V21h15v-6H21z" /></svg><span className='text-brand-blackblue'>En</span>
     </div>,
 
     value: 'en'
@@ -25,7 +26,7 @@ const locales = [
   {
     label: <div className="flex items-center gap-2">
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 36 36"><path fill="#ed2939" d="M36 27a4 4 0 0 1-4 4h-8V5h8a4 4 0 0 1 4 4z" /><path fill="#002495" d="M4 5a4 4 0 0 0-4 4v18a4 4 0 0 0 4 4h8V5z" /><path fill="#eee" d="M12 5h12v26H12z" /></svg>
-      <span className='text-brand-blackblue'>French</span>
+      <span className='text-brand-blackblue'>Fr</span>
     </div>,
     value: 'fr'
   },
@@ -78,132 +79,182 @@ export default function Navbar(props: WithLocaleProp) {
     router.push(newPath)
   }
 
-  return (  
-    <div className='top-0 sticky w-full z-40'>
-      {/* Social Media Bar */}
+  return (
+    <header className='sticky top-0 w-full z-50 bg-white shadow-lg'>
       <SocialMediaBar />
       
-      {/* Main Navigation */}
-      <nav className='top-0 md:block sticky z-50 bg-white msm:hidden' style={{ marginTop: '40px', minHeight: '120px' }}>
-        <WebSection about='BAMPOREZE.' className="flex flex-row justify-start items-center py-6 px-8 shadow-1 gap-12" animate={false}>
-          {/* Much bigger logo, left-aligned */}
-          <div className='flex-shrink-0 flex items-center' style={{ minWidth: '220px' }}>
-            <Link href="/">
-              <Logo variant="light" />
-            </Link>
-          </div>
-          {/* Nav links - much larger and bolder */}
-          <div className="flex-1 flex items-center gap-10">
+      {/* Desktop Navigation */}
+      <nav className='hidden md:block mt-2' style={{ minHeight: '80px' }}>
+        <WebSection about='BAMPOREZE.' className="flex items-center justify-between py-4 px-4 lg:px-8" animate={false}>
+          {/* Logo */}
+          <Link href={`/${props.locale}`} className="flex-shrink-0 transition-transform hover:scale-105">
+            <div className="  h-20 ">
+              <Logo variant="light" className="h-full" />
+            </div>
+          </Link>
+
+          {/* Navigation Links */}
+          <div className="flex items-center space-x-8">
             {navLinks.map((link, index) => {
               const isHome = link.href === '/';
               const isActive = isHome 
                 ? pathname === `/${props.locale}` || pathname === `/${props.locale}/`
                 : pathname.startsWith(`/${props.locale}${link.href}`);
+              
               return (
-                <Link key={index} href={`/${props.locale}${link.href}`}>
-                  <div className={`
-                    relative px-7 py-4 mx-2 rounded-xl transition-colors duration-150 ease-in-out 
-                    group cursor-pointer overflow-hidden
+                <Link 
+                  key={index} 
+                  href={`/${props.locale}${link.href}`}
+                  className={`
+                    relative px-4 py-2 rounded-lg transition-all duration-300
+                    text-lg font-semibold
                     ${isActive 
-                      ? 'bg-brand-darkblue text-white scale-110 shadow-lg' 
-                      : 'hover:bg-brand-lightblue hover:text-brand-darkblue'}
-                  `}>
-                    <h2 className={`
-                      relative z-10 font-extrabold leading-8 transition-colors duration-150 text-2xl tracking-tight
-                      ${isActive 
-                        ? 'text-white' 
-                        : 'text-gray-700 group-hover:text-brand-darkblue'}
-                      ${props.locale === 'fr' ? 'text-xl' : ''}
-                    `}>
-                      {link.name}
-                    </h2>
-                  </div>
+                      ? 'bg-brand-darkblue text-white transform scale-105 shadow-md' 
+                      : 'text-gray-700 hover:bg-brand-lightblue/10'}
+                  `}
+                >
+                  {link.name}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 w-full h-1 bg-brand-lightblue rounded-full" />
+                  )}
                 </Link>
               );
             })}
           </div>
-          {/* Contact and Donate buttons, visually balanced */}
-          <div className='flex items-center gap-4 ml-8'>
-            <Link href={'/contact'}>
-              <Button className="bg-green-600 hover:bg-green-700 px-8 py-4 rounded-xl text-2xl font-bold shadow-md">
-                <Text variant="heading4" className='text-white text-2xl font-bold'>
-                  {dictionary.global_layout.navigation.buttons.contact}
-                </Text>
-              </Button>
-            </Link>
-            <button
-              onClick={() => setDonateOpen(true)}
-              className="text-white px-8 py-4 rounded-xl bg-yellow-400 hover:bg-yellow-500 text-brand-darkblue font-extrabold flex items-center gap-3 shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              style={{ border: '2px solid #fff', boxShadow: '0 2px 12px 0 rgba(255,193,7,0.25)' }}
-              aria-label="Donate"
-            >
-              <FaHeart className="text-2xl text-blue-500 animate-bounce mr-2" />
-              <span className="text-2xl font-bold">Donate</span>
-            </button>
-          </div>
-        </WebSection>
-      </nav>
-      
-      {/* Mobile Navigation */}
-      <nav className='top-0 msm:block bg-white sticky z-50 md:hidden' style={{ marginTop: '40px' }}>
-        <WebSection about='BAMPOREZE.' className="flex flex-col justify-between items-center py-2 ui-bg-red-500 shadow-1 " animate={false}>
-          <div className='flex items-center justify-between w-full'>
-            <Link href="/" aria-label="Go to homepage">
-              <Logo variant="light" />
-            </Link>
-            <button onClick={() => setHideNav(!hidenav)}>
-              <svg width="26" height="18" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1.5 1.5H24" stroke="#51697F" stroke-width="2.5" stroke-linecap="round" />
-                <path d="M16.5 9H1.5" stroke="#51697F" stroke-width="2.5" stroke-linecap="round" />
-                <path d="M9 16.5H1.5" stroke="#51697F" stroke-width="2.5" stroke-linecap="round" />
-              </svg>
-            </button>
-          </div>
-          <div className={` ${hidenav ? 'absolute' : 'hidden'} flex flex-col items-center gap-6 absolute top-14 py-10 bg-white w-full`}>
-            {navLinks.map((link, index) => (
-              <Link key={index} href={link.href}>
-                <Text variant="heading4" className="hover:text-brand-darkblue text-xl font-bold">
-                  {link.name}
-                </Text>
-              </Link>
-            ))}
-            <select name="country" id="" className='p-4 rounded-sm outline-none appearance-none text-brand-lightblack font-lexend text-[14px]'>
-              <option value="en" selected={props.locale == 'en'}>
-                <Button className='flex items-center gap-2'>
-                  <Text variant="paragraph">
-                    EN
-                  </Text>
-                </Button>
-              </option>
-              <option value="fr" selected={props.locale == 'fr'}>
-                <Button className='flex items-center gap-2' >
-                  <Text variant="paragraph">
-                    FR
-                  </Text>
-                </Button>
-              </option>
-            </select>
-            <Button>
-              <Text variant="paragraph" className='text-white text-base md:w-fit msm:w-full'>
-                Contact us
-              </Text>
-            </Button>
+
+          {/* Actions */}
+          <div className="flex items-center gap-4">
+            {/* Language Selector */}
             
-            {/* Mobile Donate Button */}
+            
+            {/* Contact Button */}
+            <Link 
+              href={`/${props.locale}/contact`}
+              className="bg-green-600 hover:bg-green-700 px-6 py-2.5 rounded-lg 
+                        text-white font-semibold transition-colors duration-300
+                        shadow-md hover:shadow-lg"
+            >
+              {dictionary.global_layout.navigation.buttons.contact}
+            </Link>
+
+            {/* Donate Button */}
             <button
               onClick={() => setDonateOpen(true)}
-              className="text-white px-5 py-2 rounded-full bg-yellow-400 hover:bg-yellow-500 text-brand-darkblue font-extrabold flex items-center gap-2 shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 animate-pulse hover:animate-none"
-              style={{ border: '2px solid #fff', boxShadow: '0 2px 12px 0 rgba(255,193,7,0.25)' }}
+              className="bg-yellow-400 hover:bg-yellow-500 px-6 py-2.5 rounded-lg
+                        text-brand-darkblue font-semibold transition-all duration-300
+                        shadow-md hover:shadow-lg flex items-center gap-2"
               aria-label="Donate"
             >
-              <FaHeart className="text-red-500 animate-bounce mr-1" />
-              Donate
+              <FaHeart className="text-red-500" />
+              <span>Donate</span>
             </button>
           </div>
         </WebSection>
       </nav>
-      
+
+      {/* Mobile Navigation */}
+      <nav className="md:hidden">
+        <WebSection about='BAMPOREZE.' className="relative" animate={false}>
+          <div className="flex items-center justify-between py-3 px-4">
+            <Link href={`/${props.locale}`} className="flex-shrink-0">
+              <div className="h-14">
+                <Logo variant="light" className="h-full" />
+              </div>
+            </Link>
+
+            <button 
+              onClick={() => setHideNav(!hidenav)}
+              className="p-2 rounded-lg bg-gray-50 text-gray-600 hover:text-brand-darkblue hover:bg-gray-100 transition-all"
+              aria-label={hidenav ? "Close menu" : "Open menu"}
+            >
+              {hidenav ? <FaTimes size={20} /> : <FaBars size={20} />}
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          <div 
+            className={`
+              fixed inset-0 z-50 bg-white transition-all duration-300 ease-in-out
+              ${hidenav ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}
+            `}
+            style={{ top: '88px' }} // Height of header + social bar
+          >
+            <div className="h-full overflow-y-auto">
+              <div className="py-6 px-6 space-y-6">
+                {/* Navigation Links */}
+                <div className="space-y-2">
+                  {navLinks.map((link, index) => {
+                    const isHome = link.href === '/';
+                    const isActive = isHome 
+                      ? pathname === `/${props.locale}` || pathname === `/${props.locale}/`
+                      : pathname.startsWith(`/${props.locale}${link.href}`);
+                    
+                    return (
+                      <Link
+                        key={index}
+                        href={`/${props.locale}${link.href}`}
+                        className={`
+                          block py-3 px-4 rounded-lg text-lg font-semibold transition-all
+                          ${isActive 
+                            ? 'bg-brand-darkblue text-white' 
+                            : 'text-gray-700 hover:bg-gray-50'}
+                        `}
+                        onClick={() => setHideNav(false)}
+                      >
+                        {link.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                <hr className="border-gray-200" />
+
+                {/* Language Selector */}
+                <div className="px-4">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Select Language
+                  </label>
+                  <Select
+                    options={locales}
+                    value={locales.find(l => l.value === props.locale)}
+                    onChange={(option: any) => handleChangeLocale(option.value)}
+                    styles={customStyles}
+                    isSearchable={false}
+                    className="w-full"
+                  />
+                </div>
+
+                {/* Actions */}
+                <div className="space-y-3 px-4">
+                  <Link
+                    href={`/${props.locale}/contact`}
+                    className="block w-full py-3 text-center bg-green-600 hover:bg-green-700 
+                             text-white rounded-lg font-semibold transition-colors"
+                    onClick={() => setHideNav(false)}
+                  >
+                    {dictionary.global_layout.navigation.buttons.contact}
+                  </Link>
+
+                  <button
+                    onClick={() => {
+                      setDonateOpen(true);
+                      setHideNav(false);
+                    }}
+                    className="w-full py-3 text-center bg-yellow-400 hover:bg-yellow-500 
+                             text-brand-darkblue rounded-lg font-semibold 
+                             flex items-center justify-center gap-2 transition-colors"
+                  >
+                    <FaHeart className="text-red-500" />
+                    <span>Donate</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </WebSection>
+      </nav>
+
       <DonateModal isOpen={donateOpen} onClose={() => setDonateOpen(false)} />
-    </div>
+    </header>
   )
 }

@@ -1,16 +1,17 @@
 import { FC } from 'react'
 
 interface LogoProps {
-  variant: 'dark' | 'light'
+  variant: 'dark' | 'light';
+  className?: string;
 }
 
-export const Logo: FC<LogoProps> = ({ variant }) => {
+export const Logo: FC<LogoProps> = ({ variant, className = '' }) => {
   switch (variant) {
     case 'dark':
       return (
-        <div className="h-20 w-fit flex items-center justify-center">
+        <div className={`min-w-[180px] flex items-center justify-center ${className}`}>
           <img
-            className="h-20 w-fit object-contain"
+            className="w-full h-full object-contain"
             src={`https://res.cloudinary.com/dz6smjaku/image/upload/v1754790056/Screenshot_2025-08-10_at_03.40.34_mij9za.png`}
             alt="logo"
             width={1000}
@@ -20,9 +21,9 @@ export const Logo: FC<LogoProps> = ({ variant }) => {
       )
     case 'light':
       return (
-        <div className="h-20 w-fit flex items-center justify-center">
+        <div className={`min-w-[180px] flex items-center justify-center ${className}`}>
           <img
-            className="h-20 w-fit object-contain"
+            className="w-full h-full object-contain"
             src={`https://res.cloudinary.com/dz6smjaku/image/upload/v1754790056/Screenshot_2025-08-10_at_03.40.34_mij9za.png`}
             alt="logo"
             width={1000}
