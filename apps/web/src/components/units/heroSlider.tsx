@@ -39,11 +39,11 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
     
     return (
         <div className="relative w-full overflow-hidden">
-            {/* Hero Slider - Full viewport height */}
-            <div className="relative h-screen w-full">
+            {/* Hero Slider - Responsive height */}
+            <div className="relative h-[70vh] sm:h-[80vh] md:h-screen w-full">
                 <Slider {...settings} className="h-full">
                     {displaySlides.map((slide, index) => (
-                        <div key={slide.id} className="relative h-screen w-full">
+                        <div key={slide.id} className="relative h-[70vh] sm:h-[80vh] md:h-screen w-full">
                             {/* Background Image Container */}
                             <div className="absolute inset-0 w-full h-full">
                                 <Image
@@ -66,28 +66,26 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
                             
                             {/* Content Container */}
                             <div className="relative z-10 flex items-center justify-center h-full w-full">
-                                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                                    <div className="text-center max-w-5xl mx-auto">
-                                        {/* Main Title - Responsive Typography */}
-                                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 md:mb-8 leading-tight tracking-tight">
+                                <div className="w-full px-4 sm:px-6 lg:px-8">
+                                    <div className="text-center flex flex-col items-center justify-center">
+                                        {/* Main Title - Better mobile centered */}
+                                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 sm:mb-8 md:mb-10 leading-tight max-w-4xl">
                                             {slide.title}
                                         </h1>
                                         
-                                        {/* Description with improved mobile styling */}
-                                        <div className="max-w-4xl mx-auto">
-                                            <div className="bg-green-600/95 backdrop-blur-sm px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 md:py-6 rounded-lg md:rounded-xl shadow-xl">
-                                                <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white font-medium leading-relaxed">
+                                        {/* Description - Cleaner mobile design */}
+                                        <div className="w-full max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl mb-6 sm:mb-8 md:mb-10">
+                                            <div className="bg-green-600/95 backdrop-blur-sm px-5 sm:px-6 md:px-8 py-5 sm:py-6 md:py-7 rounded-2xl shadow-2xl">
+                                                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white leading-relaxed font-medium">
                                                     {slide.description}
                                                 </p>
                                             </div>
                                         </div>
                                         
-                                        {/* Optional CTA Button */}
-                                        <div className="mt-6 sm:mt-8 md:mt-10">
-                                            <button className="bg-white/90 hover:bg-white text-green-600 font-semibold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full text-sm sm:text-base md:text-lg transition-all duration-300 hover:scale-105 shadow-lg">
-                                                Learn More
-                                            </button>
-                                        </div>
+                                        {/* CTA Button - Centered and properly sized */}
+                                        <button className="bg-white hover:bg-white/95 text-green-600 font-bold px-8 sm:px-10 md:px-12 py-3 sm:py-3.5 md:py-4 rounded-full text-sm sm:text-base md:text-lg transition-all duration-300 hover:scale-105 shadow-xl">
+                                            Learn More
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -95,14 +93,14 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
                     ))}
                 </Slider>
                 
-                {/* Slide Indicators */}
+                {/* Slide Indicators - Better mobile positioning */}
                 {displaySlides.length > 1 && (
-                    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
-                        <div className="flex space-x-2">
+                    <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+                        <div className="flex space-x-2 sm:space-x-3">
                             {displaySlides.map((_, index) => (
                                 <div
                                     key={index}
-                                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                                    className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                                         index === activeSlide 
                                             ? 'bg-white scale-125' 
                                             : 'bg-white/50 hover:bg-white/80'

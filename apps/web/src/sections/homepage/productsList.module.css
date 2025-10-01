@@ -1,0 +1,380 @@
+.productsSection {
+    background-color: #71c993;
+    position: relative;
+    overflow: hidden;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.titleContainer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+
+.titleContent {
+    max-width: 56rem;
+    margin: 0 auto;
+}
+
+.ngoBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.pulseDot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: white;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.mainTitle {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.titleHighlight {
+    display: block;
+    color: #d1fae5;
+}
+
+.programsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.programCard {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    transition: all 0.7s;
+    cursor: pointer;
+}
+
+.programCard:hover .hoverOverlay {
+    opacity: 0.95;
+}
+
+.programCard:hover .programImage {
+    transform: scale(1.1);
+}
+
+.programCard:hover .gradientOverlay {
+    opacity: 0;
+}
+
+.programCard:hover .cardContent {
+    transform: translateY(-20px);
+}
+
+.programCard:hover .categoryBadge {
+    transform: scale(1.1);
+    background-color: white;
+}
+
+.programCard:hover .programDescription {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.programCard:hover .cardFooter {
+    transform: translateY(0);
+}
+
+.programCard:hover .statusDot {
+    transform: scale(1.5);
+    background-color: white;
+}
+
+.programCard:hover .learnMoreBtn {
+    transform: scale(1.1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.hoverOverlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: all 0.5s;
+    z-index: 10;
+}
+
+.hoverColor0 {
+    background: linear-gradient(to bottom right, #2563eb, #3b82f6, #1d4ed8);
+}
+
+.hoverColor1 {
+    background: linear-gradient(to bottom right, #9333ea, #a855f7, #7e22ce);
+}
+
+.hoverColor2 {
+    background: linear-gradient(to bottom right, #ea580c, #f97316, #c2410c);
+}
+
+.hoverColor3 {
+    background: linear-gradient(to bottom right, #16a34a, #22c55e, #15803d);
+}
+
+.programImage {
+    transition: all 0.7s;
+}
+
+.gradientOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5), transparent);
+    transition: all 0.5s;
+}
+
+.cardContent {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 2rem;
+    transform: translateY(0);
+    transition: all 0.7s;
+    z-index: 20;
+}
+
+.categoryBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #16a34a;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    transition: all 0.5s;
+}
+
+.badgeColor0 {
+    color: white;
+}
+
+.programCard:hover .badgeColor0 {
+    color: #2563eb;
+}
+
+.badgeColor1 {
+    color: white;
+}
+
+.programCard:hover .badgeColor1 {
+    color: #9333ea;
+}
+
+.badgeColor2 {
+    color: white;
+}
+
+.programCard:hover .badgeColor2 {
+    color: #ea580c;
+}
+
+.badgeColor3 {
+    color: white;
+}
+
+.programCard:hover .badgeColor3 {
+    color: #16a34a;
+}
+
+.badgeDot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: white;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.programCard:hover .dotColor0 {
+    background-color: #2563eb;
+}
+
+.programCard:hover .dotColor1 {
+    background-color: #9333ea;
+}
+
+.programCard:hover .dotColor2 {
+    background-color: #ea580c;
+}
+
+.programCard:hover .dotColor3 {
+    background-color: #16a34a;
+}
+
+.programTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    transition: all 0.5s;
+}
+
+.programCard:hover .programTitle {
+    color: white;
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.3));
+}
+
+.descriptionWrapper {
+    overflow: hidden;
+}
+
+.programDescription {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    transition: all 0.5s;
+    opacity: 0.8;
+}
+
+.programCard:hover .programDescription {
+    color: white;
+    opacity: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.cardFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.5s;
+}
+
+.statusIndicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.statusDot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    transition: all 0.3s;
+}
+
+.statusText {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    transition: all 0.3s;
+}
+
+.programCard:hover .statusText {
+    color: white;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.learnMoreBtn {
+    background-color: white;
+    color: #111827;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.learnMoreBtn:hover {
+    background-color: #16a34a;
+    color: white;
+}
+
+.btnColor0:hover {
+    background-color: #2563eb;
+    color: white;
+}
+
+.btnColor1:hover {
+    background-color: #9333ea;
+    color: white;
+}
+
+.btnColor2:hover {
+    background-color: #ea580c;
+    color: white;
+}
+
+.btnColor3:hover {
+    background-color: #16a34a;
+    color: white;
+}
+
+.arrowIcon {
+    transition: transform 0.3s;
+}
+
+.learnMoreBtn:hover .arrowIcon {
+    transform: translateX(0.25rem);
+}
+
+@media (min-width: 768px) {
+    .mainTitle {
+        font-size: 3rem;
+    }
+
+    .programsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .programTitle {
+        font-size: 1.875rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .titleContainer {
+        padding: 5rem 3rem;
+    }
+
+    .mainTitle {
+        font-size: 3.75rem;
+    }
+
+    .programsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .programCard {
+        height: 500px;
+    }
+}

@@ -6,105 +6,77 @@
 Browserslist: caniuse-lite is outdated. Please run:
   npx update-browserslist-db@latest
   Why you should do it regularly: https://github.com/browserslist/update-db#readme
-Browserslist: caniuse-lite is outdated. Please run:
-  npx update-browserslist-db@latest
-  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+(node:29593) ExperimentalWarning: CommonJS module /Users/ndizeye/Bamporeze/node_modules/tailwindcss/lib/lib/load-config.js is loading ES Module /Users/ndizeye/Bamporeze/apps/web/tailwind.config.ts using require().
+Support for loading ES Module in require() is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
  [32m[1m✓[22m[39m Compiled successfully
-[?25l [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G[?25h [37m[1m [22m[39m Linting and checking validity of types     [32m[1m✓[22m[39m Linting and checking validity of types 
-[?25l [37m[1m [22m[39m Collecting page data  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m...[39m[2K[1G[?25h [37m[1m [22m[39m Collecting page data     [32m[1m✓[22m[39m Collecting page data 
-[?25l [37m[1m [22m[39m Generating static pages (0/32)  [36m[    ][39m[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=   ][39m  [37m[1m [22m[39m Generating static pages (2/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[==  ][39m  [37m[1m [22m[39m Generating static pages (4/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=== ][39m  [37m[1m [22m[39m Generating static pages (6/32) 
+[?25l [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G[?25h [37m[1m [22m[39m Linting and checking validity of types     [32m[1m✓[22m[39m Linting and checking validity of types 
+[?25l [37m[1m [22m[39m Collecting page data  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting page data  [36m.[39m[2K[1G[?25h [37m[1m [22m[39m Collecting page data     [32m[1m✓[22m[39m Collecting page data 
+[?25l [37m[1m [22m[39m Generating static pages (0/32)  [36m[    ][39m[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=   ][39m  [37m[1m [22m[39m Generating static pages (4/32) 
 
  ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (7/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (7/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (7/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[    ][39m  [37m[1m [22m[39m Generating static pages (7/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (7/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (7/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (7/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[====][39m  [37m[1m [22m[39m Generating static pages (7/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=== ][39m  [37m[1m [22m[39m Generating static pages (7/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[==  ][39m  [37m[1m [22m[39m Generating static pages (8/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=   ][39m  [37m[1m [22m[39m Generating static pages (9/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[    ][39m  [37m[1m [22m[39m Generating static pages (11/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=   ][39m  [37m[1m [22m[39m Generating static pages (11/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[==  ][39m  [37m[1m [22m[39m Generating static pages (11/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=== ][39m  [37m[1m [22m[39m Generating static pages (11/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (11/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (11/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (11/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[    ][39m  [37m[1m [22m[39m Generating static pages (11/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (11/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (12/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (12/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[====][39m  [37m[1m [22m[39m Generating static pages (13/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=== ][39m  [37m[1m [22m[39m Generating static pages (14/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[==  ][39m  [37m[1m [22m[39m Generating static pages (15/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=   ][39m  [37m[1m [22m[39m Generating static pages (15/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[    ][39m  [37m[1m [22m[39m Generating static pages (15/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=   ][39m  [37m[1m [22m[39m Generating static pages (15/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[==  ][39m  [37m[1m [22m[39m Generating static pages (16/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=== ][39m  [37m[1m [22m[39m Generating static pages (16/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (17/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (17/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (17/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[    ][39m  [37m[1m [22m[39m Generating static pages (17/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (17/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (17/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (18/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[====][39m  [37m[1m [22m[39m Generating static pages (18/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=== ][39m  [37m[1m [22m[39m Generating static pages (18/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[==  ][39m  [37m[1m [22m[39m Generating static pages (18/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=   ][39m  [37m[1m [22m[39m Generating static pages (18/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[    ][39m  [37m[1m [22m[39m Generating static pages (20/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=   ][39m  [37m[1m [22m[39m Generating static pages (23/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[==  ][39m  [37m[1m [22m[39m Generating static pages (25/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=== ][39m  [37m[1m [22m[39m Generating static pages (28/32) 
-[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (30/32) 
+
+ ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+
+ ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+
+ ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+
+ ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+
+ ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[==  ][39m  [37m[1m [22m[39m Generating static pages (9/32) 
+
+ ⚠ metadata.metadataBase is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[=== ][39m  [37m[1m [22m[39m Generating static pages (13/32) 
+[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[ ===][39m  [37m[1m [22m[39m Generating static pages (20/32) 
+[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (25/32) 
+[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (27/32) 
+[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[    ][39m  [37m[1m [22m[39m Generating static pages (29/32) 
+[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[   =][39m  [37m[1m [22m[39m Generating static pages (30/32) 
+[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages (0/32)  [36m[  ==][39m  [37m[1m [22m[39m Generating static pages (31/32) 
 [2K[1G[1A[2K[1G[?25h [32m[1m✓[22m[39m Generating static pages (32/32) 
-[?25l [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[?25l [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G[?25h [37m[1m [22m[39m Collecting build traces     [32m[1m✓[22m[39m Collecting build traces 
-[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G[?25h [37m[1m [22m[39m Finalizing page optimization     [32m[1m✓[22m[39m Finalizing page optimization 
+[?25l [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[?25l [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m..[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m...[39m[2K[1G [37m[1m [22m[39m Collecting build traces  [36m...[39m[2K[1G[?25h [37m[1m [22m[39m Collecting build traces     [32m[1m✓[22m[39m Collecting build traces 
+[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G [37m[1m [22m[39m Finalizing page optimization  [36m..[39m[2K[1G[?25h [37m[1m [22m[39m Finalizing page optimization     [32m[1m✓[22m[39m Finalizing page optimization 
 
 [4mRoute (app)[24m                              [4mSize[24m     [4mFirst Load JS[24m
 ┌ ○ /_not-found                          881 B          [37m[1m85.3 kB[22m[39m
-├ ● /[lang]                              20.8 kB         [37m[1m199 kB[22m[39m
+├ ● /[lang]                              22.1 kB         [37m[1m207 kB[22m[39m
 ├   ├ /en
 ├   └ /fr
-├ ● /[lang]/about                        4.19 kB         [37m[1m183 kB[22m[39m
+├ ● /[lang]/about                        3.73 kB         [37m[1m188 kB[22m[39m
 ├   ├ /en/about
 ├   └ /fr/about
-├ ● /[lang]/blog                         5.87 kB         [37m[1m109 kB[22m[39m
+├ ● /[lang]/blog                         1.81 kB         [37m[1m160 kB[22m[39m
 ├   ├ /en/blog
 ├   └ /fr/blog
-├ λ /[lang]/blog/[id]                    188 B          [37m[1m96.3 kB[22m[39m
+├ λ /[lang]/blog/[id]                    187 B          [37m[1m96.3 kB[22m[39m
 ├ ● /[lang]/careers                      1.95 kB         [37m[1m164 kB[22m[39m
 ├   ├ /en/careers
 ├   └ /fr/careers
 ├ λ /[lang]/careers/[jobId]              3.19 kB         [37m[1m177 kB[22m[39m
-├ ● /[lang]/contact                      2.79 kB         [37m[1m124 kB[22m[39m
+├ ● /[lang]/contact                      2.78 kB         [37m[1m124 kB[22m[39m
 ├   ├ /en/contact
 ├   └ /fr/contact
-├ ● /[lang]/gallery                      2.28 kB         [37m[1m103 kB[22m[39m
+├ ● /[lang]/gallery                      2.29 kB         [37m[1m103 kB[22m[39m
 ├   ├ /en/gallery
 ├   └ /fr/gallery
-├ ● /[lang]/programs                     2.32 kB         [37m[1m106 kB[22m[39m
+├ ● /[lang]/programs                     2.33 kB         [37m[1m106 kB[22m[39m
 ├   ├ /en/programs
 ├   └ /fr/programs
 ├ ● /[lang]/programs/economic            173 B          [37m[1m91.4 kB[22m[39m
 ├   ├ /en/programs/economic
 ├   └ /fr/programs/economic
-├ ● /[lang]/programs/education           144 B          [37m[1m84.5 kB[22m[39m
+├ ● /[lang]/programs/education           144 B          [37m[1m84.6 kB[22m[39m
 ├   ├ /en/programs/education
 ├   └ /fr/programs/education
-├ ● /[lang]/programs/healthcare          144 B          [37m[1m84.5 kB[22m[39m
+├ ● /[lang]/programs/healthcare          144 B          [37m[1m84.6 kB[22m[39m
 ├   ├ /en/programs/healthcare
 ├   └ /fr/programs/healthcare
-├ ● /[lang]/programs/infrastructure      188 B          [37m[1m96.3 kB[22m[39m
+├ ● /[lang]/programs/infrastructure      187 B          [37m[1m96.3 kB[22m[39m
 ├   ├ /en/programs/infrastructure
 ├   └ /fr/programs/infrastructure
-├ ● /[lang]/test                         295 B          [37m[1m84.7 kB[22m[39m
+├ ● /[lang]/test                         296 B          [37m[1m84.7 kB[22m[39m
 ├   ├ /en/test
 ├   └ /fr/test
 ├ ○ /manifest.webmanifest                0 B                [37m[1m0 B[22m[39m
@@ -114,7 +86,7 @@ Browserslist: caniuse-lite is outdated. Please run:
 + First Load JS shared by all            [37m[1m84.4 kB[22m[39m
   ├ chunks/1dd3208c-02a6a0c6822294fb.js  53.4 kB
   ├ chunks/997-e720b921542e81c9.js       28.9 kB
-  └ other shared chunks (total)          2.11 kB
+  └ other shared chunks (total)          2.13 kB
 
 
 ƒ Middleware                             [37m[1m41 kB[22m[39m

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function Page({ params: { lang } }: { params: { lang: 'en' | 'fr' } }) {
   return (
-    <>
+    <main>
       {/* Hero Section - First impression */}
       <Hero locale={lang} />
       
@@ -35,7 +35,7 @@ export default function Page({ params: { lang } }: { params: { lang: 'en' | 'fr'
       <ImpactStats locale={lang} />
       
       {/* About Section One - Mission & Vision */}
-      <AboutSectionOne expanded={false} locale={lang} />
+      <AboutSectionOne  />
       
       {/* Impact Stories - Emotional connection */}
       {/* <ImpactStories locale={lang} /> */}
@@ -43,7 +43,7 @@ export default function Page({ params: { lang } }: { params: { lang: 'en' | 'fr'
 
       
       {/* About Section Two - Impact metrics */}
-      <AboutSectionTwo locale={lang} />
+      <AboutSectionTwo />
       
       {/* Donation CTA - Fundraising */}
       {/* <DonationCTA locale={lang} /> */}
@@ -64,6 +64,6 @@ export default function Page({ params: { lang } }: { params: { lang: 'en' | 'fr'
       
       {/* Partner Companies - Credibility */}
       <TrustedCompanies locale={lang} />
-    </>
+    </main>
   )
 }

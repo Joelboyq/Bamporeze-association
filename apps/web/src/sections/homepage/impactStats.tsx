@@ -1,12 +1,226 @@
-'use client'
-import { Locale } from "../../../i18n.config";
-import { useEffect, useState, useRef } from "react";
+"use client"
+import type { Locale } from "../../../i18n.config"
 
 interface ImpactStatsProps {
-  locale: Locale;
+  locale: Locale
 }
 
 export default function ImpactStats({ locale }: ImpactStatsProps) {
+  const styles = `
+    .impact-section {
+      background-color: #003d1d;
+      padding: 2rem 0;
+    }
+    
+    .impact-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .impact-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .impact-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+      padding: 0 0.5rem;
+    }
+    
+    .impact-description {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 56rem;
+      margin: 0 auto;
+      line-height: 1.6;
+      padding: 0 0.5rem;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      max-width: 80rem;
+      margin: 0 auto;
+    }
+    
+    .stat-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      width: 100%;
+    }
+    
+    .stat-card:hover {
+      transform: scale(1.05);
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stat-content {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      width: 100%;
+    }
+    
+    .stat-value {
+      font-size: 1.875rem;
+      font-weight: bold;
+      color: #4ade80;
+      flex-shrink: 0;
+      width: 100px;
+      text-align: left;
+      line-height: 1;
+    }
+    
+    .stat-label {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.4;
+      text-align: left;
+      flex: 1;
+    }
+    
+    @media (min-width: 640px) {
+      .impact-section {
+        padding: 3rem 0;
+      }
+      
+      .impact-container {
+        padding: 0 1.5rem;
+      }
+      
+      .impact-header {
+        margin-bottom: 2.5rem;
+      }
+      
+      .impact-title {
+        font-size: 1.875rem;
+        margin-bottom: 1rem;
+      }
+      
+      .impact-description {
+        font-size: 1rem;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .stat-card {
+        border-radius: 0.75rem;
+      }
+      
+      .stat-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1.25rem;
+        min-height: 160px;
+      }
+      
+      .stat-value {
+        font-size: 2.25rem;
+        width: auto;
+        text-align: center;
+        margin-bottom: 0;
+      }
+      
+      .stat-label {
+        text-align: center;
+        flex: none;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .impact-title {
+        font-size: 2.25rem;
+      }
+      
+      .impact-description {
+        font-size: 1.125rem;
+      }
+      
+      .stat-value {
+        font-size: 2.25rem;
+      }
+      
+      .stat-content {
+        padding: 1.5rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .impact-section {
+        padding: 4rem 0;
+      }
+      
+      .impact-container {
+        padding: 0 2rem;
+      }
+      
+      .impact-header {
+        margin-bottom: 3.5rem;
+      }
+      
+      .impact-title {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      .impact-description {
+        font-size: 1.25rem;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+      
+      .stat-value {
+        font-size: 3rem;
+      }
+      
+      .stat-label {
+        font-size: 1rem;
+      }
+      
+      .stat-content {
+        padding: 1.75rem;
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      .impact-section {
+        padding: 5rem 0;
+      }
+      
+      .impact-title {
+        font-size: 3.75rem;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      
+      .stat-value {
+        font-size: 3.75rem;
+      }
+    }
+  `
+
   // New infographics/numbers section based on user content
   const stats = [
     { label: "Women equipped with financial literacy, entrepreneurship, and business skills", value: "10,000+" },
@@ -14,45 +228,44 @@ export default function ImpactStats({ locale }: ImpactStatsProps) {
     { label: "Youth trained in TVET, life skills, and equipped with a start-up kit", value: "700+" },
     { label: "Community-based ECDs built and supported", value: "3+" },
     { label: "Home-based ECDs established and supported", value: "37+" },
-    { label: "Awareness-raising campaigns on Child Protection, Positive Parenting, SRHR, HIV Prevention, and GBV", value: "50+" },
+    {
+      label: "Awareness-raising campaigns on Child Protection, Positive Parenting, SRHR, HIV Prevention, and GBV",
+      value: "50+",
+    },
     { label: "Trees planted, restoring forests and fighting soil erosion", value: "25,000+" },
     { label: "Energy-Saving Stoves distributed", value: "1,200" },
     { label: "Water harvesting tanks provided for relocated households", value: "100" },
     { label: "Houses built for child and woman-headed households", value: "300+" },
     { label: "Studies to assess child protection and GBV issues", value: "2" },
     { label: "Years of impact", value: "29" },
-  ];
+  ]
 
   return (
-    <section className="bg-[#003d1d] py-10 sm:py-16 lg:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-            Our Impact in Numbers
-          </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto px-4">
-            Bamporeze Association is a women-led Rwandan nonprofit organization established in 1996, committed to supporting vulnerable children, youth, women, and families through transformative approaches to alleviating poverty and building resiliency.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
-          {stats.map((stat, idx) => (
-            <div 
-              key={idx} 
-              className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 
-                         border border-white/20 text-center transform transition-transform 
-                         duration-300 hover:scale-105 hover:bg-white/15"
-            >
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-300 mb-2 
-                            transition-colors duration-300 group-hover:text-green-200">
-                {stat.value}
+    <>
+      <style dangerouslySetInnerHTML={{ __html: styles }} />
+      <section className="impact-section">
+        <div className="impact-container">
+          <div className="impact-header">
+            <h2 className="impact-title">Our Impact in Numbers</h2>
+            <p className="impact-description">
+              Bamporeze Association is a women-led Rwandan nonprofit organization established in 1996, committed to
+              supporting vulnerable children, youth, women, and families through transformative approaches to
+              alleviating poverty and building resiliency.
+            </p>
+          </div>
+
+          <div className="stats-grid">
+            {stats.map((stat, idx) => (
+              <div key={idx} className="stat-card">
+                <div className="stat-content">
+                  <div className="stat-value">{stat.value}</div>
+                  <div className="stat-label">{stat.label}</div>
+                </div>
               </div>
-              <div className="text-sm sm:text-base md:text-lg text-white/90 leading-tight">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
+      </section>
+    </>
+  )
 }

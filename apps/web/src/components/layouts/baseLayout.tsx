@@ -7,9 +7,9 @@ export default function BaseLayout({ children, locale }: { children: React.React
     return (
         <div className="w-screen">
             <Navbar locale={locale} />
-            <div className="pt-0"> {/* Remove padding since navbar handles its own spacing */}
+            {/* Remove padding since navbar handles its own spacing */}
                 {children}
-            </div>
+         
             <Subscribe locale={locale} />
             <Footer locale={locale} />
         </div>

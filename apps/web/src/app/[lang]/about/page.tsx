@@ -56,9 +56,9 @@ export default function AboutPage({ params }: {
                 padBottom={true}
             />
             <AboutAimCards locale={params.lang} />
-            <AboutSectionOne expanded={true} locale={params.lang} />
-            <AboutSectionTwo locale={params.lang} />
-            <BoardOfDirectors locale={params.lang} />
+            <AboutSectionOne   />
+            <AboutSectionTwo   />
+            <BoardOfDirectors locale={params.lang}  />
         </>
     )
 }

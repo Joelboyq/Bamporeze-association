@@ -1,0 +1,93 @@
+.reviewsSection {
+    padding: 4rem 0;
+    background: linear-gradient(to bottom right, #eff6ff, #eef2ff);
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.titleSection {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sectionTitle {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.titleUnderline {
+    width: 6rem;
+    height: 0.25rem;
+    background-color: #2563eb;
+    margin: 0 auto 1.5rem;
+}
+
+.sectionSubtitle {
+    font-size: 1.25rem;
+    color: #4b5563;
+    max-width: 56rem;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.reviewsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.trustIndicator {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.trustBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #dbeafe;
+    color: #1e40af;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+@media (min-width: 768px) {
+    .sectionTitle {
+        font-size: 3rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 1.5rem;
+    }
+
+    .reviewsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .reviewsSection {
+        padding: 5rem 0;
+    }
+
+    .container {
+        padding: 0 3rem;
+    }
+
+    .sectionTitle {
+        font-size: 3.75rem;
+    }
+
+    .reviewsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
