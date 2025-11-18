@@ -1,11 +1,92 @@
 "use client"
+import { useState, useEffect, useRef } from "react"
 import type { Locale } from "../../../i18n.config"
 
 interface ImpactStatsProps {
   locale: Locale
 }
 
+// Helper function to extract number from string like "10,000+", "500", "700+"
+function extractNumber(value: string): { number: number; suffix: string } {
+  // Remove commas and extract number and suffix
+  const cleaned = value.replace(/,/g, '')
+  const match = cleaned.match(/^(\d+)(.*)$/)
+  if (match) {
+    return {
+      number: parseInt(match[1], 10),
+      suffix: match[2] || ''
+    }
+  }
+  return { number: 0, suffix: value }
+}
+
+// Format number with commas
+function formatNumber(num: number, suffix: string): string {
+  return num.toLocaleString('en-US') + suffix
+}
+
+// Counter animation hook
+function useCounterAnimation(targetValue: string, isVisible: boolean, duration: number = 2000) {
+  const [displayValue, setDisplayValue] = useState("0")
+  const { number: targetNum, suffix } = extractNumber(targetValue)
+  const startTimeRef = useRef<number | null>(null)
+  const animationFrameRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    if (!isVisible) {
+      setDisplayValue("0")
+      return
+    }
+
+    const startTime = Date.now()
+    startTimeRef.current = startTime
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      
+      // Easing function (ease-out)
+      const easeOut = 1 - Math.pow(1 - progress, 3)
+      const currentNum = Math.floor(easeOut * targetNum)
+      
+      setDisplayValue(formatNumber(currentNum, suffix))
+
+      if (progress < 1) {
+        animationFrameRef.current = requestAnimationFrame(animate)
+      } else {
+        setDisplayValue(formatNumber(targetNum, suffix))
+      }
+    }
+
+    animationFrameRef.current = requestAnimationFrame(animate)
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current)
+      }
+    }
+  }, [isVisible, targetNum, suffix, duration])
+
+  return displayValue
+}
+
+// Stat Card Component
+function StatCard({ stat, isVisible }: { stat: { label: string; value: string }; isVisible: boolean }) {
+  const displayValue = useCounterAnimation(stat.value, isVisible, 3500)
+  
+  return (
+    <div className="stat-card">
+      <div className="stat-content">
+        <div className="stat-value">{displayValue}</div>
+        <div className="stat-label">{stat.label}</div>
+      </div>
+    </div>
+  )
+}
+
 export default function ImpactStats({ locale }: ImpactStatsProps) {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
   const styles = `
     .impact-section {
       background-color: #003d1d;
@@ -221,6 +302,33 @@ export default function ImpactStats({ locale }: ImpactStatsProps) {
     }
   `
 
+  // Intersection Observer to detect when section is visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true)
+          }
+        })
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of section is visible
+        rootMargin: '0px'
+      }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [isVisible])
+
   // New infographics/numbers section based on user content
   const stats = [
     { label: "Women equipped with financial literacy, entrepreneurship, and business skills", value: "10,000+" },
@@ -243,25 +351,39 @@ export default function ImpactStats({ locale }: ImpactStatsProps) {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: styles }} />
-      <section className="impact-section">
+      <section ref={sectionRef} className="impact-section">
         <div className="impact-container">
           <div className="impact-header">
-            <h2 className="impact-title">Our Impact in Numbers</h2>
+            {/* "In the green" badge */}
+            <div style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '0.5rem',
+              backgroundColor: '#10b981',
+              color: 'white',
+              padding: '0.5rem 1rem',
+              borderRadius: '9999px',
+              fontSize: '0.875rem',
+              fontWeight: '500',
+              marginBottom: '1.5rem'
+            }}>
+              <div style={{
+                width: '0.5rem',
+                height: '0.5rem',
+                backgroundColor: 'white',
+                borderRadius: '9999px'
+              }}></div>
+              Quick Stats
+            </div>
+            <h2 className="impact-title">Numbers (infographics)</h2>
             <p className="impact-description">
-              Bamporeze Association is a women-led Rwandan nonprofit organization established in 1996, committed to
-              supporting vulnerable children, youth, women, and families through transformative approaches to
-              alleviating poverty and building resiliency.
+              Bamporeze Association is a women-led Rwandan nonprofit organization established in 1996, which is committed to supporting vulnerable children, youth, women, and families through transformative approaches to alleviating poverty and building resiliency through a variety of programs ranging from education, health, child protection, environmental protection, and socio-economic empowerment.
             </p>
           </div>
 
           <div className="stats-grid">
             {stats.map((stat, idx) => (
-              <div key={idx} className="stat-card">
-                <div className="stat-content">
-                  <div className="stat-value">{stat.value}</div>
-                  <div className="stat-label">{stat.label}</div>
-                </div>
-              </div>
+              <StatCard key={idx} stat={stat} isVisible={isVisible} />
             ))}
           </div>
         </div>

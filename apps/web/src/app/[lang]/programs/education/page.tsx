@@ -1,6 +1,4 @@
 
-import Image from "next/image";
-import Link from "next/link";
 
 export default async function EducationProgramPage() {
 
@@ -39,7 +37,7 @@ export default async function EducationProgramPage() {
                     Our Education Support Program is a comprehensive initiative designed to break the cycle of poverty through education. We believe that every child, regardless of their background, deserves access to quality education and the opportunity to reach their full potential.
                   </p>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    Since its inception in 2010, this program has supported over 5,000 children across 15 districts in Rwanda. We work closely with local schools, communities, and government institutions to ensure sustainable educational development.
+                    We work closely with local schools, communities, and government institutions to ensure sustainable educational development. Our program focuses on supporting vulnerable children through basic education and early childhood development programs.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
                     The program addresses multiple barriers to education including financial constraints, lack of school supplies, transportation challenges, and social stigma. Through our holistic approach, we provide not just financial support, but also mentorship, career guidance, and life skills training.
@@ -108,133 +106,24 @@ export default async function EducationProgramPage() {
               {/* Impact Statistics */}
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Program Impact</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-600 mb-2">5,000+</div>
-                    <div className="text-gray-600">Children Supported</div>
+                    <div className="text-3xl font-bold text-blue-600 mb-2">3+</div>
+                    <div className="text-gray-600">Community-based ECDs Built</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-600 mb-2">95%</div>
-                    <div className="text-gray-600">Graduation Rate</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-600 mb-2">15</div>
-                    <div className="text-gray-600">Districts Covered</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-600 mb-2">12</div>
-                    <div className="text-gray-600">Years Active</div>
+                    <div className="text-3xl font-bold text-blue-600 mb-2">37+</div>
+                    <div className="text-gray-600">Home-based ECDs Established</div>
                   </div>
                 </div>
               </div>
 
-              {/* Success Stories */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8">Success Stories</h2>
-                <div className="space-y-8">
-                  <div className="border-l-4 border-blue-600 pl-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">Marie's Journey to Medical School</h3>
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                      Marie, a 19-year-old from rural Rwanda, was the first in her family to attend university. Through our scholarship program, she completed secondary education and is now studying medicine at the University of Rwanda. "This program didn't just pay for my education; it gave me hope and showed me that my dreams are possible," says Marie.
-                    </p>
-                    <div className="text-sm text-gray-500">Graduated 2023 • Now studying Medicine</div>
-                  </div>
-
-                  <div className="border-l-4 border-blue-600 pl-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">The Niyonsaba Family Transformation</h3>
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                      The Niyonsaba family had three children who all benefited from our program. The eldest, Jean, is now a teacher and helps support his siblings' education. "Education changed everything for our family. We went from struggling to survive to having hope for the future," says their mother.
-                    </p>
-                    <div className="text-sm text-gray-500">Family of 5 • All children in school</div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Sidebar */}
             <div className="space-y-8">
-              {/* Quick Facts */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Quick Facts</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Program Start:</span>
-                    <span className="font-semibold">2010</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Annual Budget:</span>
-                    <span className="font-semibold">$2.5M</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Staff Members:</span>
-                    <span className="font-semibold">45</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Partner Schools:</span>
-                    <span className="font-semibold">120</span>
-                  </div>
-                </div>
-              </div>
 
-              {/* Reports & Downloads */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Reports & Downloads</h3>
-                <div className="space-y-3">
-                  <a href="#" className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-blue-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <div>
-                      <div className="font-semibold text-gray-900">Annual Report 2023</div>
-                      <div className="text-sm text-gray-500">PDF • 2.3 MB</div>
-                    </div>
-                  </a>
 
-                  <a href="#" className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-blue-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <div>
-                      <div className="font-semibold text-gray-900">Impact Assessment 2023</div>
-                      <div className="text-sm text-gray-500">PDF • 1.8 MB</div>
-                    </div>
-                  </a>
-
-                  <a href="#" className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-blue-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <div>
-                      <div className="font-semibold text-gray-900">Program Guidelines</div>
-                      <div className="text-sm text-gray-500">PDF • 856 KB</div>
-                    </div>
-                  </a>
-
-                  <a href="#" className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-blue-50 transition-colors">
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-blue-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <div>
-                      <div className="font-semibold text-gray-900">Financial Report 2023</div>
-                      <div className="text-sm text-gray-500">PDF • 1.2 MB</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              {/* Contact Information */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Get Involved</h3>
-                <div className="space-y-4">
-                  <p className="text-gray-600">Interested in supporting our education program? Contact us to learn more about partnership opportunities.</p>
-                  <button className="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
-                    Contact Program Director
-                  </button>
-                  <button className="w-full border border-blue-600 text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-blue-50 transition-colors">
-                    Make a Donation
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>

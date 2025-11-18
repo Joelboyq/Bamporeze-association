@@ -32,11 +32,12 @@ export default function Page({ params, searchParams }: {
     const fetchData = async () => {
       if (blogId) {
         try {
-          console.log("Fetching blog with ID:", blogId);
+          console.log("Fetching blog with ID from query params:", blogId);
           
           // Fetch blog data using the ID parameter
           const blogResponse = await clientGetBlog(blogId);
-          console.log("API Response:", JSON.stringify(blogResponse, null, 2));
+          console.log("Blog response received:", blogResponse?.title || "No title");
+          console.log("Blog ID in response:", blogResponse?.id);
           
           // Fetch some other blogs for "Related Articles" section
           const blogsResponse = await clientGetBlogs();
@@ -99,52 +100,82 @@ export default function Page({ params, searchParams }: {
       day: 'numeric'
     });
     
+    // Check if we should use background color instead of image
+    const hasValidImage = thumbnail_image && 
+      thumbnail_image.trim() !== '' &&
+      thumbnail_image !== PLACEHOLDER_IMAGE && 
+      !thumbnail_image.includes('placeholder') &&
+      thumbnail_image.startsWith('/images/');
+    
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
         {/* Hero Section */}
-        <section className="relative h-[60vh] lg:h-[70vh] overflow-hidden">
-          <Image
-            src={thumbnail_image}
-            fill
-            style={{ objectFit: 'cover' }}
-            alt={title}
-            className="brightness-75"
-            unoptimized={true}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+        <section className={`relative h-[50vh] lg:h-[60vh] overflow-hidden ${hasValidImage ? '' : 'bg-gradient-to-r from-green-600 to-green-800'}`}>
+          {hasValidImage ? (
+            <>
+              <Image
+                src={thumbnail_image}
+                fill
+                style={{ objectFit: 'cover' }}
+                alt={title}
+                className="brightness-75"
+                unoptimized={true}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+            </>
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-800 flex items-center justify-center">
+              <div className="text-white/10">
+                <svg width="150" height="150" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="100" cy="100" r="90" stroke="currentColor" strokeWidth="3"/>
+                  <circle cx="100" cy="100" r="70" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M100 30 L100 170 M30 100 L170 100" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M60 60 L140 140 M140 60 L60 140" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </div>
+            </div>
+          )}
           <div className="absolute inset-0 flex items-center">
             <div className="container mx-auto px-6 lg:px-12">
               <div className="max-w-4xl">
                 <div className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-full text-sm font-medium mb-6">
                   <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                  {writingType}
+                  {writingType || "Blog"}
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                   {title}
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-                  {description || "Discover insights, stories, and updates from our community"}
-                </p>
+                {description && (
+                  <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                    {description}
+                  </p>
+                )}
                 
                 {/* Author and Date */}
                 <div className="flex items-center gap-6">
                   <div className="flex items-center gap-4">
-                    <Image
-                      src={authorImage}
-                      alt={authorName}
-                      width={60}
-                      height={60}
-                      className="rounded-full border-2 border-white/20"
-                      unoptimized={true}
-                    />
+                    {authorImage && authorImage !== PLACEHOLDER_AVATAR && !authorImage.includes('placeholder') && !authorImage.startsWith('data:') ? (
+                      <Image
+                        src={authorImage}
+                        alt={authorName}
+                        width={60}
+                        height={60}
+                        className="rounded-full border-2 border-white/20"
+                        unoptimized={true}
+                      />
+                    ) : (
+                      <div className="w-15 h-15 rounded-full bg-white/20 border-2 border-white/30 flex items-center justify-center text-white font-bold text-xl">
+                        {authorName.charAt(0).toUpperCase()}
+                      </div>
+                    )}
                     <div>
                       <p className="font-semibold text-white text-lg">{authorName}</p>
-                      <p className="text-gray-300">{formattedDate}</p>
+                      <p className="text-white/80">{formattedDate}</p>
                     </div>
                   </div>
                   
                   {/* Reading Time Estimate */}
-                  <div className="flex items-center gap-2 text-gray-300">
+                  <div className="flex items-center gap-2 text-white/80">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -172,7 +203,7 @@ export default function Page({ params, searchParams }: {
                     <span className="text-gray-600 font-medium">Share this post:</span>
                     <div className="flex gap-3">
                       <Link 
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
@@ -182,7 +213,7 @@ export default function Page({ params, searchParams }: {
                         </svg>
                       </Link>
                       <Link 
-                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.href)}`}
+                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
@@ -192,7 +223,7 @@ export default function Page({ params, searchParams }: {
                         </svg>
                       </Link>
                       <Link 
-                        href={`https://www.linkedin.com/shareArticle?mini=true&title=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.href)}`}
+                        href={`https://www.linkedin.com/shareArticle?mini=true&title=${encodeURIComponent(title)}&url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-10 h-10 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors"
@@ -250,7 +281,7 @@ export default function Page({ params, searchParams }: {
         <section className="py-16">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="text-center">
-              <Link href="/blog" className="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-8 py-4 text-lg shadow-lg transition-all duration-300 group">
+              <Link href={`/${params.lang}/blog`} className="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-8 py-4 text-lg shadow-lg transition-all duration-300 group">
                 <svg className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
@@ -331,7 +362,7 @@ function BlogHomepage({ lang }: { lang: Locale }) {
                 <p className="text-base md:text-xl text-gray-200 mb-4 md:mb-6 leading-relaxed line-clamp-3">
                   {highlight.description || "Discover insights, stories, and updates from our community"}
                 </p>
-                <Link href={`/blog/${highlight.id}`} className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-5 py-3 text-sm md:text-base shadow-lg transition-all duration-300 group">
+                <Link href={`/${lang}/blog?id=${highlight.id}`} className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg px-5 py-3 text-sm md:text-base shadow-lg transition-all duration-300 group">
                   Read full story
                   <svg className="w-4 h-4 md:w-5 md:h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

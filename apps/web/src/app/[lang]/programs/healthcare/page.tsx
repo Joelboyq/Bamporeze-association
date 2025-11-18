@@ -1,6 +1,4 @@
 
-import Image from "next/image";
-import Link from "next/link";
 
 export default async function HealthcareProgramPage( ) {
   
@@ -40,7 +38,7 @@ export default async function HealthcareProgramPage( ) {
                     Our Healthcare Access Initiative addresses critical health disparities in rural Rwanda by providing comprehensive medical services, health education, and infrastructure development. We believe that access to quality healthcare is a fundamental human right that should be available to all communities.
                   </p>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    Since 2012, this initiative has served over 50,000 patients across 20 districts, focusing on maternal and child health, infectious disease prevention, and chronic disease management. Our mobile medical units and community health workers bring healthcare directly to remote villages.
+                    Our program focuses on improving health services for rural communities through medical camps, health education, HIV prevention, Sexual and Reproductive Health and Rights (SRHR) programs, and infrastructure development. We work with local health centers and community health workers to bring healthcare closer to those who need it most.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
                     The program operates through a network of partnerships with local health centers, government health agencies, and international medical organizations. We emphasize preventive care, health literacy, and sustainable healthcare solutions that empower communities to take charge of their health.
@@ -109,133 +107,23 @@ export default async function HealthcareProgramPage( ) {
               {/* Impact Statistics */}
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Program Impact</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">50,000+</div>
-                    <div className="text-gray-600">Patients Served</div>
+                    <div className="text-3xl font-bold text-purple-600 mb-2">50+</div>
+                    <div className="text-gray-600">Awareness Campaigns Conducted</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">20</div>
-                    <div className="text-gray-600">Districts Covered</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">85%</div>
-                    <div className="text-gray-600">Health Improvement</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-600 mb-2">11</div>
-                    <div className="text-gray-600">Years Active</div>
+                    <div className="text-3xl font-bold text-purple-600 mb-2">2</div>
+                    <div className="text-gray-600">Studies on Child Protection & GBV</div>
                   </div>
                 </div>
               </div>
 
-              {/* Success Stories */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8">Success Stories</h2>
-                <div className="space-y-8">
-                  <div className="border-l-4 border-purple-600 pl-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">Reducing Maternal Mortality in Nyagatare</h3>
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                      Through our maternal health program, we've reduced maternal mortality rates by 60% in Nyagatare district. The construction of a new maternity ward and training of local midwives has ensured safe deliveries for over 2,000 mothers annually. "Before this program, many women had to travel hours to reach a health facility. Now they have access to quality care right in their community," says Dr. Uwimana, our local medical director.
-                    </p>
-                    <div className="text-sm text-gray-500">60% reduction in maternal mortality • 2,000+ safe deliveries annually</div>
-                  </div>
-
-                  <div className="border-l-4 border-purple-600 pl-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">Community Health Worker Network</h3>
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                      Our network of 150 trained community health workers now serves 50 remote villages, providing basic healthcare, health education, and emergency response. These workers have become trusted health advisors in their communities, helping to bridge the gap between formal healthcare and traditional community practices.
-                    </p>
-                    <div className="text-sm text-gray-500">150 trained health workers • 50 villages served</div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Sidebar */}
             <div className="space-y-8">
-              {/* Quick Facts */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Quick Facts</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Program Start:</span>
-                    <span className="font-semibold">2012</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Annual Budget:</span>
-                    <span className="font-semibold">$3.2M</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Medical Staff:</span>
-                    <span className="font-semibold">75</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Health Centers:</span>
-                    <span className="font-semibold">25</span>
-                  </div>
-                </div>
-              </div>
 
-              {/* Reports & Downloads */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Reports & Downloads</h3>
-                <div className="space-y-3">
-                  <a href="#" className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-purple-50 transition-colors">
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-purple-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <div>
-                      <div className="font-semibold text-gray-900">Healthcare Annual Report 2023</div>
-                      <div className="text-sm text-gray-500">PDF • 3.1 MB</div>
-                    </div>
-                  </a>
-
-                  <a href="#" className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-purple-50 transition-colors">
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-purple-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <div>
-                      <div className="font-semibold text-gray-900">Medical Impact Study 2023</div>
-                      <div className="text-sm text-gray-500">PDF • 2.7 MB</div>
-                    </div>
-                  </a>
-
-                  <a href="#" className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-purple-50 transition-colors">
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-purple-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <div>
-                      <div className="font-semibold text-gray-900">Health Guidelines Manual</div>
-                      <div className="text-sm text-gray-500">PDF • 1.4 MB</div>
-                    </div>
-                  </a>
-
-                  <a href="#" className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-purple-50 transition-colors">
-                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="text-purple-600">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <div>
-                      <div className="font-semibold text-gray-900">Financial Report 2023</div>
-                      <div className="text-sm text-gray-500">PDF • 1.8 MB</div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              {/* Contact Information */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Get Involved</h3>
-                <div className="space-y-4">
-                  <p className="text-gray-600">Interested in supporting our healthcare program? Contact us to learn more about partnership opportunities.</p>
-                  <button className="w-full bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors">
-                    Contact Program Director
-                  </button>
-                  <button className="w-full border border-purple-600 text-purple-600 font-semibold py-3 px-6 rounded-lg hover:bg-purple-50 transition-colors">
-                    Make a Donation
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
 
 export default async function EconomicProgramPage() {
   return (
@@ -37,7 +35,7 @@ export default async function EconomicProgramPage() {
                     Our Economic Empowerment Program is designed to break the cycle of poverty by providing individuals and families with the skills, resources, and support they need to build sustainable livelihoods. We focus on creating long-term economic opportunities that benefit entire communities.
                   </p>
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    Since 2015, this program has supported over 3,000 entrepreneurs and trained more than 5,000 individuals in various vocational skills. Our approach combines skills development, access to capital, market linkages, and ongoing mentorship to ensure sustainable success.
+                    Our program empowers communities through Self-Help Groups, financial literacy training, entrepreneurship skills, and socio-economic empowerment programs that build resilience and reduce poverty. We work with local communities to create sustainable economic opportunities.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
                     The program targets vulnerable groups including women, youth, and people with disabilities, providing them with opportunities to become economically independent and contribute to their communities' development. We work with local businesses, financial institutions, and government agencies to create an enabling environment for economic growth.
@@ -106,22 +104,22 @@ export default async function EconomicProgramPage() {
               {/* Impact Statistics */}
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Program Impact</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">3,000+</div>
-                    <div className="text-gray-600 text-sm">Entrepreneurs Supported</div>
+                    <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">10,000+</div>
+                    <div className="text-gray-600 text-sm">Women Equipped with Skills</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">5,000+</div>
-                    <div className="text-gray-600 text-sm">Individuals Trained</div>
+                    <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">500</div>
+                    <div className="text-gray-600 text-sm">Self-help Groups Established</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">85%</div>
-                    <div className="text-gray-600 text-sm">Success Rate</div>
+                    <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">700+</div>
+                    <div className="text-gray-600 text-sm">Youth Trained in TVET</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">20+</div>
-                    <div className="text-gray-600 text-sm">Districts Served</div>
+                    <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">300+</div>
+                    <div className="text-gray-600 text-sm">Houses Built</div>
                   </div>
                 </div>
               </div>
@@ -129,84 +127,13 @@ export default async function EconomicProgramPage() {
 
             {/* Sidebar */}
             <div className="space-y-8">
-              {/* Quick Facts */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Quick Facts</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                    <span className="text-gray-600">Program Duration: 6-24 months</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                    <span className="text-gray-600">Training Sessions: Weekly</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                    <span className="text-gray-600">Mentorship: Ongoing</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                    <span className="text-gray-600">Follow-up: 2 years</span>
-                  </div>
-                </div>
-              </div>
 
-              {/* Success Stories */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Success Stories</h3>
-                <div className="space-y-4">
-                  <div className="border-l-4 border-orange-500 pl-4">
-                    <p className="text-gray-700 text-sm italic">"The vocational training program helped me start my own tailoring business. I now employ three other women from my community."</p>
-                    <p className="text-orange-600 text-xs mt-2">- Marie Claire, Kigali</p>
-                  </div>
-                  <div className="border-l-4 border-orange-500 pl-4">
-                    <p className="text-gray-700 text-sm italic">"With the microfinance support, I was able to expand my small shop and now provide for my family's education."</p>
-                    <p className="text-orange-600 text-xs mt-2">- Jean Pierre, Butare</p>
-                  </div>
-                </div>
-              </div>
 
-              {/* Reports & Downloads */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Resources</h3>
-                <div className="space-y-3">
-                  <button className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg px-4 py-2 text-sm transition-all duration-300">
-                    Download Program Report
-                  </button>
-                  <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-lg px-4 py-2 text-sm transition-all duration-300">
-                    View Case Studies
-                  </button>
-                  <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-lg px-4 py-2 text-sm transition-all duration-300">
-                    Impact Assessment
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 lg:py-20 bg-orange-600">
-        <div className="container mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Build
-            <span className="block text-orange-200">Economic Independence?</span>
-          </h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-3xl mx-auto">
-            Join our Economic Empowerment Program and take the first step towards financial independence and community development.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-white text-orange-600 hover:bg-gray-100 font-semibold rounded-lg px-8 py-4 text-lg shadow-lg transition-all duration-300">
-              Get Started
-            </Link>
-            <button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-orange-600 font-semibold rounded-lg px-8 py-4 text-lg transition-all duration-300">
-              Learn More
-            </button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

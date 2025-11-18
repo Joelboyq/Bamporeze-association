@@ -19,9 +19,9 @@ export default function Layout({ children, pressRelease, allBlogs }: any) {
                     {pressRelease}
                 </div>
             </div>
-            <div className="">
+            {/* <div className="">
                 {allBlogs}
-            </div>
+            </div> */}
         </WebSection>
     )
 }

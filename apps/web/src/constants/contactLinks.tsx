@@ -24,8 +24,8 @@ export const contactLinks: IContactInfo[] = [
   },
   {
     icon: WhatsappIcon,
-    text: '+250 788 888 888',
-    href: "https://wa.me/+250788888888"
+    text: '+250 788 304 120',
+    href: "https://wa.me/+250788304120"
   }
 
 ]

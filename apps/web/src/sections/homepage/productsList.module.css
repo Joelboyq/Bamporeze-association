@@ -68,6 +68,26 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.programsGrid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.programsGrid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.programsGrid::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.programsGrid::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .programCard {
@@ -76,6 +96,9 @@
     overflow: hidden;
     transition: all 0.7s;
     cursor: pointer;
+    min-width: 100%;
+    scroll-snap-align: start;
+    flex-shrink: 0;
 }
 
 .programCard:hover .hoverOverlay {
@@ -140,6 +163,10 @@
 
 .hoverColor3 {
     background: linear-gradient(to bottom right, #16a34a, #22c55e, #15803d);
+}
+
+.hoverColor4 {
+    background: linear-gradient(to bottom right, #059669, #10b981, #047857);
 }
 
 .programImage {
@@ -209,6 +236,14 @@
     color: #16a34a;
 }
 
+.badgeColor4 {
+    color: white;
+}
+
+.programCard:hover .badgeColor4 {
+    color: #059669;
+}
+
 .badgeDot {
     width: 0.5rem;
     height: 0.5rem;
@@ -231,6 +266,10 @@
 
 .programCard:hover .dotColor3 {
     background-color: #16a34a;
+}
+
+.programCard:hover .dotColor4 {
+    background-color: #059669;
 }
 
 .programTitle {
@@ -339,6 +378,11 @@
     color: white;
 }
 
+.btnColor4:hover {
+    background-color: #059669;
+    color: white;
+}
+
 .arrowIcon {
     transition: transform 0.3s;
 }
@@ -347,13 +391,23 @@
     transform: translateX(0.25rem);
 }
 
+@media (min-width: 640px) {
+    .programsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .programCard {
+        min-width: auto;
+    }
+}
+
 @media (min-width: 768px) {
     .mainTitle {
         font-size: 3rem;
     }
 
     .programsGrid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .programTitle {
@@ -371,10 +425,18 @@
     }
 
     .programsGrid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
+        overflow-x: visible;
     }
 
     .programCard {
         height: 500px;
+        min-width: auto;
+    }
+}
+
+@media (min-width: 1280px) {
+    .programCard {
+        height: 550px;
     }
 }

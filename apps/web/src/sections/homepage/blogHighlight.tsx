@@ -2,12 +2,23 @@ import Link from "next/link";
 import { getBlogHighlight, getBlogs } from "../../utils/api";
 import TwitterTimeline from '../../components/units/TwitterTimeline';
 import styles from './blogHighlight.module.css';
+import { Locale } from '../../../i18n.config';
 
-export default async function BlogHighlight() {
+interface BlogHighlightProps {
+    locale?: Locale;
+}
+
+export default async function BlogHighlight({ locale = 'en' }: BlogHighlightProps) {
     const featuredBlog = await getBlogHighlight();
     const recentBlogs = await getBlogs();
     
     if (!featuredBlog) return null;
+    
+    // Check if featured blog has a valid image
+    const featuredHasImage = featuredBlog.thumbnail_image && 
+      featuredBlog.thumbnail_image.trim() !== '' &&
+      !featuredBlog.thumbnail_image.includes('placeholder') &&
+      featuredBlog.thumbnail_image.startsWith('/images/');
     
     return (
         <section className={styles.blogSection}>
@@ -19,17 +30,32 @@ export default async function BlogHighlight() {
                     </h2>
                     <div className={styles.titleUnderline}></div>
                     <p className={styles.sectionSubtitle}>
-                        Stay connected with our latest blog posts and social media updates
+                        Discover inspiring success stories from our programs and stay connected with our latest updates
                     </p>
                 </div>
 
                 <div className={styles.contentGrid}>
                     {/* Left Side - Featured Blog */}
                     <div className={styles.leftColumn}>
-                        <div className={styles.featuredCard}>
+                        <div className={`${styles.featuredCard} ${!featuredHasImage ? styles.featuredCardNoImage : ''}`}>
                             {/* Decorative Elements */}
-                            <div className={styles.decorativeCircle1}></div>
-                            <div className={styles.decorativeCircle2}></div>
+                            {featuredHasImage && (
+                                <>
+                                    <div className={styles.decorativeCircle1}></div>
+                                    <div className={styles.decorativeCircle2}></div>
+                                </>
+                            )}
+                            
+                            {!featuredHasImage && (
+                                <div className={styles.decorativeLogo}>
+                                    <svg width="120" height="120" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="100" cy="100" r="90" stroke="currentColor" strokeWidth="3" opacity="0.2"/>
+                                        <circle cx="100" cy="100" r="70" stroke="currentColor" strokeWidth="2" opacity="0.2"/>
+                                        <path d="M100 30 L100 170 M30 100 L170 100" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.2"/>
+                                        <path d="M60 60 L140 140 M140 60 L60 140" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.2"/>
+                                    </svg>
+                                </div>
+                            )}
                             
                             <div className={styles.cardContent}>
                                 {/* Featured Badge */}
@@ -37,7 +63,7 @@ export default async function BlogHighlight() {
                                     <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                                     </svg>
-                                    Featured Story
+                                    Success Story
                                 </div>
 
                                 {/* Blog Title */}
@@ -54,7 +80,7 @@ export default async function BlogHighlight() {
                                 />
 
                                 {/* Read More Button */}
-                                <Link href={`/blog/${featuredBlog.id}`} className={styles.readMoreBtn}>
+                                <Link href={`/${locale}/blog?id=${featuredBlog.id}`} className={styles.readMoreBtn}>
                                     Read Full Story
                                     <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" className={styles.arrowIcon}>
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -63,22 +89,42 @@ export default async function BlogHighlight() {
                             </div>
                         </div>
 
-                        {/* Recent Blogs Preview */}
+                        {/* Recent Success Stories Preview */}
                         <div className={styles.recentPostsSection}>
-                            <h4 className={styles.recentPostsTitle}>Recent Posts</h4>
-                            {recentBlogs.slice(0, 3).map((blog) => (
-                                <Link key={blog.id} href={`/blog/${blog.id}`} className={styles.recentPostCard}>
-                                    <h5 className={styles.recentPostTitle}>
-                                        {blog.title}
-                                    </h5>
-                                    <div 
-                                        className={styles.recentPostExcerpt}
-                                        dangerouslySetInnerHTML={{ 
-                                            __html: blog.content?.slice(0, 80) + '...' || '' 
-                                        }}
-                                    />
-                                </Link>
-                            ))}
+                            <h4 className={styles.recentPostsTitle}>More Success Stories</h4>
+                            {recentBlogs.slice(0, 2).map((blog) => {
+                                const blogHasImage = blog.thumbnail_image && 
+                                  blog.thumbnail_image.trim() !== '' &&
+                                  !blog.thumbnail_image.includes('placeholder') &&
+                                  blog.thumbnail_image.startsWith('/images/');
+                                
+                                return (
+                                    <Link 
+                                        key={blog.id} 
+                                        href={`/${locale}/blog?id=${blog.id}`} 
+                                        className={`${styles.recentPostCard} ${!blogHasImage ? styles.recentPostCardNoImage : ''}`}
+                                    >
+                                        {!blogHasImage && (
+                                            <div className={styles.recentPostLogo}>
+                                                <svg width="60" height="60" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle cx="100" cy="100" r="90" stroke="currentColor" strokeWidth="2" opacity="0.15"/>
+                                                    <circle cx="100" cy="100" r="70" stroke="currentColor" strokeWidth="1.5" opacity="0.15"/>
+                                                    <path d="M100 30 L100 170 M30 100 L170 100" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.15"/>
+                                                </svg>
+                                            </div>
+                                        )}
+                                        <h5 className={styles.recentPostTitle}>
+                                            {blog.title}
+                                        </h5>
+                                        <div 
+                                            className={styles.recentPostExcerpt}
+                                            dangerouslySetInnerHTML={{ 
+                                                __html: blog.content?.slice(0, 100) + '...' || '' 
+                                            }}
+                                        />
+                                    </Link>
+                                );
+                            })}
                         </div>
                     </div>
 

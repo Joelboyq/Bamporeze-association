@@ -298,15 +298,15 @@ export const dictionaries = {
                 aim_cards: {
                     mission: {
                         title: "Our Mission",
-                        description: "To improve the lives of vulnerable communities in Rwanda through sustainable development initiatives, education, and economic empowerment."
+                        description: "To promote child protection, gender equality, and sustainable development through community-driven approaches and advocacy."
                     },
                     vision: {
                         title: "Our Vision",
-                        description: "A Rwanda where all communities thrive with equal access to education, healthcare, and economic opportunities."
+                        description: "We envision an empowered community where every child thrives and lives a life of dignity."
                     },
                     values: {
                         title: "Our Values",
-                        description: "Integrity, Community-Centered Approach, Sustainability, and Collaboration."
+                        description: "Integrity, Collaboration, Innovation, Focus, Goal Orientation, and Customer Care."
                     },
                     approach: {
                         title: "Our Approach",

@@ -2,11 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Locale } from "../../../i18n.config";
 
-export default function AboutSectionOne({ }) {
+export default function AboutSectionOne({ locale }: { locale?: Locale }) {
     const currentPath = usePathname();
-    const itTrue = currentPath.includes("about");
+    const isAboutPage = currentPath.includes("about");
+    const currentLocale = locale || (currentPath.split('/')[1] as Locale) || 'en';
     
     return (
         <>
@@ -193,6 +196,65 @@ export default function AboutSectionOne({ }) {
                     color: #374151;
                 }
 
+                .read-more-wrapper {
+                    margin-top: 2rem;
+                    padding-top: 1.5rem;
+                    display: flex;
+                    justify-content: flex-start;
+                }
+
+                .read-more-link {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+                    color: white;
+                    font-weight: 700;
+                    font-size: 1.0625rem;
+                    text-decoration: none;
+                    padding: 1rem 2rem;
+                    border-radius: 0.75rem;
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 10px 20px -5px rgba(22, 163, 74, 0.4), 0 4px 6px -2px rgba(22, 163, 74, 0.2);
+                    position: relative;
+                    overflow: hidden;
+                    border: 2px solid rgba(255, 255, 255, 0.2);
+                }
+
+                .read-more-link::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+                    transition: left 0.5s;
+                }
+
+                .read-more-link:hover::before {
+                    left: 100%;
+                }
+
+                .read-more-link:hover {
+                    background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+                    box-shadow: 0 15px 30px -5px rgba(22, 163, 74, 0.5), 0 8px 12px -4px rgba(22, 163, 74, 0.3);
+                    transform: translateY(-3px) scale(1.02);
+                    border-color: rgba(255, 255, 255, 0.4);
+                }
+
+                .read-more-link:active {
+                    transform: translateY(-1px) scale(0.98);
+                }
+
+                .read-more-link svg {
+                    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .read-more-link:hover svg {
+                    transform: translateX(4px);
+                }
+
                 @media (min-width: 640px) {
                     .about-section {
                         padding: 4rem 0;
@@ -374,15 +436,36 @@ export default function AboutSectionOne({ }) {
                             <div className="story-section">
                                 <div className="story-title">Our story</div>
                                 <div className="story-text">
-                                    <p>Bamporeze was founded in 1996 with a simple but powerful message in mind: Building hope through families, shaping futures through children. Born in the aftermath of the 1994 Genocide against the Tutsi, Rwanda was in a deep humanitarian crisis. Families had been torn apart, children were left vulnerable, and communities struggled to rebuild.</p>
-                                    
-                                    <p>In response, Bamporeze began its journey by supporting children, youth, and vulnerable families with urgent humanitarian aid, providing food, clothing, shelter, and psychosocial support. At the same time, the organization focused on empowering families to restore their dignity and independence by building their capacity to start income-generating activities.</p>
-                                    
-                                    <p>As HIV and AIDS continued to devastate communities, Bamporeze expanded its mission to include HIV prevention and Sexual and Reproductive Health and Rights (SRHR), ensuring that young people and families had the knowledge and resources to live healthier lives.</p>
-                                    
-                                    <p>Today, Bamporeze has evolved into a dynamic organization committed to alleviating poverty, building resilience, and protecting the rights of women and children. Our programs now include education (basic education and early childhood development), child protection, community development, health, and environmental protection, which are all designed to strengthen families and communities.</p>
-                                    
-                                    <p>Over the years, our work has been made possible through the support of global and national partners, including UNICEF, UNHCR, the Global Fund, Kindernothilfe (KNH), Plan International, Help a Child, AHF, Sanofi Foundation, Cornerstone Trust, and Firelight Foundation. Together, we have reached thousands of children, women, and families across Rwanda, turning a story of loss into a story of hope and resilience.</p>
+                                    {isAboutPage ? (
+                                        <>
+                                            <p>Bamporeze was founded in 1996 with a simple but powerful message in mind: Building hope through families, shaping futures through children. Born in the aftermath of the 1994 Genocide against the Tutsi, Rwanda was in a deep humanitarian crisis. Families had been torn apart, children were left vulnerable, and communities struggled to rebuild.</p>
+                                            
+                                            <p>In response, Bamporeze began its journey by supporting children, youth, and vulnerable families with urgent humanitarian aid, providing food, clothing, shelter, and psychosocial support. At the same time, the organization focused on empowering families to restore their dignity and independence by building their capacity to start income-generating activities.</p>
+                                            
+                                            <p>As HIV and AIDS continued to devastate communities, Bamporeze expanded its mission to include HIV prevention and Sexual and Reproductive Health and Rights (SRHR), ensuring that young people and families had the knowledge and resources to live healthier lives.</p>
+                                            
+                                            <p>Today, Bamporeze has evolved into a dynamic organization committed to alleviating poverty, building resilience, and protecting the rights of women and children. Our programs now include education (basic education and early childhood development), child protection, community development, health, and environmental protection, which are all designed to strengthen families and communities.</p>
+                                            
+                                            <p>Over the years, our work has been made possible through the support of global and national partners, including UNICEF, UNHCR, the Global Fund, Kindernothilfe (KNH), Plan International, Help a Child, AHF, Sanofi Foundation, Cornerstone Trust, and Firelight Foundation. Together, we have reached thousands of children, women, and families across Rwanda, turning a story of loss into a story of hope and resilience.</p>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <p>Bamporeze was founded in 1996 with a simple but powerful message in mind: Building hope through families, shaping futures through children. Born in the aftermath of the 1994 Genocide against the Tutsi, Rwanda was in a deep humanitarian crisis. Families had been torn apart, children were left vulnerable, and communities struggled to rebuild.</p>
+                                            
+                                            <p>In response, Bamporeze began its journey by supporting children, youth, and vulnerable families with urgent humanitarian aid, providing food, clothing, shelter, and psychosocial support. At the same time, the organization focused on empowering families to restore their dignity and independence by building their capacity to start income-generating activities.</p>
+                                            
+                                            <p>Today, Bamporeze has evolved into a dynamic organization committed to alleviating poverty, building resilience, and protecting the rights of women and children. Our programs now include education, child protection, community development, health, and environmental protection, which are all designed to strengthen families and communities.</p>
+                                            
+                                            <div className="read-more-wrapper">
+                                                <Link href={`/${currentLocale}/about`} className="read-more-link">
+                                                    <span>Read More About Us</span>
+                                                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                    </svg>
+                                                </Link>
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                             </div>
 

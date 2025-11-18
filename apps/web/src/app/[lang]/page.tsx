@@ -14,12 +14,12 @@ import type { Metadata } from 'next'
 
 // Static metadata
 export const metadata: Metadata = {
-  title: 'Bamporeze Association - Empowering Vulnerable Children in Rwanda',
-  description: 'Bamporeze Association is a registered NGO in Rwanda dedicated to empowering vulnerable children through education, healthcare, and community development programs. Join us in transforming lives.',
-  keywords: 'NGO, Rwanda, children, education, healthcare, community development, charity, donation, vulnerable children, Africa',
+  title: 'Bamporeze Association - Empowering women. Protecting children. Transforming communities.',
+  description: 'Bamporeze Association is a women-led Rwandan nonprofit organization established in 1996, committed to supporting vulnerable children, youth, women, and families through transformative approaches to alleviating poverty and building resiliency.',
+  keywords: 'NGO, Rwanda, children, education, healthcare, community development, charity, donation, vulnerable children, Africa, women empowerment, child protection, environmental protection',
   openGraph: {
-    title: 'Bamporeze Association - Empowering Vulnerable Children in Rwanda',
-    description: 'Supporting vulnerable children in Rwanda through education, healthcare, and community development programs.',
+    title: 'Bamporeze Association - Empowering women. Protecting children. Transforming communities.',
+    description: 'Bamporeze Association is a women-led Rwandan nonprofit organization established in 1996, committed to supporting vulnerable children, youth, women, and families.',
     type: 'website',
     locale: 'en_US',
   },
@@ -28,41 +28,28 @@ export const metadata: Metadata = {
 export default function Page({ params: { lang } }: { params: { lang: 'en' | 'fr' } }) {
   return (
     <main>
-      {/* Hero Section - First impression */}
+      {/* 1. Hero Section - "Empowering women. Protecting children. Transforming communities." */}
       <Hero locale={lang} />
       
-      {/* Impact Stats Section - Key statistics */}
+      {/* 2. Numbers (Infographics) - "In the green" section with 12 key statistics */}
       <ImpactStats locale={lang} />
       
-      {/* About Section One - Mission & Vision */}
-      <AboutSectionOne  />
+      {/* 3. Who we are - Intro, Our Story, Mission & Vision */}
+      <AboutSectionOne locale={lang} />
       
-      {/* Impact Stories - Emotional connection */}
-      {/* <ImpactStories locale={lang} /> */}
+      {/* 4. Our Impact - Tagline intro and achievements */}
+      <AboutSectionTwo locale={lang} />
       
-
-      
-      {/* About Section Two - Impact metrics */}
-      <AboutSectionTwo />
-      
-      {/* Donation CTA - Fundraising */}
-      {/* <DonationCTA locale={lang} /> */}
-      
-      {/* Transparency & Accountability - Trust building */}
-      {/* <Transparency locale={lang} /> */}
-
-            {/* Programs/Services - What we do */}
+      {/* 5. Our Programs - Education Support, Healthcare Access, Community Development, Child Protection, Environmental Protection */}
       <ProductsList locale={lang} /> 
       
-      {/* Reviews/Testimonials - Social proof */}
-      
-      
-      {/* Blog Highlight - Latest news */}
-      <BlogHighlight />
+      {/* 6. Latest Stories & Updates - Success stories (Ishimwe and Tuzamurane SHG) */}
+      <BlogHighlight locale={lang} />
 
+      {/* 7. Reviews/Testimonials - Social proof */}
       <Reviews locale={lang} />
       
-      {/* Partner Companies - Credibility */}
+      {/* 8. Partner Companies - Credibility */}
       <TrustedCompanies locale={lang} />
     </main>
   )

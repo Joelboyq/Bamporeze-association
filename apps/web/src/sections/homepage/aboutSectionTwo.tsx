@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { Locale } from "../../../i18n.config";
 
 interface ImpactMetric {
   value: string;
@@ -41,9 +42,10 @@ const getIcon = (type: string) => {
   }
 };
 
-export default function AboutSectionTwo({  }) {
+export default function AboutSectionTwo({ locale }: { locale?: Locale }) {
     const currentPath = usePathname();
-    const itTrue = currentPath.includes("about");
+    const isAboutPage = currentPath.includes("about");
+    const currentLocale = locale || (currentPath.split('/')[1] as Locale) || 'en';
     
     const impactMetrics: ImpactMetric[] = [
         { value: "30,000+", label: "Children reached with education, protection, and psychosocial support", emoji: "children" },
@@ -170,7 +172,7 @@ export default function AboutSectionTwo({  }) {
                 }
 
                 .cta-wrapper {
-                    padding-top: 1rem;
+                    padding-top: 1.5rem;
                 }
 
                 .cta-button {
@@ -178,26 +180,60 @@ export default function AboutSectionTwo({  }) {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    background-color: white;
+                    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
                     color: #003d1d;
-                    padding: 1rem 2rem;
+                    padding: 1.25rem 2.5rem;
                     font-size: 1.125rem;
-                    font-weight: 600;
-                    border-radius: 0.5rem;
-                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-                    transition: all 0.3s;
+                    font-weight: 700;
+                    border-radius: 0.75rem;
+                    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                     text-decoration: none;
+                    border: 2px solid rgba(255, 255, 255, 0.5);
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .cta-button::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(0, 61, 29, 0.1), transparent);
+                    transition: left 0.5s;
+                }
+
+                .cta-button:hover::before {
+                    left: 100%;
                 }
 
                 .cta-button:hover {
-                    background-color: #f3f4f6;
-                    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+                    background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+                    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.3), 0 10px 15px -5px rgba(0, 0, 0, 0.15);
+                    transform: translateY(-4px) scale(1.02);
+                    border-color: rgba(22, 163, 74, 0.3);
+                }
+
+                .cta-button:active {
+                    transform: translateY(-2px) scale(0.98);
                 }
 
                 .cta-content {
                     display: flex;
                     align-items: center;
                     gap: 0.75rem;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .cta-button svg {
+                    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .cta-button:hover svg {
+                    transform: translateX(5px);
                 }
 
                 .image-wrapper {
@@ -307,9 +343,18 @@ export default function AboutSectionTwo({  }) {
                             Our Impact
                         </h2>
                         <div className="title-underline"></div>
-                        <p className="section-subtitle">
+                        <p className="section-subtitle" style={{ fontStyle: 'italic', marginBottom: '1rem' }}>
                             "Our work is more than numbers, it's the story of families lifted from poverty, children growing up safe, and communities shaping brighter futures."
                         </p>
+                        {isAboutPage ? (
+                            <p className="section-subtitle" style={{ fontStyle: 'normal', marginTop: '1rem' }}>
+                                For over two decades, the Bamporeze Association has collaborated closely with communities, local leaders, and partners to transform lives across Rwanda. Our programs put families at the center, empowering them to overcome poverty, protect their children, and build brighter futures.
+                            </p>
+                        ) : (
+                            <p className="section-subtitle" style={{ fontStyle: 'normal', marginTop: '1rem' }}>
+                                For over two decades, the Bamporeze Association has collaborated closely with communities, local leaders, and partners to transform lives across Rwanda.
+                            </p>
+                        )}
                     </div>
 
                     {/* Content Grid */}
@@ -340,26 +385,34 @@ export default function AboutSectionTwo({  }) {
                             {/* Descriptive Text Content */}
                             <div className="description-box">
                                 <div className="description-text">
-                                    For over two decades, the Bamporeze Association has collaborated closely with communities, local leaders, and partners to transform lives across Rwanda. Our programs put families at the center, empowering them to overcome poverty, protect their children, and build brighter futures.<br/><br/>
-                                    <b>What We've Achieved Together</b><br/>
+                                    <b>What We've Achieved Together</b><br/><br/>
                                     • 30,000+ children reached with education, protection, and psychosocial support.<br/>
                                     • 500+ women's Self-Help Groups (SHGs) formed, strengthening economic independence and advocacy.<br/>
                                     • Thousands of families supported with livelihood skills and income-generating activities.<br/>
-                                    • Expanded HIV prevention & SRHR programs, equipping young people with knowledge and access to health services.<br/>
-                                    • Reforestation & environmental protection initiatives, promoting eco-friendly practices in vulnerable communities.<br/><br/>
-                                    <b>Beyond Numbers</b><br/>
-                                    Our impact is not just in statistics, it's in the resilience of families who can now provide for themselves, in children who grow up safe and protected, and in communities that stand stronger together.
+                                    {isAboutPage ? (
+                                        <>
+                                            • Expanded HIV prevention & SRHR programs, equipping young people with knowledge and access to health services.<br/>
+                                            • Reforestation & environmental protection initiatives, promoting eco-friendly practices in vulnerable communities.<br/><br/>
+                                            <b>Beyond Numbers</b><br/><br/>
+                                            Our impact is not just in statistics, it's in the resilience of families who can now provide for themselves, in children who grow up safe and protected, and in communities that stand stronger together.
+                                        </>
+                                    ) : (
+                                        <>
+                                            • Expanded HIV prevention & SRHR programs, equipping young people with knowledge and access to health services.<br/>
+                                            • Reforestation & environmental protection initiatives, promoting eco-friendly practices in vulnerable communities.
+                                        </>
+                                    )}
                                 </div>
                             </div>
 
                             {/* Call to Action */}
-                            {!itTrue && (
+                            {!isAboutPage && (
                                 <div className="cta-wrapper">
-                                    <Link href="/about" className="cta-button">
+                                    <Link href={`/${currentLocale}/about`} className="cta-button">
                                         <div className="cta-content">
-                                            Read More
-                                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            Read More About Our Impact
+                                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                             </svg>
                                         </div>
                                     </Link>

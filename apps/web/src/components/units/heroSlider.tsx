@@ -1,6 +1,7 @@
 'use client'
 import { ISlide } from "@repo/ui/types";
 import Image from "next/image";
+import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -31,7 +32,7 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
             id: "1",
             title: "Empowering women. Protecting children. Transforming communities.",
             description: "Bamporeze Association is a women-led Rwandan nonprofit organization established in 1996, committed to supporting vulnerable children, youth, women, and families through transformative approaches to alleviating poverty and building resiliency.",
-            background_image: "/images/hero-bg-1.jpg"
+            background_image: "/images/about_pic_1.jpg"
         }
     ];
 
@@ -83,9 +84,12 @@ export default function HeroSlider({ slides, locale }: { slides: ISlide[], local
                                         </div>
                                         
                                         {/* CTA Button - Centered and properly sized */}
-                                        <button className="bg-white hover:bg-white/95 text-green-600 font-bold px-8 sm:px-10 md:px-12 py-3 sm:py-3.5 md:py-4 rounded-full text-sm sm:text-base md:text-lg transition-all duration-300 hover:scale-105 shadow-xl">
+                                        <Link 
+                                            href={`/${locale}/about`}
+                                            className="bg-white hover:bg-white/95 text-green-600 font-bold px-8 sm:px-10 md:px-12 py-3 sm:py-3.5 md:py-4 rounded-full text-sm sm:text-base md:text-lg transition-all duration-300 hover:scale-105 shadow-xl inline-block"
+                                        >
                                             Learn More
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

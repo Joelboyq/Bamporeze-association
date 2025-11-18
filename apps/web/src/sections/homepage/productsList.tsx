@@ -16,33 +16,40 @@ interface ProgramItem {
 export default function ProductsList({ locale }: WithLocaleProp) {
     const dictionary = getDictionary(locale) as any;
     
-    const programItems: ProgramItem[] = dictionary.pages.home.products.items || [
+    const programItems: ProgramItem[] = [
         { 
-            title: "Education Support Program",
-            description: "Providing scholarships, school supplies, and educational resources to vulnerable children. Our comprehensive approach ensures every child has access to quality education.",
-            image: "/images/gold.jpg",
+            title: "Education Support",
+            description: "Providing scholarships, school supplies, and educational resources to vulnerable children. Our comprehensive approach ensures every child has access to quality education through basic education and early childhood development programs.",
+            image: "/images/DSC02515copy.jpg",
             category: "Education",
             status: "Active"
         },
         { 
-            title: "Healthcare Access Initiative",
-            description: "Improving health services for rural communities through medical camps, health education, and infrastructure development.",
+            title: "Healthcare Access",
+            description: "Improving health services for rural communities through medical camps, health education, HIV prevention, Sexual and Reproductive Health and Rights (SRHR) programs, and infrastructure development.",
             image: "/images/sulfur.jpg",
             category: "Healthcare",
             status: "Active"
         },
         { 
-            title: "Economic Empowerment Program",
-            description: "Training and support for small businesses, vocational skills development, and microfinance opportunities for sustainable income generation.",
+            title: "Community Development",
+            description: "Empowering communities through Self-Help Groups, financial literacy training, entrepreneurship skills, and socio-economic empowerment programs that build resilience and reduce poverty.",
             image: "/images/tungsten.jpg",
-            category: "Economic Development",
+            category: "Community",
             status: "Active"
         },
         { 
-            title: "Community Infrastructure Program",
-            description: "Building essential community facilities, improving access to clean water, and developing sustainable infrastructure for long-term community development.",
-            image: "/images/cassiterite.jpg",
-            category: "Infrastructure",
+            title: "Child Protection",
+            description: "Protecting vulnerable children through awareness-raising campaigns on child protection, positive parenting, psychosocial support, and ensuring children's rights are respected and upheld.",
+            image: "/images/ETN02932copy.jpg",
+            category: "Protection",
+            status: "Active"
+        },
+        { 
+            title: "Environmental Protection",
+            description: "Promoting environmental sustainability through reforestation initiatives, energy-saving stoves distribution, water harvesting, and eco-friendly practices that protect our planet while improving community livelihoods.",
+            image: "/images/gold.jpg",
+            category: "Environment",
             status: "Active"
         }
     ];
@@ -61,8 +68,7 @@ export default function ProductsList({ locale }: WithLocaleProp) {
                         
                         {/* Main Title */}
                         <h2 className={styles.mainTitle}>
-                            Transforming Lives Through
-                            <span className={styles.titleHighlight}>Comprehensive Programs</span>
+                            Our Programs
                         </h2>
                     </div>
                 </div>
@@ -116,7 +122,7 @@ export default function ProductsList({ locale }: WithLocaleProp) {
                                         <span className={styles.statusText}>{program.status} Program</span>
                                     </div>
                                     
-                                    <Link href={`/${locale}/programs/${index === 0 ? 'education' : index === 1 ? 'healthcare' : index === 2 ? 'economic' : 'infrastructure'}`}>
+                                    <Link href={`/${locale}/programs/${index === 0 ? 'education' : index === 1 ? 'healthcare' : index === 2 ? 'economic' : index === 3 ? 'infrastructure' : 'infrastructure'}`}>
                                         <button className={`${styles.learnMoreBtn} ${styles[`btnColor${index}`]}`}>
                                             Learn More!
                                             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" className={styles.arrowIcon}>
