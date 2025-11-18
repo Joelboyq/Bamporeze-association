@@ -4,8 +4,8 @@ Browserslist: caniuse-lite is outdated. Please run:
   Why you should do it regularly: https://github.com/browserslist/update-db#readme
 
 Rebuilding...
-(node:29583) ExperimentalWarning: CommonJS module /Users/ndizeye/Bamporeze/node_modules/tailwindcss/lib/lib/load-config.js is loading ES Module /Users/ndizeye/Bamporeze/packages/ui/tailwind.config.ts using require().
+(node:72803) ExperimentalWarning: CommonJS module /Users/ndizeye/Works/Archived/Bamporeze/node_modules/tailwindcss/lib/lib/load-config.js is loading ES Module /Users/ndizeye/Works/Archived/Bamporeze/packages/ui/tailwind.config.ts using require().
 Support for loading ES Module in require() is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 
-Done in 207ms.
+Done in 219ms.

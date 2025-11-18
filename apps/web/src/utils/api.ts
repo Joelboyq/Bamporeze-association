@@ -18,17 +18,19 @@ const fallbackBlog = {
     id: "fallback-blog-1",
     title: "Understanding Educational Leadership",
     content: "Education leadership is crucial for developing effective learning environments...",
-    thumbnail: "/placeholder-blog.jpg",
-    created_at: new Date().toISOString(),
-    category: "Leadership",
-    author: "SUPER ADMIN",
-    thumbnail_image: "",
+    thumbnail_image: "" as any,
     reads: 0,
     description: "",
-    writingType: "blog",
+    author: {
+        name: "SUPER ADMIN",
+        email: "admin@bamporeze.com",
+        id: "super-admin",
+        profile_picture: ""
+    },
+    writingType: "BLOG" as const,
     isReleased: true,
     releaseDate: new Date().toISOString()
-};
+} as IWriting;
 
 // TODO: Restore API calls when backend is ready
 // export const getBlogHighlight = cache(async () => {
@@ -48,17 +50,19 @@ export const getBlogHighlight = cache(async () => {
         id: "success-story-ishimwe",
         title: "Building Her Future with Strength and Skill",
         content: "At just 16, Ishimwe faced challenges no young girl should have to bear. After giving birth as a teenager, she dropped out of school and endured rejection and conflict at home. With no income and few opportunities, her dreams felt out of reach, and her community expected little of her beyond motherhood. When Bamporeze Association introduced community-based skills training, Ishimwe chose to join a carpentry program, an activity traditionally dominated by men. At first, many doubted her choice, but Ishimwe persevered. She learned how to measure, cut, and build furniture with confidence and determination. Today, Ishimwe earns a steady income from carpentry, supporting both herself and her child. More importantly, she has become a role model for other girls in her community. By stepping into a trade once reserved for men, she is breaking stereotypes and proving that young women can thrive in any field when given the chance. \"I never thought I could build something with my own hands and sell it,\" Ishimwe shares with pride. \"Now I can provide for my child and inspire other girls not to give up.\" Ishimwe's journey shows the power of resilience and the importance of giving adolescent girls practical opportunities. Through economic empowerment and changed perceptions of gender roles, Bamporeze helps young women like Ishimwe build not only furniture, but stronger, brighter futures.",
-        thumbnail: "/images/child-1.jpg",
-        created_at: new Date().toISOString(),
-        category: "Success Story",
-        author: "Bamporeze Association",
-        thumbnail_image: "/images/child-1.jpg",
+        thumbnail_image: "" as any,
         reads: 0,
         description: "Ishimwe's inspiring journey from vulnerability to empowerment through carpentry skills training",
-        writingType: "blog",
+        author: {
+            name: "Bamporeze Association",
+            email: "info@bamporeze.com",
+            id: "bamporeze-association",
+            profile_picture: ""
+        },
+        writingType: "BLOG" as const,
         isReleased: true,
         releaseDate: new Date().toISOString()
-    } as unknown as IWriting;
+    } as IWriting;
 })
 
 
@@ -77,14 +81,16 @@ export async function getBlogs(): Promise<IWriting[]> {
             id: "success-story-ishimwe",
             title: "Building Her Future with Strength and Skill",
             content: "At just 16, Ishimwe faced challenges no young girl should have to bear...",
-            thumbnail: "/images/child-1.jpg",
-            created_at: new Date().toISOString(),
-            category: "Success Story",
-            author: "Bamporeze Association",
-            thumbnail_image: "/images/child-1.jpg",
+            thumbnail_image: "" as any,
             reads: 0,
             description: "Ishimwe's inspiring journey from vulnerability to empowerment",
-            writingType: "blog" as const,
+            author: {
+                name: "Bamporeze Association",
+                email: "info@bamporeze.com",
+                id: "bamporeze-association",
+                profile_picture: ""
+            },
+            writingType: "BLOG" as const,
             isReleased: true,
             releaseDate: new Date().toISOString()
         },
@@ -92,14 +98,16 @@ export async function getBlogs(): Promise<IWriting[]> {
             id: "success-story-tuzamurane",
             title: "Tuzamurane Self-Help Group – Rising Together in Rulindo",
             content: "In 2019, twenty women from Rulindo District came together to form the Tuzamurane Self-Help Group...",
-            thumbnail: "/images/child-2.jpg",
-            created_at: new Date().toISOString(),
-            category: "Success Story",
-            author: "Bamporeze Association",
-            thumbnail_image: "/images/child-2.jpg",
+            thumbnail_image: "" as any,
             reads: 0,
             description: "How twenty women transformed their lives through the Self-Help Group Approach",
-            writingType: "blog" as const,
+            author: {
+                name: "Bamporeze Association",
+                email: "info@bamporeze.com",
+                id: "bamporeze-association",
+                profile_picture: ""
+            },
+            writingType: "BLOG" as const,
             isReleased: true,
             releaseDate: new Date().toISOString()
         }
@@ -178,14 +186,16 @@ export async function getBlog(blogId: string) {
             id: "success-story-ishimwe",
             title: "Building Her Future with Strength and Skill",
             content: "At just 16, Ishimwe faced challenges no young girl should have to bear. After giving birth as a teenager, she dropped out of school and endured rejection and conflict at home. With no income and few opportunities, her dreams felt out of reach, and her community expected little of her beyond motherhood. When Bamporeze Association introduced community-based skills training, Ishimwe chose to join a carpentry program, an activity traditionally dominated by men. At first, many doubted her choice, but Ishimwe persevered. She learned how to measure, cut, and build furniture with confidence and determination. Today, Ishimwe earns a steady income from carpentry, supporting both herself and her child. More importantly, she has become a role model for other girls in her community. By stepping into a trade once reserved for men, she is breaking stereotypes and proving that young women can thrive in any field when given the chance. \"I never thought I could build something with my own hands and sell it,\" Ishimwe shares with pride. \"Now I can provide for my child and inspire other girls not to give up.\" Ishimwe's journey shows the power of resilience and the importance of giving adolescent girls practical opportunities. Through economic empowerment and changed perceptions of gender roles, Bamporeze helps young women like Ishimwe build not only furniture, but stronger, brighter futures.",
-            thumbnail: "/images/child-1.jpg",
-            created_at: new Date().toISOString(),
-            category: "Success Story",
-            author: "Bamporeze Association",
-            thumbnail_image: "/images/child-1.jpg",
+            thumbnail_image: "" as any,
             reads: 0,
             description: "Ishimwe's inspiring journey from vulnerability to empowerment through carpentry skills training",
-            writingType: "blog",
+            author: {
+                name: "Bamporeze Association",
+                email: "info@bamporeze.com",
+                id: "bamporeze-association",
+                profile_picture: ""
+            },
+            writingType: "BLOG" as const,
             isReleased: true,
             releaseDate: new Date().toISOString()
         };
@@ -196,14 +206,16 @@ export async function getBlog(blogId: string) {
             id: "success-story-tuzamurane",
             title: "Tuzamurane Self-Help Group – Rising Together in Rulindo",
             content: "In 2019, twenty women from Rulindo District came together to form the Tuzamurane Self-Help Group. They were among the most vulnerable in their community, struggling daily to provide for their families. Access to financial services was out of reach, their voices were rarely heard, and the cycle of poverty weighed heavily on their households. Through the Self-Help Group Approach (SHGA) supported by Bamporeze, these women began a journey of transformation. They learned the value of saving and financial literacy, gaining the confidence to set aside small amounts each week. With time, they were able to access small loans from within the group, funds that allowed them to start businesses and income-generating activities that no bank would have offered them. But Tuzamurane became more than a financial group. It grew into a space of social and emotional empowerment. The women supported one another, built self-esteem, and discovered the power of speaking up. Today, members confidently share their opinions in public forums and are increasingly involved in local decision-making spaces, breaking barriers that once kept them silent. The impact reaches beyond income. With stronger finances, the women are now providing for their families: Their children are enjoying their rights, attending school, and living healthier lives. Families maintain kitchen gardens and prepare balanced meals, improving nutrition. Parents practice positive parenting and ensure household hygiene. All members now contribute to community-based health insurance, ensuring access to healthcare. \"We learned to start small and dream big,\" one member shares. \"Today we are not only feeding our children, we are shaping their future.\" The story of Tuzamurane SHG shows how economic, social, and political empowerment can transform lives. These women, once among the poorest of the poor, are now resilient leaders, proving that when women rise together, entire communities are lifted.",
-            thumbnail: "/images/child-2.jpg",
-            created_at: new Date().toISOString(),
-            category: "Success Story",
-            author: "Bamporeze Association",
-            thumbnail_image: "/images/child-2.jpg",
+            thumbnail_image: "" as any,
             reads: 0,
             description: "How twenty women transformed their lives through the Self-Help Group Approach",
-            writingType: "blog",
+            author: {
+                name: "Bamporeze Association",
+                email: "info@bamporeze.com",
+                id: "bamporeze-association",
+                profile_picture: ""
+            },
+            writingType: "BLOG" as const,
             isReleased: true,
             releaseDate: new Date().toISOString()
         };
